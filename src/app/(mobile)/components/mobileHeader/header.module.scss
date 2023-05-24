@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  flex-shrink: 0;
+  padding-top: 12px;
+  transform: translateY(-200px);
+  transition: all .3s linear;
+
+  &.show {
+    transform: translateY(0);
+  }
+
+  &__logo {
+    height: 24px;
+    width: 90px;
+  }
+}

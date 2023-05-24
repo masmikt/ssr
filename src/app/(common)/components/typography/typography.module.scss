@@ -1,0 +1,89 @@
+@mixin typography($fontSize, $lineHeight, $letterSpacing, $fontWeight) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+  font-weight: $fontWeight;
+  color: var(--primary-dark-blue);
+}
+
+.typography {
+  &--variant {
+    &-huge {
+      @include typography(60px, 64px, -1.1px, 700);
+    }
+
+    &-h1 {
+      @include typography(48px, 56px, 0, 700);
+    }
+
+    &-h2 {
+      @include typography(32px, 40px, 0, 700);
+    }
+
+    &-h3 {
+      @media screen and (max-width: 900px) {
+        @include typography(26px, 30px, 0, 700);
+      }
+      @include typography(24px, 32px, 0, 700);
+    }
+
+    &-h4 {
+      @include typography(20px, 24px, 0, 700);
+    }
+
+    &-h5 {
+      @include typography(16px, 24px, 0, 700);
+    }
+
+    &-h6 {
+      @include typography(14px, 20px, 0, 700);
+    }
+
+    &-p1, &-span1 {
+      @include typography(20px, 24px, 0, 400);
+    }
+
+    &-p2, &-span2 {
+      @include typography(16px, 24px, 0, 400);
+    }
+
+    &-p3, &-span3 {
+      @include typography(14px, 20px, 0, 400);
+    }
+
+    &-p4, &-span4 {
+      @include typography(12px, 16px, 0, 400);
+    }
+
+    &-p5, &-span5 {
+      @include typography(11px, 13px, 0, 400);
+    }
+  }
+
+  &--color {
+    &--white {
+      color: var(--white);
+    }
+  }
+
+  &--bold {
+    font-weight: 700;
+  }
+
+
+  &--opacity {
+    opacity: 0.5;
+  }
+
+  &--capitalize {
+    text-transform: capitalize;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &--crossed {
+    text-decoration: line-through;
+  }
+}

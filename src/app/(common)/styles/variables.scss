@@ -1,0 +1,56 @@
+:root {
+  // ----------------- Colors -----------------
+
+  // Primary colors
+  --primary-blue: #483FDD;
+  --primary-green: #5CD6C0;
+  --primary-purple: #6C1DA0;
+  --primary-dark-blue: #151D51;
+  --primary-red: #B74666;
+  --white: #FFFFFF;
+
+  // Secondary colors
+  --secondary-dark-green: #009796;
+  --secondary-light-purple: #7C42D5;
+  --secondary-light-blue: #5579F0;
+  --secondary-red: #ED5F59;
+  --secondary-dark-orange: #a25229;
+  --secondary-orange: #DF723A;
+  --secondary-light-orange: #F5AC4C;
+
+  // Gray Scale
+  --dark-grey: #CACBCA;
+  --medium-grey: #E6E2DD;
+  --regular-grey: #E8E8E8;
+  --light-grey: #EFF4FA;
+
+  // Transparent colors
+  --transparent-dark-blue: #151d5140;
+  --transparent-white: #ffffff40;
+  --transparent-dark-blue-light: #151d5180;
+  --transparent-dark-blue-ultra-light: rgba(21, 29, 81, 0.25);
+  --transparent-white-quarter: rgba(255, 255, 255, 0.25);
+  --transparent-white-half: rgba(255, 255, 255, 0.5);
+  --transparent-dark-blue-light: rgba(21, 29, 81, 0.5);
+
+
+  // ----------------- Spacing -----------------
+
+  --customSpace: 16px;
+  --space-xs: calc(var(--customSpace) * 0.5); // 8px
+  --space-s: calc(var(--customSpace) * 1); // 16px
+  --space-m: calc(var(--customSpace) * 1.5); // 24px
+  --space-l: calc(var(--customSpace) * 2); // 32px
+  --space-xl: calc(var(--customSpace) * 2.5); // 40px
+  --space-2xl: calc(var(--customSpace) * 3); // 48px
+  --space-3xl: calc(var(--customSpace) * 3.5); // 56px
+
+
+  // ----------------- Font -----------------
+
+  --font-Primary: "Moderat", Poppins, Helvetica, 'sans-serif';
+
+
+  // ----------------- BreakPoints -----------------
+  --mobileBreakPoint: 767px;
+}

@@ -1,0 +1,40 @@
+.intro {
+  &__section {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    padding-top: var(--space-3xl);
+  }
+
+  &__title {
+    font-size: 36px;
+    line-height: 36px;
+    letter-spacing: -0.44 px;
+    max-width: 450px;
+
+    &--highlighted {
+      color: var(--primary-blue);
+    }
+  }
+
+  &__text {
+    color: var(--primary-dark-blue);
+    opacity: 0.7;
+    letter-spacing: -0.248889px;
+  }
+
+  &__trust-pilot {
+    & :global(.trust-pilot__logo-star) {
+      fill: var(--primary-blue);
+    }
+
+    & :global(.trust-pilot__rating-star) {
+      fill: var(--primary-blue);
+    }
+
+    & :global(.trust-pilot__logo-star-nick) {
+      fill: var(--white);
+    }
+  }
+}

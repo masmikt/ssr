@@ -1,0 +1,23 @@
+@import "./reset";
+@import "./variables";
+@import "./spacing";
+@import "./colors";
+
+body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+  font-family: "Moderat", Poppins, Helvetica, 'sans-serif';
+  font-style: normal;
+  user-select: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
+

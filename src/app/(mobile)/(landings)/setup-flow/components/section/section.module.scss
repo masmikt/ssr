@@ -1,0 +1,20 @@
+.section {
+  padding: var(--space-xl) 24px;
+  text-align: center;
+
+  &--white {
+    background-color: var(--white);
+  }
+
+  &--grey {
+    background-color: #EFF1FF;
+  }
+
+  &--dark {
+    background-color: var(--primary-dark-blue);
+  }
+
+  &--blue{
+    background-color: var(--primary-blue);
+  }
+}

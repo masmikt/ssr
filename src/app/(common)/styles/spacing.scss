@@ -1,0 +1,53 @@
+$customSpacer: 16px;
+$customSpacers: () !default;
+$customSpacers: map-merge(
+        (
+            0: 0,
+            xs: ($customSpacer * .5),     //8px
+            s: $customSpacer,            //16px
+            m: ($customSpacer * 1.5),    //24px
+            l: ($customSpacer * 2),      //32px
+            xl: ($customSpacer * 2.5),   //40px
+            xxl: ($customSpacer * 3),    //48px
+            xxxl: ($customSpacer * 3.5),  //56px
+        ),
+        $customSpacers
+);
+
+$sizes: '0', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl';
+
+@each $abbr, $name in ("t": "top", "r": "right", "b": "bottom", "l": "left") {
+    @each $size in $sizes {
+        .p#{$abbr}-#{$size} {
+            padding-#{$name}: map-get($customSpacers, $size);
+        }
+        .m#{$abbr}-#{$size} {
+            margin-#{$name}: map-get($customSpacers, $size);
+        }
+    }
+}
+
+@each $size in $sizes {
+    .p-#{$size} {
+        padding: map-get($customSpacers, $size);
+    }
+    .m-#{$size} {
+        margin: map-get($customSpacers, $size);
+    }
+    .px-#{$size} {
+        padding-left: map-get($customSpacers, $size);
+        padding-right: map-get($customSpacers, $size);
+    }
+    .mx-#{$size} {
+        margin-left: map-get($customSpacers, $size);
+        margin-right: map-get($customSpacers, $size);
+    }
+    .py-#{$size} {
+        padding-top: map-get($customSpacers, $size);
+        padding-bottom: map-get($customSpacers, $size);
+    }
+    .my-#{$size} {
+        margin-top: map-get($customSpacers, $size);
+        margin-bottom: map-get($customSpacers, $size);
+    }
+}
