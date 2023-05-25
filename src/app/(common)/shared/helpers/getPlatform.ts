@@ -5,7 +5,18 @@ const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'];
 const iosPlatforms = ['iPhone', 'iPad', 'iPod'];
 
 export function getRawPlatform(): string {
-    return window.navigator?.platform || window.navigator?.userAgentData?.platform || '';
+    if (window.navigator?.platform) {
+        return window.navigator?.platform;
+    }
+
+    //@ts-ignore
+    const userAgent = window.navigator?.userAgentData;
+
+    if (userAgent) {
+        return userAgent?.platform;
+    }
+
+    return '';
 }
 
 export function getUserAgent(): string {

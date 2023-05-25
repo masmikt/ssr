@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { IBuyNowConfig } from './useBuyNow';
+import { IBuyNowConfig } from '@/app/(common)/(pages)/buyNow/hooks/useBuynow/types';
 
 export const BuyNowContext = createContext<Partial<BuyNowConsumerContext>>({});
 

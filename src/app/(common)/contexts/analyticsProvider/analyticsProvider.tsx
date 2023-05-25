@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 import { AnalyticsBrowser } from '@segment/analytics-next'
 import { objectOmitNull } from '@/app/(common)/shared/helpers';
 import { ISegmentEvent, ICustomEventParams, IAnalyticsProvider } from './types';
@@ -7,7 +7,11 @@ import { useTracking } from '@/app/(common)/shared/hooks';
 
 const AnalyticsContext = React.createContext<Partial<IAnalyticsProvider>>({});
 
-export const AnalyticsProvider: React.FC = ({ children }) => {
+interface IAnalyticsProviderProps {
+    children: ReactNode;
+}
+
+export const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
     const { getSegmentKey, getSid } = useTracking();
     const writeKey = getSegmentKey();
 
@@ -33,7 +37,7 @@ export const AnalyticsProvider: React.FC = ({ children }) => {
                 ...event.properties,
                 eventName: event.eventName,
             }, false) as ICustomEventParams;
-            this.client.track('action', properties);
+            analytics.track('action', properties);
         }
     }
 

@@ -9,11 +9,11 @@ import { getUserAgent } from '@/app/(common)/shared/helpers';
 
 interface ITrackingProvider {
     children: ReactElement;
-    userAgent: string;
+    userAgent?: string;
 }
 
 export const AppTrackingProvider = ({ children, userAgent }: ITrackingProvider) => {
-    const [searchParams] = useSearchParams();
+    const searchParams = useSearchParams();
     usePlatformReporter();
     const { saveTrackingParams, syncTrackingParams, setUserAgent } = useTracking();
 
@@ -22,7 +22,9 @@ export const AppTrackingProvider = ({ children, userAgent }: ITrackingProvider) 
     }, [searchParams])
 
     useEffect(() => {
-        setUserAgent(userAgent);
+        if (userAgent) {
+            setUserAgent(userAgent);
+        }
         saveTrackingParams();
     }, []);
 

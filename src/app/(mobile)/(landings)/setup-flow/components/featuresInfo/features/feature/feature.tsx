@@ -1,5 +1,5 @@
 import css from './feature.module.scss';
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { ReactNode } from 'react';
 import { FeaturesList, IFeaturesConfig } from '../../../featuresList';
 import { Section } from '../../../section';
@@ -8,8 +8,8 @@ import { Typography, TypographyVariants } from '@/app/(common)/components/typogr
 export interface IFeature {
     name: string;
     image: {
-        default: string,
-        retina: string;
+        default: StaticImageData,
+        retina: StaticImageData;
     };
     title: string | ReactNode;
     text: string | ReactNode;
@@ -19,7 +19,7 @@ export interface IFeature {
 const Feature = ({ image, title, text, features, name }: IFeature) => {
     return (
         <Section className={css['feature']} name={name}>
-            <Image src={image.default} srcSet={`${image.retina} 2x`} className={css['feature__image']} alt={name} />
+            <Image src={image.retina} className={css['feature__image']} alt={name} />
             <Typography variant={TypographyVariants.h4} className={css['feature__title']}>
                 {title}
             </Typography>

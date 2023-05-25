@@ -2,10 +2,11 @@ import { objectOmitNull } from '../helpers';
 import { InterstellarProductId, TrackingParams } from '../constants';
 import { useTracking } from './useTracking';
 import { ICustomEventParams, ISegmentEvent, useAnalytics } from '@/app/(common)/contexts/analyticsProvider';
+import { usePathname } from 'next/navigation';
 
 export const useSendEvent = () => {
     const { send } = useAnalytics();
-    const { pathname } = 'abcd';
+    const pathname = usePathname();
     const {
         getFbp,
         getFbc,
@@ -16,7 +17,7 @@ export const useSendEvent = () => {
         getMarketing,
         getUserAgent
     } = useTracking();
-    const pageName = pathname;
+    const pageName = pathname.slice(1);
 
     const prepareEventMessage = (
         eventName: string,

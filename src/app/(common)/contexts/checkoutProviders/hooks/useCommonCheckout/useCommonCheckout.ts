@@ -10,7 +10,7 @@ import { useMemo } from 'react';
 import { useLicenseConfig } from '@/app/(common)/(pages)/buyNow';
 import { IBuyNowConfig } from '@/app/(common)/(pages)/buyNow/hooks/useBuynow/types';
 
-export const useCommonCheckout = (buyNowConfig: IBuyNowConfig) => {
+export const useCommonCheckout = (buyNowConfig: IBuyNowConfig | undefined) => {
     const {
         getTrackingParam,
         getMarketing,
@@ -38,7 +38,7 @@ export const useCommonCheckout = (buyNowConfig: IBuyNowConfig) => {
         const marketing = getMarketing();
         return objectOmitNull({
             [CheckoutParams.Prepay]: xPrepay,
-            [CheckoutParams.Language]: buyNowConfig.language || Languages.En,
+            [CheckoutParams.Language]: buyNowConfig?.language || Languages.En,
             [CheckoutParams.Currency]: Currencies.USD,
             [CheckoutParams.Trt]: DefaultTrt,
             [CheckoutParams.ProductId]: InterstellarProductId,

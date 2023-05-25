@@ -1,1 +1,1 @@
-export { TrackingProvider, ITrackingParamsConfig } from './tracking';
+export { TrackingProvider } from './tracking';

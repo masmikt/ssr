@@ -1,6 +1,5 @@
 import css from './checkoutIframe.module.scss';
 import clsx from 'clsx';
-import { useCallback } from 'react';
 import { IFrame } from '@/app/(common)/components/iframe';
 
 interface IPPGCheckoutIframe {
@@ -12,9 +11,9 @@ const PPGCheckoutIframe = ({ checkoutLink, setIsCheckoutOpen }: IPPGCheckoutIfra
     if (!checkoutLink) {
         return null;
     }
-    const handleLoadIframe = useCallback(() => {
+    const handleLoadIframe = () => {
         setIsCheckoutOpen(true);
-    }, []);
+    };
 
     return (
         <div className={clsx(css['ppg-checkout-iframe__wrapper'])}>

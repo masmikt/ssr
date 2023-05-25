@@ -28,7 +28,7 @@ async function getBuyNowConfig() {
 
 
 export default async function SetupFlow() {
-    const [buyNowConfig, setBuyNowConfig] = useState(null);
+    const [buyNowConfig, setBuyNowConfig] = useState(undefined);
 
     useEffect(() => {
         getConfig();

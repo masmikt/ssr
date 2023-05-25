@@ -1,9 +1,10 @@
 'use client';
-import { ITrackingParamsConfig, TrackingProvider } from '@/app/(common)/shared/services/tracking';
+import { TrackingProvider } from '@/app/(common)/shared/services/tracking';
 import { TrackingParams, EventsPlatform, DefaultIteration } from '../constants';
 import { useSearchParams } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
 import { getPlatform } from '../helpers';
+import { ITrackingParamsConfig } from '@/app/(common)/shared/services/tracking/tracking';
 
 const SessionStorageParams: Array<TrackingParams> = [
     TrackingParams.Iteration,

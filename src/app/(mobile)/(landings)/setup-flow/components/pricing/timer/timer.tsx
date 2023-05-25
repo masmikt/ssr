@@ -18,12 +18,9 @@ interface ITimer {
 }
 
 const Timer = ({ countDownInfo, saveCountDownInfo, handleTimerCompleted }: ITimer) => {
-    if (!countDownInfo) {
-        return null;
-    }
     const countdown = useCountdown({
-        minutes: countDownInfo.minutes,
-        seconds: countDownInfo.seconds,
+        minutes: countDownInfo?.minutes || 0,
+        seconds: countDownInfo?.seconds || 0,
         format: "mm:ss",
         onCompleted: handleTimerCompleted,
     });

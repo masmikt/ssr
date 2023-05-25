@@ -13,17 +13,13 @@ import { Price } from '@/app/(mobile)/(landings)/setup-flow/components/pricing/p
 const Offer = () => {
     const context = useBuyNowContext();
     const { buyNowConfig } = context;
-
-    if (!buyNowConfig) {
-        return null;
-    }
-
     const { getSelectedLicenseData } = useLicenseConfig(buyNowConfig);
     const licenceInfo = getSelectedLicenseData();
+    const { getPriceData, getFormattedLocalPrice } = usePrice(buyNowConfig);
+
     if (!licenceInfo) {
         return null;
     }
-    const { getPriceData, getFormattedLocalPrice } = usePrice(buyNowConfig);
     const priceData = getPriceData(licenceInfo.purl);
     const {
         decimal,

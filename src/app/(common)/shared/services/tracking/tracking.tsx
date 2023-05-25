@@ -26,12 +26,15 @@ export class TrackingProvider {
         return this.sessionStorageParams.includes(name) ? window.sessionStorage : window.localStorage;
     }
 
-    private getParamsFromStorage(storage) {
+    private getParamsFromStorage(storage: Storage | undefined) {
+        if (!storage) {
+            return null;
+        }
         const params = this.getStorageValue(this.trackingParamsStorageKey, storage) || 'null';
         return JSON.parse(params);
     }
 
-    private getStorageValue(key: string, storage) {
+    private getStorageValue(key: string, storage: Storage) {
         if (!isClient()) {
             return null;
         }

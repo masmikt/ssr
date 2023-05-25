@@ -1,21 +1,22 @@
 import {
     IBuyNowConfig,
     IBuyNowLicenseConfig,
-    IBuyNowLicenses
+    IBuyNowLicenses, IBuyNowLicensesConfig
 } from '@/app/(common)/(pages)/buyNow/hooks/useBuynow/types';
 
-export const useLicenseConfig = (buyNowConfig: IBuyNowConfig | null) => {
-    const licenses = buyNowConfig ? buyNowConfig.licenses.filter(license => !license.specialOffer) : null;
-    const specialOffersLicenses = buyNowConfig ? buyNowConfig?.licenses.filter(license => license.specialOffer) : null;
+export const useLicenseConfig = (buyNowConfig: IBuyNowConfig | any) => {
+    const buyNowLicenses = buyNowConfig ? (buyNowConfig.licenses as IBuyNowLicensesConfig) : null
+    const licenses = buyNowLicenses ? buyNowLicenses.filter(license => !license.specialOffer) : null;
+    const specialOffersLicenses = buyNowLicenses ? buyNowLicenses.filter(license => license.specialOffer) : null;
 
     const getLicenseDataInfo = () => {
-            if (!buyNowConfig) {
+            if (!buyNowConfig || !buyNowLicenses) {
                 return null;
             }
 
             let normalizedLicensesData: IBuyNowLicenses = {};
 
-        buyNowConfig?.licenses.map((license) => {
+        buyNowLicenses.map((license) => {
                 normalizedLicensesData[license.purl] = license;
             });
 

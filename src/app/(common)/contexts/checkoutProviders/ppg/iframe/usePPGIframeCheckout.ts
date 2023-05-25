@@ -15,7 +15,7 @@ import {
 export type ICustomEventsHandlers = { [key in PPGCheckoutCustomEvents]?: (eventData?: ICheckoutMessagesData) => void };
 
 export const usePPGIframeCheckout = (
-    buyNowConfig: IBuyNowConfig,
+    buyNowConfig: IBuyNowConfig | undefined,
     customEventsHandlers?: ICustomEventsHandlers
 ) => {
     const { sendEvent } = useSendEvent();

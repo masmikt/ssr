@@ -1,9 +1,8 @@
 import { AppTrackingProvider } from './trackingProvider';
 import { AnalyticsProvider } from './analyticsProvider';
-import { ReactElement } from 'react';
 
 interface IAppProvider {
-    children: ReactElement;
+    children: any;
 }
 
 const AppProviders = ({ children }: IAppProvider) => {

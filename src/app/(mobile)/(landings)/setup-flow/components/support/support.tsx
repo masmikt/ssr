@@ -20,7 +20,7 @@ const Support = () => {
                 <Typography
                     variant={TypographyVariants.p2}
                     className={clsx(css['support__text'])}>
-                    You'll have Clario experts ready to jump in and help you, 24/7, just when you need them.
+                    You&apos;ll have Clario experts ready to jump in and help you, 24/7, just when you need them.
                 </Typography>
             </div>
             <Image

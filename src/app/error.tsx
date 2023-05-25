@@ -18,7 +18,7 @@ export default function Error({ error, reset }: {
     return (
         <div className="error-screen__layout">
             <div className={clsx(css['error-screen__container'])}>
-                <Image src={ErrorFallbackImage} className={css['error-screen__image']} />
+                <Image src={ErrorFallbackImage} className={css['error-screen__image']} alt='error dog' />
                 <Typography
                     className={css['error-screen__title']}
                     variant={TypographyVariants.h1}

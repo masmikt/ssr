@@ -27,7 +27,7 @@ type INormalizedPriceInfo = {
     [key in Currencies]: IBuyNowPriceConfig
 }
 
-export const usePrice = (buyNowConfig: IBuyNowConfig) => {
+export const usePrice = (buyNowConfig: IBuyNowConfig | any) => {
     const { getLicenseData } = useLicenseConfig(buyNowConfig);
 
     const getDiscountPercent = (purl: string, currency = Currencies.USD): null | number => {

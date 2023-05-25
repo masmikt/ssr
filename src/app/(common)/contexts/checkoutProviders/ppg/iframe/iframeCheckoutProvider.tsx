@@ -38,7 +38,7 @@ type PPGIframeCheckoutConsumerContext = {
 
 interface IPPGIframeCheckoutProvider {
     children: ReactNode;
-    buyNowConfig: IBuyNowConfig;
+    buyNowConfig: IBuyNowConfig | undefined;
     customEventsHandlers?: ICustomEventsHandlers
 }
 
@@ -77,7 +77,7 @@ const PPGIframeCheckoutProvider = (
         if (!selectedLicensePurl) {
             return;
         }
-        const checkoutLink = await getCheckoutLink(selectedLicensePurl);
+        const checkoutLink = await getCheckoutLink(selectedLicensePurl) as string || undefined;
         setCheckoutLink(checkoutLink);
     }, [selectedLicenseData]);
 

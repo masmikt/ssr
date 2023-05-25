@@ -1,1 +1,1 @@
-export { default as StartUsing } from './startUsing';
+export { default as StartUsing } from './instructionsList';
