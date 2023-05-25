@@ -1,0 +1,198 @@
+@import '@/app/(common)/styles/mixins.scss';
+
+.button {
+  @include reset-button;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s linear;
+
+  &:disabled {
+    cursor: default;
+  }
+
+  // Size
+
+  &--s {
+    height: 32px;
+    width: 124px;
+  }
+
+  &--m {
+    height: 34px;
+    width: 172px;
+  }
+
+  &--l {
+    height: 42px;
+    width: 204px;
+  }
+
+  &--xl {
+    height: 48px;
+    width: 272px;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.54px;
+  }
+
+  &--xxl {
+    height: 64px;
+    padding: 18px 62px;
+    width: fit-content;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.54px;
+  }
+
+  // Variant
+  &--filled {
+    border-radius: 50px;
+
+    // Colors
+    &.button--primary {
+      background-color: var(--primary-green);
+      color: var(--primary-dark-blue);
+
+      @media (hover: hover) {
+        &:hover, &:active {
+          background-color: var(--secondary-dark-green);
+        }
+      }
+
+      &:disabled {
+        background-color: var(--light-grey);
+        color: rgba(21, 29, 81, 0.25);
+      }
+    }
+
+    &.button--warning {
+      background-color: var(--secondary-light-orange);
+      color: var(--primary-dark-blue);
+
+      @media (hover: hover) {
+        &:hover, &:active {
+          background-color: var(--secondary-dark-orange);
+        }
+      }
+
+      &:disabled {
+        background-color: var(--light-grey);
+        color: rgba(21, 29, 81, 0.25);
+      }
+    }
+
+    &.button--info {
+      background-color: var(--primary-blue);
+      color: var(--white);
+
+      @media (hover: hover) {
+        &:hover, &:active {
+          background-color: var(--secondary-light-blue);
+        }
+      }
+
+      &:disabled {
+        background-color: var(--light-grey);
+        color: rgba(21, 29, 81, 0.25);
+      }
+    }
+  }
+
+  &--border {
+    border-radius: 50px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: transparent;
+
+    &.button--primary {
+      border-color: var(--white);
+      color: var(--white);
+
+      @media (hover: hover) {
+        &:hover, &:active {
+          background-color: var(--primary-green);
+          border-color: var(--primary-green);
+          color: var(--primary-dark-blue);
+        }
+      }
+
+      &:disabled {
+        border-color: var(--light-grey);
+        color: rgba(21, 29, 81, 0.25);
+      }
+    }
+
+    &.button--secondary {
+      border-color: var(--primary-green);
+      color: var(--primary-green);
+
+      @media (hover: hover) {
+        &:hover, &:active {
+          border-color: var(--secondary-dark-green);
+          color: var(--secondary-dark-green);
+        }
+      }
+    }
+
+    &.button--info {
+      border-color: var(--primary-blue);
+      color: var(--primary-blue);
+
+      @media (hover: hover) {
+        &:hover, &:active {
+          border-color: var(--secondary-light-blue);
+        }
+      }
+
+      &:disabled {
+        border-color: var(--light-grey);
+        color: rgba(21, 29, 81, 0.25);
+      }
+    }
+  }
+
+  &--link {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--white);
+    background-color: transparent;
+    height: auto;
+    width: auto;
+    transition: color 0.2s;
+
+
+    &.button--primary {
+      color: var(--primary-green);
+
+      @media (hover: hover) {
+        &:hover, &:active {
+          color: var(--white);
+        }
+      }
+    }
+
+    &.button--secondary {
+      color: var(--white);
+
+      @media (hover: hover) {
+        &:hover, &:active {
+          color: var(--primary-green);
+        }
+      }
+    }
+
+    &:disabled {
+      color: rgba(21, 29, 81, 0.25);
+    }
+
+  }
+}

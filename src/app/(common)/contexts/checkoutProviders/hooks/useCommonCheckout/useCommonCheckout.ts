@@ -4,17 +4,13 @@ import {
 } from '@/app/(common)/shared/constants';
 import { objectOmitNull } from '@/app/(common)/shared/helpers';
 import { useTracking } from '@/app/(common)/shared/hooks';
+import { usePathname } from 'next/navigation';
 import { CheckoutParams, ICheckoutParams } from './types';
-import { useRouter } from 'next/router';
 import { useMemo } from 'react';
-import { IBuyNowConfig, useLicenseConfig } from '@/app/(common)/shared/hooks';
-
-declare const APP_ENV: string;
+import { useLicenseConfig } from '@/app/(common)/(pages)/buyNow';
+import { IBuyNowConfig } from '@/app/(common)/(pages)/buyNow/hooks/useBuynow/types';
 
 export const useCommonCheckout = (buyNowConfig: IBuyNowConfig) => {
-    const router = useRouter();
-    console.log(`!!!! router`, router);
-
     const {
         getTrackingParam,
         getMarketing,
@@ -26,15 +22,16 @@ export const useCommonCheckout = (buyNowConfig: IBuyNowConfig) => {
         getFbc,
         getFbp,
     } = useTracking();
+    const pathname = usePathname();
     const iteration = getIteration();
     const { getLicenseData } = useLicenseConfig(buyNowConfig);
     const checkoutSource =
         (getTrackingParam(TrackingParams.CheckoutSource) as InfrastructureSources) ||
         'betelgeuse';
     const xPrepay = useMemo(() => {
-        let prepay = 'setup-flow';
+        let prepay = pathname.slice(1);
         return `${prepay} ${iteration}`;
-    }, [location, iteration]);
+    }, [pathname, iteration]);
 
     const getCommonCheckoutParams = async (purl: string): Promise<ICheckoutParams> => {
         const licenseData = getLicenseData(purl);
@@ -54,7 +51,7 @@ export const useCommonCheckout = (buyNowConfig: IBuyNowConfig) => {
             [CheckoutParams.CheckoutSource]: checkoutSource,
             [CheckoutParams.Ua]: getUserAgent(),
             [CheckoutParams.FbSegmentId]: getTrackingParam(TrackingParams.FbSegmentId),
-            [CheckoutParams.Env]: APP_ENV,
+            [CheckoutParams.Env]: 'testing',
             [CheckoutParams.TypeDevice]: getTypeDevice(),
             [CheckoutParams.Fbclid]: getTrackingParam(TrackingParams.Fbclid),
             [CheckoutParams.Iteration]: iteration,

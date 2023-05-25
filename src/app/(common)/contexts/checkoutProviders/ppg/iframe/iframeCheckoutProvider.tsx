@@ -1,20 +1,17 @@
 import {
     createContext,
     MouseEventHandler,
-    ReactNode,
-    useCallback,
-    useContext,
-    useEffect,
-    useState,
+    ReactNode, useCallback,
+    useContext, useEffect, useState,
 } from 'react';
+import { ICustomEventsHandlers, usePPGIframeCheckout } from './usePPGIframeCheckout';
+import { useLicenseConfig } from '@/app/(common)/(pages)/buyNow';
 import {
     IBuyNowConfig,
     IBuyNowLicenseConfig,
-    IBuyNowLicensesConfig,
-    useLicenseConfig,
-} from '@/app/(common)/shared/hooks';
-import { PPGCheckoutIframe } from './components';
-import { ICustomEventsHandlers, usePPGIframeCheckout } from './usePPGIframeCheckout';
+    IBuyNowLicensesConfig
+} from '@/app/(common)/(pages)/buyNow/hooks/useBuynow/types';
+import { PPGCheckoutIframe } from '@/app/(common)/contexts/checkoutProviders/ppg/iframe/components';
 
 export const PPGIframeCheckoutContext = createContext<Partial<PPGIframeCheckoutConsumerContext>>({});
 

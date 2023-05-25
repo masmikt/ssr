@@ -1,8 +1,12 @@
-import { IBuyNowConfig, IBuyNowLicenseConfig, IBuyNowPriceConfig } from '../useBuyNow';
 import { Currencies } from '@/app/(common)/shared/constants';
 import { objectOmitNull } from '@/app/(common)/shared/helpers';
 import { CalculatedPeriodsNames, CurrenciesSymbols } from './constants';
 import { useLicenseConfig } from '../useLicenseConfig';
+import {
+    IBuyNowConfig,
+    IBuyNowLicenseConfig,
+    IBuyNowPriceConfig
+} from '@/app/(common)/(pages)/buyNow/hooks/useBuynow/types';
 
 const DefaultCurrency = Currencies.USD;
 
@@ -108,7 +112,7 @@ export const usePrice = (buyNowConfig: IBuyNowConfig) => {
     };
 
     const getNormalizedPriceInfo = (license: IBuyNowLicenseConfig): INormalizedPriceInfo => {
-        const normalizedPriceInfo = license.price.reduce(
+        const normalizedPriceInfo = license?.price.reduce(
             (prices, price) => Object.assign(prices, { [price.currency]: price }), {});
         return normalizedPriceInfo as INormalizedPriceInfo;
     };

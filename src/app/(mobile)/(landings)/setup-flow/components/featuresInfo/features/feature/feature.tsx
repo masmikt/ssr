@@ -1,0 +1,38 @@
+import css from './feature.module.scss';
+import Image from 'next/image'
+import { ReactNode } from 'react';
+import { FeaturesList, IFeaturesConfig } from '../../../featuresList';
+import { Section } from '../../../section';
+import { Typography, TypographyVariants } from '@/app/(common)/components/typography';
+
+export interface IFeature {
+    name: string;
+    image: {
+        default: string,
+        retina: string;
+    };
+    title: string | ReactNode;
+    text: string | ReactNode;
+    features: IFeaturesConfig;
+}
+
+const Feature = ({ image, title, text, features, name }: IFeature) => {
+    return (
+        <Section className={css['feature']} name={name}>
+            <Image src={image.default} srcSet={`${image.retina} 2x`} className={css['feature__image']} alt={name} />
+            <Typography variant={TypographyVariants.h4} className={css['feature__title']}>
+                {title}
+            </Typography>
+            <Typography variant={TypographyVariants.p2} className={css['feature__text']}>
+                {text}
+            </Typography>
+            <FeaturesList
+                listItems={features} className={css['feature__list']}
+                iconClassName={css['feature__list-icon']}
+                descriptionClassName={css['feature__list-description']} />
+        </Section>
+    );
+};
+
+Feature.displayName = 'Feature';
+export default Feature;

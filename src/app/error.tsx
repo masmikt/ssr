@@ -2,8 +2,8 @@
 import { useEffect } from 'react';
 import css from './error.module.scss';
 import { clsx } from 'clsx';
-// import Image from 'next/image'
-// import ErrorFallbackImage from '@/../public/images/common/error/dog.svg?url';
+import Image from 'next/image'
+import ErrorFallbackImage from 'public/images/common/error/dog.svg';
 import { TypographyVariants, Typography } from '@/app/(common)/components/typography'
 
 export default function Error({ error, reset }: {
@@ -18,7 +18,7 @@ export default function Error({ error, reset }: {
     return (
         <div className="error-screen__layout">
             <div className={clsx(css['error-screen__container'])}>
-                {/*<Image src={ErrorFallbackImage} className={css['error-screen__image']} />*/}
+                <Image src={ErrorFallbackImage} className={css['error-screen__image']} />
                 <Typography
                     className={css['error-screen__title']}
                     variant={TypographyVariants.h1}

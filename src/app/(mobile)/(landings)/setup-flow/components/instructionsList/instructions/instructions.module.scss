@@ -1,0 +1,115 @@
+.instructions {
+  background-color: transparent !important;
+  border: none !important;
+  counter-reset: custom-counter;
+  overflow: hidden;
+  max-width: 282px;
+  margin: var(--space-l) auto 0;
+
+  &__item {
+    counter-increment: custom-counter;
+
+    &:before {
+      content: counter(custom-counter);
+    }
+
+    &:not(:last-of-type) {
+      &:after {
+        content: "";
+        width: 2px;
+        top: 34px;
+        height: 100%;
+        position: absolute;
+        left: 14px;
+        border-left: 1px dashed rgba(0, 0, 0, .54118);
+      }
+    }
+  }
+}
+
+.instruction {
+  position: relative;
+  outline: none;
+  padding-left: 36px;
+  border-top: none !important;
+  margin-bottom: var(--space-xl);
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__arrow {
+    transition: .3s ease-in-out;
+  }
+
+  &__header-text {
+    color: var(--primary-dark-blue);
+  }
+
+  &__text {
+    text-align: left;
+    padding-top: var(--space-xs);
+  }
+
+  &:before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 28px;
+    left: 0;
+    height: 28px;
+    background: var(--primary-dark-blue);
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: -.248889px;
+    color: var(--white);
+    z-index: 2;
+    transition: .3s ease-in-out;
+  }
+
+  &:global(.rc-collapse-item-active) {
+    &:before {
+      background: var(--primary-green);
+    }
+
+    .instruction__header-text {
+      color: var(--primary-green);
+    }
+
+    .instruction__arrow {
+      transform: rotate(180deg);
+
+      path {
+        fill: var(--primary-green);
+      }
+    }
+  }
+
+  & :global(.rc-collapse-header) {
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 !important;
+  }
+
+  & :global(.rc-collapse-content) {
+    background-color: transparent !important;
+    color: var(--primary-dark-blue) !important;
+    padding: 0 !important;
+  }
+
+  & :global(.rc-collapse-content-box) {
+    margin: 0 !important;
+  }
+
+  & :global(.rc-collapse-header-text) {
+    text-align: left;
+    width: 100%;
+  }
+}

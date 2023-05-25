@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { PPGCheckoutLink, PPGQueryParams } from './constants';
 import { useSearchParams } from 'next/navigation';
-import { useCommonCheckout } from '../../../hooks';
-import { IBuyNowConfig } from '@/app/(common)/shared/hooks';
+import { IBuyNowConfig } from '@/app/(common)/(pages)/buyNow';
+import { useCommonCheckout } from '@/app/(common)/contexts/checkoutProviders/hooks';
 
 export const usePPGCheckout = (buyNowConfig: IBuyNowConfig) => {
     const baseCheckoutLink = PPGCheckoutLink;

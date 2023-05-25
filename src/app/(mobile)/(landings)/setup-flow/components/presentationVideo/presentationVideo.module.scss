@@ -1,0 +1,13 @@
+.presentation-video {
+  position: relative;
+  width: 272px;
+  height: 304px;
+  margin: var(--space-l) auto;
+  border-radius: 20px;
+  overflow: hidden;
+
+  &__image {
+    width: 272px;
+    height: 304px;
+  }
+}

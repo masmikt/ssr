@@ -1,0 +1,9 @@
+.supported-platform {
+  display: flex;
+  gap: 6px;
+
+  &__icon {
+    display: flex;
+    flex-shrink: 0;
+  }
+}

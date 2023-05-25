@@ -1,0 +1,27 @@
+.pricing-guarantee {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: var(--space-s);
+  justify-content: center;
+  margin-top: var(--space-s);
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &--left {
+      margin-right: var(--space-m);
+    }
+
+    &-icon {
+      width: 28px;
+      height: 24px;
+    }
+  }
+
+  &__text {
+    margin-left: var(--space-xs);
+  }
+
+}

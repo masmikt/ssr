@@ -3,8 +3,9 @@ import { ICheckoutParams } from '../../hooks';
 import { Events, } from '@/app/(common)/shared/constants';
 import { useEffect, useMemo, useState } from 'react';
 import { PPGIframeRequiredParams, PPGCheckoutListenerTypes, PPGCheckoutCustomEvents } from './constants';
-import { IBuyNowConfig, useSendEvent } from '@/app/(common)/shared/hooks';
+import { useSendEvent } from '@/app/(common)/shared/hooks';
 import { addSearchParams } from '@/app/(common)/shared/helpers';
+import { IBuyNowConfig } from '@/app/(common)/(pages)/buyNow/hooks/useBuynow/types';
 
 export type ICustomEventsHandlers = { [key in PPGCheckoutCustomEvents]?: (eventData?: ICheckoutMessagesData) => void };
 

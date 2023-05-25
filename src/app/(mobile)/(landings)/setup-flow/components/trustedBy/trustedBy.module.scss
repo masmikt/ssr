@@ -1,0 +1,17 @@
+.trusted-by {
+  padding-top: 0;
+
+  &__content {
+    display: flex;
+    background: #EFF1FF;
+    border-radius: 16px;
+    padding: var(--space-s) var(--space-m) var(--space-m);
+  }
+
+  &__title {
+    font-size: 22px;
+    line-height: 26px;
+    max-width: 60%;
+    margin: 0 auto var(--space-m);
+  }
+}

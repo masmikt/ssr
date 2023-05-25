@@ -1,0 +1,9 @@
+.features-info {
+  text-align: center;
+  padding-bottom: var(--space-xl);
+
+  &__title {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}

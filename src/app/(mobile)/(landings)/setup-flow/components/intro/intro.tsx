@@ -5,24 +5,21 @@ import { Typography, TypographyComponents, TypographyVariants } from '@/app/(com
 import { TrustpilotReview } from '@/app/(mobile)/components/trustpilot';
 import { clsx } from 'clsx';
 import { IntroButton } from './introButton';
-// import { SupportedPlatforms, TrustpilotReview } from 'src/mobile/components';
-// import { PresentationVideo } from '../presentationVideo';
-// import { FeaturesList } from '../featuresList';
-// import { IntroButton } from './introButton';
 import { SetupFlowEvents, ScreenNames, TrustSources } from '../../constants';
 import { useCallback } from 'react';
-// import { useMobileSendEvent } from 'src/mobile/hooks';
-
+import { useSendEvent } from '@/app/(common)/shared/hooks';
+import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms';
+import { FeaturesList } from '@/app/(mobile)/(landings)/setup-flow/components/featuresList';
+import { PresentationVideo } from '@/app/(mobile)/(landings)/setup-flow/components/presentationVideo';
 
 const IntroSection = () => {
-    // const { sendEvent } = useMobileSendEvent();
+    const { sendEvent } = useSendEvent();
     const handleTrustPilotLinkClick = useCallback(() => {
-        console.log(`!!! handleTrustPilotLinkClick`)
-        // sendEvent(SetupFlowEvents.TrustClick, {
-        //     placement: ScreenNames.TopBlock,
-        //     source: TrustSources.TrustPilot
-        //
-        // })
+        sendEvent(SetupFlowEvents.TrustClick, {
+            placement: ScreenNames.TopBlock,
+            source: TrustSources.TrustPilot
+
+        })
     }, []);
     return (
         <Section
@@ -46,10 +43,10 @@ const IntroSection = () => {
                 className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')}
                 onClick={handleTrustPilotLinkClick} />
             <IntroButton />
-            {/*<SupportedPlatforms className={'mt-l'} />*/}
-            {/*<PresentationVideo />*/}
-            {/*<Typography variant={TypographyVariants.h5}>The anti-spy Clario app can:</Typography>*/}
-            {/*<FeaturesList className={'mt-s'} />*/}
+            <SupportedPlatforms className={'mt-l'} />
+            <PresentationVideo />
+            <Typography variant={TypographyVariants.h5}>The anti-spy Clario app can:</Typography>
+            <FeaturesList className={'mt-s'} />
         </Section>
     );
 }

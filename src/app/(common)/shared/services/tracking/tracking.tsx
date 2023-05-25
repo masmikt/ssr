@@ -20,15 +20,18 @@ export class TrackingProvider {
     }
 
     private getStorage(name: TrackingParams) {
-        return this.sessionStorageParams.includes(name) ? sessionStorage : localStorage;
+        if (!isClient()) {
+            return;
+        }
+        return this.sessionStorageParams.includes(name) ? window.sessionStorage : window.localStorage;
     }
 
-    private getParamsFromStorage(storage = localStorage) {
+    private getParamsFromStorage(storage) {
         const params = this.getStorageValue(this.trackingParamsStorageKey, storage) || 'null';
         return JSON.parse(params);
     }
 
-    private getStorageValue(key: string, storage = localStorage) {
+    private getStorageValue(key: string, storage) {
         if (!isClient()) {
             return null;
         }
@@ -109,6 +112,9 @@ export class TrackingProvider {
     setStorageParam<T>(paramName: TrackingParams, value: T | string): void {
         const paramValue = typeof value !== 'string' ? JSON.stringify(value) : value;
         const storage = this.getStorage(paramName);
+        if (!storage) {
+            return;
+        }
         const params = this.getParamsFromStorage(storage);
         const updatedParams = { ...params, [paramName]: paramValue };
         this.setStorageValue(this.trackingParamsStorageKey, updatedParams, storage);

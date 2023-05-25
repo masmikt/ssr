@@ -1,0 +1,25 @@
+.offer {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-m);
+  background: var(--white);
+  border-radius: 16px;
+  width: 272px;
+
+  &__button-wrapper {
+    margin-top: var(--space-l);
+  }
+
+  &__button {
+    font-weight: 700;
+    width: 222px;
+  }
+
+  &__terms {
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 12px;
+    opacity: 0.5;
+    margin-top: var(--space-s);
+  }
+}

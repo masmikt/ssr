@@ -1,0 +1,48 @@
+.price {
+  &__info {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: var(--primary-blue);
+
+    &-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #F2F8FF;
+      position: relative;
+      border-radius: 16px;
+      margin-top: var(--space-xs);
+      padding: var(--space-s) 0;
+    }
+  }
+
+  &__large {
+    font-size: 80px;
+    line-height: 68px;
+    letter-spacing: -.54px;
+  }
+
+  &__currency {
+    font-size: 42px;
+    line-height: 28px;
+    vertical-align: super;
+  }
+
+  &__small {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.54px;
+    vertical-align: top;
+  }
+
+  &__slash {
+    margin-left: -20px;
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -.7px;
+    color: #6C96CE;
+    opacity: 0.3;
+  }
+}

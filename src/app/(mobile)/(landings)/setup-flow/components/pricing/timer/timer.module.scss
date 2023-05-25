@@ -1,0 +1,19 @@
+.timer {
+  display: flex;
+  background: #FFF2EB;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  padding: 4px var(--space-s);
+
+  &__text {
+    color: #DF723A;
+  }
+
+  &__time-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 4px;
+  }
+}

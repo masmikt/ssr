@@ -1,4 +1,4 @@
-import { PaymentProviders } from '../../../../shared';
+import { PaymentProviders } from '@/app/(common)/shared/constants';
 
 export type IBuyNowPriceConfig = {
     currency: string;

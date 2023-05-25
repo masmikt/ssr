@@ -1,0 +1,57 @@
+.pricing {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 0 24px;
+
+  &__wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    padding-top: 150px;
+  }
+
+  &__bg-image {
+    width: 512px;
+    height: 512px;
+    border-radius: 50%;
+    background: #4d56e5;
+    position: absolute;
+    top: -370px;
+    left: calc(50% - 256px);
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      display: block;
+      background-image: url('images/mobile/buyNow/setupFlow/protect-icon.svg');
+      width: 160px;
+      height: 130px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 50%;
+      position: absolute;
+      z-index: 1;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__title {
+    padding-bottom: var(--space-m);
+    color: var(--white);
+    max-width: 272px;
+  }
+
+  &__downloads {
+    opacity: 0.6;
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-s);
+  }
+}

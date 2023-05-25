@@ -1,0 +1,18 @@
+.opportunities {
+  max-width: 80%;
+  margin: var(--space-s) auto 0;
+
+  &__features {
+    margin-top: 4px;
+  }
+
+  &__feature {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  &__item-icon {
+    width: 20px;
+    height: 20px;
+  }
+}

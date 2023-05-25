@@ -1,0 +1,46 @@
+.user-rate {
+  position: relative;
+  padding-top: var(--space-m);
+  padding-bottom: var(--space-l);
+
+  &:before {
+    content: "";
+    display: block;
+    width: 160px;
+    height: 1px;
+    background: var(--primary-dark-blue);
+    opacity: 0.4;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  &__list {
+    margin-top: var(--space-s);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-xs);
+    align-items: center;
+    margin-bottom: var(--space-xs);
+  }
+
+  &__link {
+    padding: 10px 13px;
+  }
+
+  &__trustpilot {
+    & :global(.trust-pilot__logo-star) {
+      fill: #5CD6C0;
+    }
+
+    & :global(.trust-pilot__logo-star-nick) {
+      fill: #005128;
+    }
+
+    & :global(.trust-pilot__rating-star) {
+      fill: #5CD6C0;
+    }
+  }
+}

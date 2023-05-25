@@ -1,0 +1,26 @@
+.support {
+  padding-top: var(--space-l);
+  background: linear-gradient(180deg, #FFFFFF 29.01%, #F4F9FF 80.52%);
+
+  &__header {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  &__title {
+    padding-bottom: var(--space-xs);
+  }
+
+  &__text {
+  }
+
+  &__image {
+    padding: var(--space-m) 0;
+    width: 327px;
+    height: 603px;
+  }
+
+  &__button {
+    padding-top: var(--space-xs);
+  }
+}

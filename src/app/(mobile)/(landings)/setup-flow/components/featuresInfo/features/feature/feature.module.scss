@@ -1,0 +1,39 @@
+.feature {
+  padding-bottom: 0;
+
+  &__image {
+    padding-bottom: var(--space-s);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 272px;
+    height: 372px;
+  }
+
+  &__text {
+    padding-top: 2px;
+  }
+
+  &__list {
+    padding-top: var(--space-s);
+    width: 82%;
+    margin: 0 auto;
+
+    &-icon {
+      width: 24px !important;
+      height: 24px !important;
+    }
+  }
+
+  &__list-description {
+    font-weight: 700;
+    font-size: 14px;
+    text-align: left;
+    line-height: 18px;
+  }
+
+  @media (orientation: landscape) {
+    &__list {
+      max-width: 280px;
+    }
+  }
+}

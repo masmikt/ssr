@@ -1,0 +1,40 @@
+.awards-section {
+  &__container {
+    padding: 0 24px;
+
+    &.white {
+      & .awards-section__image {
+        & [fill="black"] {
+          fill: var(--white);
+        }
+      }
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+    margin-left: -10px;
+  }
+
+
+  &__award {
+    margin: 0 10px;
+  }
+
+  &__image {
+    height: 36px;
+  }
+
+  @media (orientation: landscape) {
+    &__container {
+      max-width: 448px;
+      margin: 0 auto;
+    }
+  }
+}
+//
+//:global(.slick-slide) {
+//  padding: 26px 0;
+//}
+
+

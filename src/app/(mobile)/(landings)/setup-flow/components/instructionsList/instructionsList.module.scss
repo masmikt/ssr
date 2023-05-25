@@ -1,0 +1,10 @@
+.instructions {
+  padding-top: var(--space-l);
+  padding-bottom: 0;
+
+  &__title {
+    &--highlighted {
+      color: var(--primary-green);
+    }
+  }
+}

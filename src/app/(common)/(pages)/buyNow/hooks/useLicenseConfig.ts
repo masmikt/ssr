@@ -1,9 +1,13 @@
-import { IBuyNowConfig, IBuyNowLicenseConfig, IBuyNowLicenses } from './useBuyNow';
 import { useMemo } from 'react';
+import {
+    IBuyNowConfig,
+    IBuyNowLicenseConfig,
+    IBuyNowLicenses
+} from '@/app/(common)/(pages)/buyNow/hooks/useBuynow/types';
 
 export const useLicenseConfig = (buyNowConfig: IBuyNowConfig) => {
-    const licenses = buyNowConfig.licenses.filter(license => !license.specialOffer);
-    const specialOffersLicenses = buyNowConfig.licenses.filter(license => license.specialOffer)
+    const licenses = buyNowConfig?.licenses.filter(license => !license.specialOffer);
+    const specialOffersLicenses = buyNowConfig?.licenses.filter(license => license.specialOffer)
 
     const licensesData = useMemo<IBuyNowLicenses | null>(() => {
         if (!buyNowConfig) {

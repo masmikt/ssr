@@ -1,5 +1,6 @@
 // 'use client';
 import css from './section.module.scss';
+import clsx from 'clsx';
 import { DetailedHTMLProps, HTMLAttributes, ReactNode, useRef } from 'react';
 // import { useInView } from 'react-intersection-observer';
 // import { useIntersectionObserver } from 'src/common/shared';
@@ -46,7 +47,7 @@ const Section = ({ className = '', children, color = SectionColor.White, name, .
     // }, [entry]);
 
     return (
-        <section className={`${css['section']}, ${css[`section--${color}`]}, ${className}`} {...rest}>
+        <section className={clsx(css['section'], css[`section--${color}`], className)} {...rest}>
             {children}
         </section>
     );
