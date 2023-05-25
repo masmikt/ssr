@@ -1,0 +1,95 @@
+.comments-list {
+  position: relative;
+  text-align: left;
+  padding-top: var(--space-l);
+  padding-bottom: var(--space-l);
+  max-width: 320px;
+  overflow: visible;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 24px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  width: 272px;
+  height: 385px;
+
+  &--appStore {
+    background: #E6F2FE;
+    color: #1D367C;
+
+    .comment__text, .comment__author {
+      color: #1D367C;
+    }
+  }
+
+  &--googlePlay {
+    background: #EFF1FF;
+    color: #3D317C;
+
+    .comment__text, .comment__author {
+      color: #3D317C;
+    }
+  }
+
+  &--trustPilot {
+    background: #EAF5E4;
+    color: #305938;
+
+    .comment__text, .comment__author {
+      color: #305938;
+    }
+  }
+
+  &__text {
+    flex-grow: 1;
+    padding-top: var(--space-l);
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: -0.24px;
+  }
+
+  &__author {
+    letter-spacing: -0.24px;
+  }
+}
+
+.comments-controls {
+  &__button-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 93%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+  }
+
+  &__button {
+    position: relative;
+    background: var(--white);
+    box-shadow: 0 6px 12px rgb(0 0 0 / 10%);
+    width: 48px;
+    height: 48px;
+    border-radius: 48px;
+  }
+
+  &__arrow {
+    position: absolute;
+
+    transform: rotate(90deg) translate(-50%, -50%);
+
+    &.prev {
+      top: 50%;
+      left: 0;
+      transform: rotate(90deg) translate(-50%, -50%);
+    }
+
+    &.next {
+      right: 0;
+      bottom: 50%;
+      transform: rotate(270deg) translate(-50%, -50%);
+    }
+  }
+}

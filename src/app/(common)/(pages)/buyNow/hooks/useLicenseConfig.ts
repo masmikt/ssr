@@ -1,29 +1,30 @@
-import { useMemo } from 'react';
 import {
     IBuyNowConfig,
     IBuyNowLicenseConfig,
     IBuyNowLicenses
 } from '@/app/(common)/(pages)/buyNow/hooks/useBuynow/types';
 
-export const useLicenseConfig = (buyNowConfig: IBuyNowConfig) => {
-    const licenses = buyNowConfig?.licenses.filter(license => !license.specialOffer);
-    const specialOffersLicenses = buyNowConfig?.licenses.filter(license => license.specialOffer)
+export const useLicenseConfig = (buyNowConfig: IBuyNowConfig | null) => {
+    const licenses = buyNowConfig ? buyNowConfig.licenses.filter(license => !license.specialOffer) : null;
+    const specialOffersLicenses = buyNowConfig ? buyNowConfig?.licenses.filter(license => license.specialOffer) : null;
 
-    const licensesData = useMemo<IBuyNowLicenses | null>(() => {
-        if (!buyNowConfig) {
-            return null;
-        }
+    const getLicenseDataInfo = () => {
+            if (!buyNowConfig) {
+                return null;
+            }
 
-        let normalizedLicensesData: IBuyNowLicenses = {};
+            let normalizedLicensesData: IBuyNowLicenses = {};
 
         buyNowConfig?.licenses.map((license) => {
-            normalizedLicensesData[license.purl] = license;
-        });
+                normalizedLicensesData[license.purl] = license;
+            });
 
-        return normalizedLicensesData || null;
-    }, [buyNowConfig]);
+            return normalizedLicensesData || null;
+    }
 
     const getLicenseData = (purl: string): IBuyNowLicenseConfig | null => {
+        const licensesData = getLicenseDataInfo();
+
         if (!licensesData) {
             return null;
         }
@@ -42,7 +43,6 @@ export const useLicenseConfig = (buyNowConfig: IBuyNowConfig) => {
     return {
         licenses,
         specialOffersLicenses,
-        licensesData,
         getLicenseData,
         getSelectedLicenseData,
     };

@@ -1,0 +1,9 @@
+.comments {
+  padding: var(--space-xl) 0;
+  overflow-x: hidden;
+
+  &__title {
+    max-width: 256px;
+    margin: 0 auto;
+  }
+}

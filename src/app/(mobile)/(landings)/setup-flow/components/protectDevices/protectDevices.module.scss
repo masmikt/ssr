@@ -1,0 +1,17 @@
+.protect-devices {
+  text-align: center;
+  padding: var(--space-m);
+
+  &__content {
+    width: 256px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin-bottom: var(--space-xs);
+  }
+
+  &__text {
+    letter-spacing: -0.248889px;
+  }
+}

@@ -1,0 +1,125 @@
+.cookies-banner {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 30;
+  background: hsla(0, 0%, 100%, .9);
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, .07);
+  padding: 8px 12px 8px 37px;
+  box-sizing: border-box;
+  width: 100%;
+
+  &__container {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__close {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 3px;
+    left: -23px;
+    cursor: pointer;
+
+    &::after, &::before {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary-blue);
+      position: absolute;
+      top: calc(50% - 1px);
+      left: 0;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &__link {
+    margin-left: 4px;
+    text-decoration: underline;
+    color: var(--primary-green);
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 95px;
+    width: 100%;
+    margin-left: 10px;
+    gap: 4px;
+  }
+
+  &__button {
+    width: 45px;
+    height: 32px;
+    border-radius: 30px;
+
+    @media only screen and (max-width: 767px) {
+      &--desktop {
+        display: none;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    &__controls {
+      margin-left: 0;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    max-width: 316px;
+    bottom: 0;
+    left: 10px;
+    z-index: 10001;
+    background: var(--white);
+    border-radius: var(--space-s) 20px 0 0;
+    padding: var(--space-s) 20px 22px var(--space-m);
+
+    &__close {
+      display: none;
+    }
+
+    &__container {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &__link {
+      color: var(--primary-blue);
+    }
+
+    &__controls {
+      margin-top: 12px;
+      max-width: 100%;
+      gap: 16px;
+    }
+
+    &__button {
+      height: 40px;
+      width: 124px;
+
+      &--mobile {
+        display: none;
+      }
+    }
+  }
+}

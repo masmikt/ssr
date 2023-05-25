@@ -1,0 +1,15 @@
+.legal-pages {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: var(--space-l) 0;
+  gap: var(--space-s);
+
+  &__page-name {
+    color: var(--primary-dark-blue);
+  }
+}

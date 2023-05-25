@@ -1,13 +1,13 @@
 import css from './offer.module.scss';
-import { Price } from '../price';
 import { Opportunities } from '../opportunities';
-
 import classNames from 'classnames';
 import { PricingGuarantee } from '../pricingGuarantee';
 import SpecialOfferTimer from '../timer/specialOfferTimer';
-import { useBuyNowContext, useLicenseConfig, usePrice } from '@/app/(common)/(pages)/buyNow';
 import { ButtonWrapper } from '@/app/(common)/components/button';
 import { Typography, TypographyComponents, TypographyVariants } from '@/app/(common)/components/typography';
+import { CheckoutButton } from '@/app/(mobile)/components/checkoutButton';
+import { useBuyNowContext, useLicenseConfig, usePrice } from '@/app/(common)/(pages)/buyNow';
+import { Price } from '@/app/(mobile)/(landings)/setup-flow/components/pricing/price';
 
 
 const Offer = () => {

@@ -1,8 +1,8 @@
 import { Section, SectionColor } from '../section';
 import css from './pricing.module.scss';
 import { ScreenNames, ScrollAnchorId } from '../../constants';
-import { Offer } from './offer';
 import { Typography, TypographyVariants } from '@/app/(common)/components/typography';
+import { Offer } from '@/app/(mobile)/(landings)/setup-flow/components/pricing/offer';
 
 const Pricing = () => {
     return (

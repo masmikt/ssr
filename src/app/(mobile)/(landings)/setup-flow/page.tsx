@@ -9,7 +9,11 @@ import { FeaturesInfo } from '@/app/(mobile)/(landings)/setup-flow/components/fe
 import { Support } from '@/app/(mobile)/(landings)/setup-flow/components/support';
 import InstructionsList from '@/app/(mobile)/(landings)/setup-flow/components/instructionsList/instructionsList';
 import { UserRate } from '@/app/(mobile)/(landings)/setup-flow/components/userRate';
-// import { Pricing } from '@/app/(mobile)/(landings)/setup-flow/components/pricing';
+import { Pricing } from '@/app/(mobile)/(landings)/setup-flow/components/pricing';
+import { ProtectDevices } from '@/app/(mobile)/(landings)/setup-flow/components/protectDevices';
+import { Comments } from '@/app/(mobile)/(landings)/setup-flow/components/comments';
+import { StopSpied } from '@/app/(mobile)/(landings)/setup-flow/components/stopSpied';
+import { Footer } from '@/app/(mobile)/(landings)/setup-flow/components/footer';
 
 async function getBuyNowConfig() {
     const res = await fetch('/api/setup-flow');
@@ -50,7 +54,11 @@ export default async function SetupFlow() {
                     <Support />
                     <InstructionsList />
                     <UserRate />
-                    {/*<Pricing />*/}
+                    <Pricing />
+                    <ProtectDevices />
+                    <Comments />
+                    <StopSpied />
+                    <Footer />
                 </main>
             </PPGIframeCheckoutProvider>
         </BuyNowContext.Provider>

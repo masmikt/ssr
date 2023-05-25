@@ -1,9 +1,9 @@
 import { FC, memo, useCallback, useMemo } from 'react';
 import Image from 'next/image'
 import css from './awards.module.scss';
-import { Autoplay, Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import clsx from 'clsx';
 import { useSendEvent } from '@/app/(common)/shared/hooks';
 import { AwardsList, AwardsNames } from '@/app/(mobile)/(landings)/setup-flow/components/awards/config';
@@ -36,33 +36,31 @@ const Awards: FC<AwardsSectionProps> = memo(({ type = 'black' }) => {
         })
     }, []);
 
+    const settings = {
+        infinite: true,
+        speed: 300,
+        variableWidth: true,
+        beforeChange: handleSwipe,
+        className: css['awards-section__slide']
+    };
+
+
     return (
         <Section
             className={clsx(css['awards-section__container'], {
                 [css.white]: type === 'white',
             })}
             name={ScreenNames.TrustSlider}>
-            <Swiper
-                spaceBetween={15}
-                slidesPerView={3}
-                centeredSlides={true}
-                loop={true}
-                modules={[Navigation, Pagination, Autoplay]}
-                grabCursor={true}
-                onTouchEnd={handleSwipe}
-                className={css['awards-section__slider']}
-            >
+            <Slider {...settings} className={css['awards-section__slider']}>
                 {awardsConfig.map((award) => (
-                    <SwiperSlide key={award.name}>
-                        <Link
-                            className={css["awards-section__award"]}
-                            src={award.link} key={award.name}
-                            onClick={() => handleAwardClick(award.source)}>
-                            <Image className={css['awards-section__image']} src={award.img} alt={award.name} />
-                        </Link>
-                    </SwiperSlide>
+                    <Link
+                        className={css["awards-section__award"]}
+                        src={award.link} key={award.name}
+                        onClick={() => handleAwardClick(award.source)}>
+                        <Image className={css['awards-section__image']} src={award.img} alt={award.name} />
+                    </Link>
                 ))}
-            </Swiper>
+            </Slider>
         </Section>)
 });
 

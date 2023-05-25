@@ -1,0 +1,22 @@
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  transition: all 0.3s linear;
+  position: relative;
+  flex-shrink: 0;
+
+  &__logo {
+    height: 24px;
+    width: 90px;
+  }
+
+  &__text {
+    color: var(--primary-dark-blue);
+    text-align: center;
+    margin-top: var(--space-s);
+  }
+}

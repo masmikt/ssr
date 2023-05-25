@@ -19,7 +19,7 @@ const InstructionsList = () => {
                     .
                 </p>
             </Typography>
-            {/*<Instructions />*/}
+            <Instructions />
         </Section>
     );
 };

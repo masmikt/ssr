@@ -13,6 +13,7 @@
 
   &__slider {
     overflow: hidden;
+    padding: 26px 0;
     margin-left: -10px;
   }
 
@@ -32,9 +33,5 @@
     }
   }
 }
-//
-//:global(.slick-slide) {
-//  padding: 26px 0;
-//}
 
 
