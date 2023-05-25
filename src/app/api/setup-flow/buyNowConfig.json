@@ -1,0 +1,28 @@
+{
+  "language": "en",
+  "licenses": [
+    {
+      "price": [
+        {
+          "currency": "USD",
+          "calculatedPeriod": 7,
+          "value": 2.99
+        }
+      ],
+      "period": 180,
+      "name": "1 month",
+      "purl": "c-clario-1we-1mo-w2a-it3-1",
+      "products": [
+        83952,
+        83953
+      ],
+      "sku": [
+        "Clario_1w_1mo_3dev_w2a_it3_1_ppg",
+        "Clario_1w_1mo_3dev_absorb_w2a_it3_1_ppg"
+      ],
+      "devices": 3,
+      "selected": true,
+      "popular": true
+    }
+  ]
+}

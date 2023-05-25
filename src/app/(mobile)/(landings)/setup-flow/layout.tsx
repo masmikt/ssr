@@ -1,9 +1,11 @@
+import css from './layout.module.scss';
 import { LayoutContainer } from '@/app/(common)/components/layoutContainer';
 import { ContentWrapper } from '@/app/(common)/components/contentWrapper';
 import { MobileHeader } from '@/app/(mobile)/components/mobileHeader';
-import css from './layout.module.scss';
 
-export default function SetupFlowLayout({ children, }: { children: React.ReactNode; }) {
+export default function SetupFlowLayout({ children }: {
+    children: React.ReactNode;
+}) {
     return (
         <LayoutContainer>
             <ContentWrapper>
@@ -14,7 +16,6 @@ export default function SetupFlowLayout({ children, }: { children: React.ReactNo
                     {children}
                 </div>
             </div>
-            {/*<CookiesBanner />*/}
         </LayoutContainer>
     );
 }

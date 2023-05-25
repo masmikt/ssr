@@ -1,5 +1,5 @@
-// import Image from 'next/image'
-// import ClarioLogo from '../../../../../../public/images/common/logos/clario-logo.svg?url'
+import Image from 'next/image'
+import ClarioLogo from 'public/images/common/logos/clario-logo.svg'
 
 interface ILogo {
     className?: string;
@@ -7,8 +7,7 @@ interface ILogo {
 
 const DefaultLogo = ({ className = '' }: ILogo) => {
     return (
-        <>DefaultLogo</>
-        // <Image src={ClarioLogo} className={className} alt='Clario Logo' />
+        <Image src={ClarioLogo} className={className} alt='Clario Logo' />
     );
 };
 

@@ -1,6 +1,6 @@
 import localFont from 'next/font/local';
 import '@/app/(common)/styles/style.scss';
-import { AnalyticsBrowser } from '@segment/analytics-next';
+import { AppProviders } from '@/app/(common)/contexts';
 
 const moderat = localFont({
     variable: '--font-moderat',
@@ -34,11 +34,13 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-    const analytics = AnalyticsBrowser.load({ writeKey: 'F4ZFpKO0rJ8qnivaA7mW73eDwF6Ed6fX' });
-    analytics.track('Hello Next SSR World');
     return (
         <html lang="en" className={moderat.className}>
-        <body>{children}</body>
+        <body>
+        <AppProviders>
+            {children}
+        </AppProviders>
+        </body>
         </html>
     )
 }
