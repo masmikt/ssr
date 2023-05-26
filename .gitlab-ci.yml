@@ -30,7 +30,7 @@ build-image:
     - docker logout
   script:
     - docker build -f ./Dockerfile -t $IMAGE_FULL_PATH --build-arg VERSION=$IMAGE_VERSION --build-arg GITLAB_DEPENDENCY_KEY="$GITLAB_DEPENDENCY_KEY" .
-    - aws --profile kromtech-test ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "${REGISTRY_DOMAIN}"
+    - aws --profile testing ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "${REGISTRY_DOMAIN}"
     - docker push $IMAGE_FULL_PATH
   when: manual
   tags:
@@ -47,8 +47,8 @@ deploy testing:
     - aws --profile kromtech-test ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "${REGISTRY_DOMAIN}"
     - docker tag $IMAGE_FULL_PATH $IMAGE_LATEST_PATH
     - docker push $IMAGE_LATEST_PATH
-    - aws --profile kromtech-test ecs update-service --cluster clario-web --service w2a-next --force-new-deployment --region "${REGION}"
-    - aws --profile kromtech-test ecs wait services-stable --cluster clario-web --services w2a-next --region "${REGION}"
+    - aws --profile testing ecs update-service --cluster clario-web --service w2a-next --force-new-deployment --region "${REGION}"
+    - aws --profile testing ecs wait services-stable --cluster clario-web --services w2a-next --region "${REGION}"
   environment:
     name: testing
     url: https://next.tz.clario.co/ping
