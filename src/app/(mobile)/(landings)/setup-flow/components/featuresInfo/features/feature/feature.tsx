@@ -7,10 +7,7 @@ import { Typography, TypographyVariants } from '@/app/(common)/components/typogr
 
 export interface IFeature {
     name: string;
-    image: {
-        default: StaticImageData,
-        retina: StaticImageData;
-    };
+    image: StaticImageData;
     title: string | ReactNode;
     text: string | ReactNode;
     features: IFeaturesConfig;
@@ -19,7 +16,7 @@ export interface IFeature {
 const Feature = ({ image, title, text, features, name }: IFeature) => {
     return (
         <Section className={css['feature']} name={name}>
-            <Image src={image.retina} className={css['feature__image']} alt={name} />
+            <Image src={image} className={css['feature__image']} alt={name} />
             <Typography variant={TypographyVariants.h4} className={css['feature__title']}>
                 {title}
             </Typography>

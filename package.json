@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@bradgarropy/use-countdown": "^1.5.2",
+    "@rcnoverwatcher/react-fade-in-react-18": "^2.0.5",
     "@types/react-slick": "^0.23.10",
     "@types/uuid": "^9.0.1",
     "cookies-next": "^2.1.1",
