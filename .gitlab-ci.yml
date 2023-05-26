@@ -1,5 +1,5 @@
 image: docker:git
-
+# test
 variables:
   REGISTRY_URI: "419755633015.dkr.ecr.us-east-1.amazonaws.com/clario-web/w2a-next"
   REGISTRY_ID: "419755633015"
