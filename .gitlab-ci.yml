@@ -16,11 +16,7 @@ stages:
 ## ===== build templates =====
 .before_script_templates:
   before_script: &install_aws_cli
-    - apk --upgrade --no-cache add curl && apk --update add python3 py3-pip groff less mailcap openssl
-    - curl -o awscli-2.11.22.tar.gz https://awscli.amazonaws.com/awscli-2.11.22.tar.gz
-    - tar -xzf awscli-2.11.22.tar.gz
-    - cd awscli-2.11.22 && ./configure && make && make install && cd .. && rm -rf awscli-2.11.22
-    - rm /var/cache/apk/*
+    - apk --upgrade --no-cache add curl && apk --update add python3 py3-pip groff less mailcap openssl && pip3 install --upgrade aws-cli && apk --purge del py3-pip && rm /var/cache/apk/*
     - update-ca-certificates
 # ===== build templates end =====
 
