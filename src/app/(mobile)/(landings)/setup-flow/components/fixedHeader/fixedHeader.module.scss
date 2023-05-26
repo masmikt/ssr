@@ -1,0 +1,43 @@
+.header-fixed {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  top: -70px;
+  background: var(--white);
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  padding: 0 24px;
+  z-index: 120;
+  height: 56px;
+  transition: all .3s linear;
+
+  &.show {
+    top: 0;
+  }
+
+  &__logo {
+    width: 89px;
+    height: auto;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--white) !important;
+    text-decoration: none;
+    background-color: var(--primary-blue) !important;
+    border-radius: 60px;
+    font-size: 14px;
+    line-height: 32px;
+    text-align: center;
+    letter-spacing: -.25px;
+    width: 127px;
+    height: 32px;
+    opacity: 1;
+    visibility: visible;
+  }
+}

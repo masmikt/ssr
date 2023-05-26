@@ -1,12 +1,11 @@
 // 'use client';
 import css from './section.module.scss';
 import clsx from 'clsx';
-import { DetailedHTMLProps, HTMLAttributes, ReactNode, useRef } from 'react';
-// import { useInView } from 'react-intersection-observer';
-// import { useIntersectionObserver } from 'src/common/shared';
-// import { useMobileSendEvent } from 'src/mobile/hooks';
-// import { SetupFlowEvents, ScreenNames } from '../../constants';
-// import { useBuyNowContext } from '../../hooks';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode, useLayoutEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useSendEvent } from '@/app/(common)/shared/hooks';
+import { ScreenNames, SetupFlowEvents } from '@/app/(mobile)/(landings)/setup-flow/constants';
+import { useBuyNowContext } from '@/app/(common)/(pages)/buyNow';
 
 export enum SectionColor {
     White = 'white',
@@ -23,31 +22,31 @@ interface IBestAntiSpySection extends DetailedHTMLProps<HTMLAttributes<HTMLEleme
 }
 
 const Section = ({ className = '', children, color = SectionColor.White, name, ...rest }: IBestAntiSpySection) => {
-    // const { ref, inView, entry } = useInView({
-    //     /* Optional options */
-    //     threshold: 0,
-    // });
+    const { ref, inView, entry } = useInView({
+        /* Optional options */
+        threshold: 0,
+    });
 
-    // const { sendEvent } = useMobileSendEvent();
-    // const { isAnchorScrolling, setPricingShown } = useBuyNowContext();
+    const { sendEvent } = useSendEvent();
+    const { isAnchorScrolling, setPricingShown } = useBuyNowContext();
     //
-    // useLayoutEffect(() => {
-    //     if (!entry || !entry.isIntersecting || !name) {
-    //         return;
-    //     }
-    //
-    //     // if (name === ScreenNames.Plans) {
-    //     //     setPricingShown?.();
-    //     // }
-    //     //
-    //     // if (isAnchorScrolling) {
-    //     //     return;
-    //     // }
-    //     // sendEvent(SetupFlowEvents.ScreenShown, { screen: name })
-    // }, [entry]);
+    useLayoutEffect(() => {
+        if (!entry || !entry.isIntersecting || !name) {
+            return;
+        }
+
+        if (name === ScreenNames.Plans) {
+            setPricingShown?.();
+        }
+
+        if (isAnchorScrolling) {
+            return;
+        }
+        sendEvent(SetupFlowEvents.ScreenShown, { screen: name })
+    }, [inView]);
 
     return (
-        <section className={clsx(css['section'], css[`section--${color}`], className)} {...rest}>
+        <section className={clsx(css['section'], css[`section--${color}`], className)} {...rest} ref={ref}>
             {children}
         </section>
     );

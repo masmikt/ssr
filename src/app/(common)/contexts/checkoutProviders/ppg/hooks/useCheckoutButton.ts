@@ -17,12 +17,11 @@ export const usePPGCheckoutButton = () => {
     const handleClick = async (ev: any) => {
         ev.preventDefault();
         setIsLoading(true);
-        console.log(`!!!! handleClick`)
-        // await openCheckout?.();
-        // sendEvent(BuyNowEvents.BuyNowButtonClick, {
-        //     purl: selectedLicenseData?.purl,
-        //     planName: selectedLicenseData?.name
-        // });
+        await openCheckout?.();
+        sendEvent(BuyNowEvents.BuyNowButtonClick, {
+            purl: selectedLicenseData?.purl,
+            planName: selectedLicenseData?.name
+        });
     };
 
     return {

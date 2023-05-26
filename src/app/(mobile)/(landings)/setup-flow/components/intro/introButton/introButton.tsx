@@ -1,20 +1,18 @@
 import { useLayoutContext } from '@/app/(common)/contexts';
-import { useRef } from 'react';
+import { useLayoutEffect } from 'react';
 import { ButtonPlacements } from '@/app/(mobile)/(landings)/setup-flow/constants';
 import { ScrollButton } from '@/app/(mobile)/(landings)/setup-flow/components/scrollButton';
+import { useInView } from 'react-intersection-observer';
 
 const IntroButton = () => {
     const { setIsHeaderFixed } = useLayoutContext();
-    const ref: any = useRef<HTMLDivElement>();
-    // const entry = useIntersectionObserver(ref, {});
-    //
-    // useLayoutEffect(() => {
-    //     if (!entry) {
-    //         return;
-    //     }
-    //
-    //     setIsHeaderFixed?.(!entry.isIntersecting);
-    // }, [entry]);
+    const { ref, inView } = useInView({
+        threshold: 0,
+    });
+
+    useLayoutEffect(() => {
+        setIsHeaderFixed?.(!inView);
+    }, [inView]);
 
     return (
         <div ref={ref}>
