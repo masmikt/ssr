@@ -14,13 +14,15 @@ export const usePPGCheckoutButton = () => {
         }
     }, [isCheckoutOpen]);
 
-    const handleClick = async () => {
+    const handleClick = async (ev: any) => {
+        ev.preventDefault();
         setIsLoading(true);
-        await openCheckout?.();
-        sendEvent(BuyNowEvents.BuyNowButtonClick, {
-            purl: selectedLicenseData?.purl,
-            planName: selectedLicenseData?.name
-        });
+        console.log(`!!!! handleClick`)
+        // await openCheckout?.();
+        // sendEvent(BuyNowEvents.BuyNowButtonClick, {
+        //     purl: selectedLicenseData?.purl,
+        //     planName: selectedLicenseData?.name
+        // });
     };
 
     return {

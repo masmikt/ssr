@@ -1,0 +1,58 @@
+image: docker:git
+
+variables:
+  REGISTRY_URI: "419755633015.dkr.ecr.us-east-1.amazonaws.com/clario-web/w2a-next"
+  REGISTRY_ID: "419755633015"
+  IMAGE_VERSION: 1.0.$CI_PIPELINE_ID
+  IMAGE_FULL_PATH: $REGISTRY_URI:$CI_PIPELINE_ID
+  IMAGE_LATEST_PATH: $REGISTRY_URI:latest
+  IMAGE_STABLE_PATH: $REGISTRY_URI:stable
+  REGION: us-east-1
+
+stages:
+  - build
+  - deploy
+
+## ===== build templates =====
+.before_script_templates:
+  before_script: &install_aws_cli
+    - apk --upgrade --no-cache add curl && apk --update add python py-pip groff less mailcap openssl && pip install --upgrade awscli==1.14.5 s3cmd==2.0.1 python-magic && apk --purge del py-pip && rm /var/cache/apk/*
+    - update-ca-certificates
+# ===== build templates end =====
+
+## ===== build =====
+build-image:
+  stage: build
+  before_script: *install_aws_cli
+  after_script:
+    - docker logout
+  script:
+    - docker build -f deploy/Dockerfile -t $IMAGE_FULL_PATH --build-arg VERSION=$IMAGE_VERSION --build-arg GITLAB_DEPENDENCY_KEY="$GITLAB_DEPENDENCY_KEY" .
+    - $(aws --profile kromtech-test ecr get-login --no-include-email --region "${REGION}" --registry-ids "${REGISTRY_ID}")
+    - docker push $IMAGE_FULL_PATH
+  when: manual
+  tags:
+    - aws-runner
+    - us-east-1
+
+## ===== build end =====
+
+## ===== deploy =====
+deploy testing:
+  stage: deploy
+  before_script: *install_aws_cli
+  script:
+    - $(aws --profile kromtech-test ecr get-login --no-include-email --region "${REGION}" --registry-ids "${REGISTRY_ID}")
+    - docker tag $IMAGE_FULL_PATH $IMAGE_LATEST_PATH
+    - docker push $IMAGE_LATEST_PATH
+    - aws --profile kromtech-test ecs update-service --cluster clario-web --service w2a-next --force-new-deployment --region "${REGION}"
+    - aws --profile kromtech-test ecs wait services-stable --cluster clario-web --services w2a-next --region "${REGION}"
+  environment:
+    name: testing
+    url: https://next.tz.clario.co/ping
+  when: manual
+  tags:
+    - aws-runner
+    - us-east-1
+
+## ===== deploy end =====
