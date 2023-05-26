@@ -4,7 +4,6 @@ import {
     XBNSParams,
 } from '@/app/(common)/shared/constants';
 
-//@todo add app env variable
 export const enum CheckoutParams {
     Trt = 'x-trt',
     ProductId = 'x-product-id',

@@ -51,7 +51,7 @@ export const useCommonCheckout = (buyNowConfig: IBuyNowConfig | undefined) => {
             [CheckoutParams.CheckoutSource]: checkoutSource,
             [CheckoutParams.Ua]: getUserAgent(),
             [CheckoutParams.FbSegmentId]: getTrackingParam(TrackingParams.FbSegmentId),
-            [CheckoutParams.Env]: 'testing',
+            [CheckoutParams.Env]: 'production',
             [CheckoutParams.TypeDevice]: getTypeDevice(),
             [CheckoutParams.Fbclid]: getTrackingParam(TrackingParams.Fbclid),
             [CheckoutParams.Iteration]: iteration,
