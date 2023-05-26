@@ -29,7 +29,7 @@ build-image:
     - docker logout
   script:
     - docker build -f ./Dockerfile -t $IMAGE_FULL_PATH --build-arg VERSION=$IMAGE_VERSION --build-arg GITLAB_DEPENDENCY_KEY="$GITLAB_DEPENDENCY_KEY" .
-    - $(aws --profile kromtech-test ecr get-login --no-include-email --region "${REGION}" --registry-ids "${REGISTRY_ID}")
+    - aws --profile kromtech-test ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "${REGISTRY_ID}.dkr.ecr.${REGION}.amazonaws.com"
     - docker push $IMAGE_FULL_PATH
   when: manual
   tags:
