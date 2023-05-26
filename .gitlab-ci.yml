@@ -25,7 +25,7 @@ build-image:
   stage: build
   before_script: *install_aws_cli
   after_script:
-    - docker logoutf
+    - docker logout
   script:
     - docker build -f ./Dockerfile -t $IMAGE_FULL_PATH --build-arg VERSION=$IMAGE_VERSION --build-arg GITLAB_DEPENDENCY_KEY="$GITLAB_DEPENDENCY_KEY" .
     - $(aws --profile kromtech-test ecr get-login --no-include-email --region "${REGION}" --registry-ids "${REGISTRY_ID}")
