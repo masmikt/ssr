@@ -16,7 +16,7 @@ stages:
 ## ===== build templates =====
 .before_script_templates:
   before_script: &install_aws_cli
-    - apk --upgrade --no-cache add curl && apk --update add python py-pip groff less mailcap openssl && pip install --upgrade awscli==1.14.5 s3cmd==2.0.1 python-magic && apk --purge del py-pip && rm /var/cache/apk/*
+    - apk --upgrade --no-cache add curl && apk --update add python3 py-pip groff less mailcap openssl && pip install --upgrade awscli==1.14.5 s3cmd==2.0.1 python-magic && apk --purge del py-pip && rm /var/cache/apk/*
     - update-ca-certificates
 # ===== build templates end =====
 
@@ -25,7 +25,7 @@ build-image:
   stage: build
   before_script: *install_aws_cli
   after_script:
-    - docker logout
+    - docker logoutf
   script:
     - docker build -f ./Dockerfile -t $IMAGE_FULL_PATH --build-arg VERSION=$IMAGE_VERSION --build-arg GITLAB_DEPENDENCY_KEY="$GITLAB_DEPENDENCY_KEY" .
     - $(aws --profile kromtech-test ecr get-login --no-include-email --region "${REGION}" --registry-ids "${REGISTRY_ID}")
