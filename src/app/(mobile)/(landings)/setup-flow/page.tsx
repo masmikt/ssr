@@ -4,16 +4,19 @@ import { BuyNowContext } from '@/app/(common)/(pages)/buyNow/hooks/useBuyNowCont
 import { IntroSection } from '@/app/(mobile)/(landings)/setup-flow/components/intro';
 import PPGIframeCheckoutProvider from '@/app/(common)/contexts/checkoutProviders/ppg/iframe/iframeCheckoutProvider';
 import { Awards } from '@/app/(mobile)/(landings)/setup-flow/components/awards';
-import { TrustedBy } from '@/app/(mobile)/(landings)/setup-flow/components/trustedBy';
-import { FeaturesInfo } from '@/app/(mobile)/(landings)/setup-flow/components/featuresInfo';
-import { Support } from '@/app/(mobile)/(landings)/setup-flow/components/support';
-import InstructionsList from '@/app/(mobile)/(landings)/setup-flow/components/instructionsList/instructionsList';
-import { UserRate } from '@/app/(mobile)/(landings)/setup-flow/components/userRate';
-import { Pricing } from '@/app/(mobile)/(landings)/setup-flow/components/pricing';
-import { ProtectDevices } from '@/app/(mobile)/(landings)/setup-flow/components/protectDevices';
-import { Comments } from '@/app/(mobile)/(landings)/setup-flow/components/comments';
-import { StopSpied } from '@/app/(mobile)/(landings)/setup-flow/components/stopSpied';
-import { Footer } from '@/app/(mobile)/(landings)/setup-flow/components/footer';
+
+import dynamic from 'next/dynamic'
+const TrustedBy = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/trustedBy/trustedBy'));
+const FeaturesInfo = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/featuresInfo/featuresInfo'));
+const Support = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/support/support'));
+const InstructionsList = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/instructionsList/instructionsList'));
+const UserRate = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/userRate/userRate'));
+const Pricing = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/pricing/pricing'));
+const ProtectDevices = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/protectDevices/protectDevices'));
+const Comments = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/comments/comments'));
+const StopSpied = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/stopSpied/stopSpied'));
+const Footer = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/footer/footer'));
+
 
 async function getBuyNowConfig() {
     const res = await fetch('/api/setup-flow');

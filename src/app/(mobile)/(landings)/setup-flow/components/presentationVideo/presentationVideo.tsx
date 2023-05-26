@@ -1,5 +1,6 @@
 import css from './presentationVideo.module.scss';
 import dynamic from 'next/dynamic'
+
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 import PresentationVideoImage from './presentationVideoImage';
 
@@ -9,9 +10,9 @@ const PresentationVideo = () => {
         <div className={css["presentation-video"]}>
             <ReactPlayer
                 url={"/videos/setupFlow/setup-intro-opt.mp4"}
-                loop playing muted playsinline width="100%"
+                loop playing muted playsinline width="272px"
                 fallback={<PresentationVideoImage />}
-                height="100%" />
+                height="304px" />
         </div>
     )
 }

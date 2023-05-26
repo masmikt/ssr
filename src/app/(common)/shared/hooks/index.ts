@@ -4,3 +4,4 @@ export { useEffectAfterMount } from './useEffectAfterMount';
 export { usePlatformReporter } from './usePlatformReporter';
 export { useStorage } from './useStorage';
 export { useLockBodyScroll } from './useLockBodyScroll';
+export { usePathnameChange } from './usePathnameChange';

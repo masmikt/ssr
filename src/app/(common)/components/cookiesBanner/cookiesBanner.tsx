@@ -97,22 +97,6 @@ const CookiesBanner = ({ className }: ICookiesBanner) => {
                                 onClick={handleAccept}>
                                 Ok
                             </Button>
-                            <Button
-                                size={ButtonSize.Large}
-                                variant={ButtonVariant.Border}
-                                color={ButtonColor.Info}
-                                className={clsx(css["cookies-banner__button--desktop"], css['decline'])}
-                                onClick={handleDeclined}>
-                                Disagree
-                            </Button>
-                            <Button
-                                size={ButtonSize.Large}
-                                variant={ButtonVariant.Filled}
-                                color={ButtonColor.Info}
-                                className={clsx(css["cookies-banner__button--desktop"], css['agree'])}
-                                onClick={handleAccept}>
-                                Agree
-                            </Button>
                         </div>
                     </div>
                 </div>
