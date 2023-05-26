@@ -8,13 +8,23 @@ interface IFixedHeaderLayout {
 }
 
 const FixedHeaderLayout = ({ children }: IFixedHeaderLayout) => {
-    const { isHeaderFixed, setIsHeaderFixed, setIsRedirect } = useFixedHeaderLayout();
+    const {
+        isHeaderFixed,
+        setIsHeaderFixed,
+        setIsRedirect,
+        isAnchorScrolling,
+        setPricingShown,
+        setIsAnchorScrolling
+    } = useFixedHeaderLayout();
 
     return (
         <LayoutContext.Provider value={{
             isHeaderFixed,
             setIsHeaderFixed,
-            setIsRedirect
+            setIsRedirect,
+            isAnchorScrolling,
+            setPricingShown,
+            setIsAnchorScrolling
         }}>
             {children}
         </LayoutContext.Provider>

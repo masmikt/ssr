@@ -5,6 +5,12 @@ export const useFixedHeaderLayout = () => {
     const [isHeaderFixed, setIsHeaderFixed] = useState(false);
     const [isLandscape, setIsLandscape] = useState(false);
     const [isRedirecting, setIsRedirect] = useState(false);
+    const [shownPricing, setShownPricing] = useState<boolean>(false);
+    const [isAnchorScrolling, setIsAnchorScrolling] = useState<boolean>(false);
+
+    const setPricingShown = () => {
+        setShownPricing(true)
+    }
 
     const changeFixedHeaderState = (value: boolean) => {
         if (isLandscape || isRedirecting) {
@@ -36,5 +42,8 @@ export const useFixedHeaderLayout = () => {
         isHeaderFixed,
         setIsHeaderFixed: changeFixedHeaderState,
         setIsRedirect,
+        isAnchorScrolling,
+        setPricingShown,
+        setIsAnchorScrolling
     }
 }

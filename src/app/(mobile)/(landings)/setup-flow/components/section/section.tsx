@@ -5,7 +5,7 @@ import { DetailedHTMLProps, HTMLAttributes, ReactNode, useLayoutEffect, useRef }
 import { useInView } from 'react-intersection-observer';
 import { useSendEvent } from '@/app/(common)/shared/hooks';
 import { ScreenNames, SetupFlowEvents } from '@/app/(mobile)/(landings)/setup-flow/constants';
-import { useBuyNowContext } from '@/app/(common)/(pages)/buyNow';
+import { useLayoutContext } from '@/app/(common)/contexts';
 
 export enum SectionColor {
     White = 'white',
@@ -28,7 +28,7 @@ const Section = ({ className = '', children, color = SectionColor.White, name, .
     });
 
     const { sendEvent } = useSendEvent();
-    const { isAnchorScrolling, setPricingShown } = useBuyNowContext();
+    const { isAnchorScrolling, setPricingShown } = useLayoutContext();
     //
     useLayoutEffect(() => {
         if (!entry || !entry.isIntersecting || !name) {
