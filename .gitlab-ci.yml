@@ -19,6 +19,8 @@ stages:
     - apk --upgrade --no-cache add curl && apk --update add python3 py3-pip groff less mailcap openssl
     - curl -o awscli.tar.gz https://awscli.amazonaws.com/awscli.tar.gz
     - tar -xzf awscli.tar.gz
+    - ls -aFl
+    - exit
     - cd awscli && ./configure && make && make install
     - rm /var/cache/apk/*
     - update-ca-certificates
