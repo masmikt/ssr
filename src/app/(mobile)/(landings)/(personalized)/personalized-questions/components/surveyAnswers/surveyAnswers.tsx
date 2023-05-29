@@ -29,7 +29,7 @@ const SurveyAnswers = ({ answersConfig }: ISurveyAnswers) => {
         navigateTo,
         navigateFinishSurvey,
     } = useSetupFlow();
-    const pageAnswers = getSurveyAnswerForPage ? getSurveyAnswerForPage(pageId) : null;
+    const pageAnswers = (getSurveyAnswerForPage ? getSurveyAnswerForPage(pageId) : null) as ISurveyAnswersConfig | null;
     const { sendEvent } = useSendEvent();
     const checkedIds = useMemo(() => {
         if (!pageAnswers) {

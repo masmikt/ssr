@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 import {
     IDashboardContextConsumerContext
-} from '@/app/(mobile)/(landings)/personalized-questions/contexts/dashboardCategories/types';
+} from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/contexts/dashboardCategories/types';
 
 export const DashboardContext = createContext<IDashboardContextConsumerContext>({} as IDashboardContextConsumerContext);
 

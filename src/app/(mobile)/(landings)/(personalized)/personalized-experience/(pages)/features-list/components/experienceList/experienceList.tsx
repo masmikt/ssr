@@ -1,7 +1,7 @@
 import css from './experienceList.module.scss';
 import {
     PersonalizedExperienceFeatureList
-} from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/features-list/config';
+} from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/features-list/config';
 import Image from 'next/image';
 import { Typography, TypographyVariants } from '@/app/(common)/components/typography';
 import {

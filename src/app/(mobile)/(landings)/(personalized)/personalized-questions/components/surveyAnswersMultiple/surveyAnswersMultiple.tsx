@@ -20,7 +20,7 @@ const SurveyAnswersMultiple = ({ answersConfig }: ISurveyAnswers) => {
         getSurveyAnswerForPage,
         setSurveyAnswerForPage
     } = useSetupFlow();
-    const pageAnswers = getSurveyAnswerForPage ? getSurveyAnswerForPage(pageId) : null;
+    const pageAnswers = (getSurveyAnswerForPage ? getSurveyAnswerForPage(pageId) : null) as ISurveyAnswersConfig | null;
 
     const checkedIds = useMemo(() => {
         if (!pageAnswers) {

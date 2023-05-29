@@ -19,10 +19,16 @@ export interface ISurveyHeaderProps {
 
 const SurveyHeaderProgress = ({ title, subtitle = '', children }: ISurveyHeaderProps) => {
     const params = useParams();
-    const { pageId } = params as PersonalizedQuestionsPages | undefined;
+    const { pageId } = params as {
+        pageId: PersonalizedQuestionsPages;
+    };
     const { getSurveyPageInfo } = useSetupFlow();
     const flowInfo = useMemo(() => {
-        return getSurveyPageInfo && pageId ? getSurveyPageInfo(pageId) : null;
+        if (!getSurveyPageInfo || !pageId) {
+            return null;
+        }
+
+        return getSurveyPageInfo(pageId);
     }, [params]);
 
     return (

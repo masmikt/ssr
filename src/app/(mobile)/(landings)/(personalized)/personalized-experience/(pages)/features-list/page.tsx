@@ -3,9 +3,9 @@ import Image from 'next/image'
 import css from './page.module.scss';
 import { Typography, TypographyVariants } from '@/app/(common)/components/typography';
 import ExperienceList
-    from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/features-list/components/experienceList/experienceList';
+    from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/features-list/components/experienceList/experienceList';
 import FeaturesExperienceButton
-    from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/features-list/components/expirienceButton/expirienceButton';
+    from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/features-list/components/expirienceButton/expirienceButton';
 
 const Page = () => {
     return (

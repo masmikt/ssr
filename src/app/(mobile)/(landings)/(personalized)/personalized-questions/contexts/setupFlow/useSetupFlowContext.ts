@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { ISetupFlowConsumerContext } from '@/app/(mobile)/(landings)/personalized-questions/types';
+import { ISetupFlowConsumerContext } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/types';
 
 export const SetupFlowContext = createContext<ISetupFlowConsumerContext>({} as ISetupFlowConsumerContext);
 

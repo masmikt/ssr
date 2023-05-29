@@ -8,7 +8,10 @@ import { PersonalizedQuestionsEvents } from '@/app/(mobile)/(landings)/(personal
 import { SurveyFinished } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/hooks/useSurveyConfig';
 import clsx from 'clsx';
 import { MobileLandingRoutesList } from '@/app/(mobile)/(landings)/pageList';
-import { ISetupFlowPagesParams } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/types';
+import {
+    ISetupFlowPagesParams,
+    ISurveyAnswersConfig
+} from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/types';
 
 class ButtonActions {
 }
@@ -33,7 +36,7 @@ const SurveyButton = ({ action, disabled = false, children, ...props }: ISurveyB
     const { sendEvent } = useSendEvent();
     const [hideButton, setHideButton] = useState(false);
     const answers = useMemo(() => {
-        return getSurveyAnswerForPage ? getSurveyAnswerForPage(pageId) : null;
+        return (getSurveyAnswerForPage ? getSurveyAnswerForPage(pageId) : null) as ISurveyAnswersConfig | null;
     }, [pageId, getSurveyAnswerForPage]);
     const isDisabled = useMemo(() => {
         return disabled || isNavigating || !answers?.length;

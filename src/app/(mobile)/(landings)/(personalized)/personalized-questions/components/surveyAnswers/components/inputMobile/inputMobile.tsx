@@ -1,6 +1,6 @@
 import { ChangeEvent, FC } from 'react';
 import css from './inputMobile.module.scss';
-import { ISurveyAnswerConfig } from '@/app/(mobile)/(landings)/personalized-questions/types';
+import { ISurveyAnswerConfig } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/types';
 
 interface IInputMobile {
     inputAnswer: ISurveyAnswerConfig;
