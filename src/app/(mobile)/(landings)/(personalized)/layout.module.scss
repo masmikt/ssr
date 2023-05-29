@@ -6,13 +6,14 @@
   &__content {
     width: 100%;
     overflow: hidden;
-    padding: 0 var(--space-s);
+    padding: 0;
   }
 
   &__header {
     height: 56px;
     padding-top: 0 !important;
     justify-content: center !important;
+    z-index: 2;
 
     &-wrapper {
       height: 56px !important;

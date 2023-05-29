@@ -1,5 +1,4 @@
 import { Swiper as SwiperClass } from 'swiper/types';
-import { useRouter } from 'next/router';
 import {
     useExperienceContext
 } from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/contexts/experience/useExperienceContext';
@@ -9,26 +8,44 @@ import {
 } from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/pagesList';
 import { useSendEvent } from '@/app/(common)/shared/hooks';
 import { PersonalizedExperienceEvents } from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/events';
-import { useParams } from 'next/navigation';
-import { useState } from 'react';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { usePPGIframeCheckoutContext } from '@/app/(common)/contexts/checkoutProviders';
+import {
+    FeaturesConfig,
+    IFeaturesConfigItem
+} from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/feature/config';
+import { MobileLandingRoutesList } from '@/app/(mobile)/(landings)/pageList';
+import { BuyNowEvents } from '@/app/(common)/(pages)/buyNow';
 
 const NavigateDirection = {
     prev: 'prev',
     next: 'next',
 };
 
-export const useFeatureSlide = () => {
+export const useFeature = () => {
     const { experiencePagesList } = useExperienceContext();
+    const searchParams = useSearchParams();
     const router = useRouter();
     const params = useParams();
-    const { pageId } = params as {pageId: PersonalizedExperienceFeaturesPages};
+    const { pageId } = params as { pageId: PersonalizedExperienceFeaturesPages };
+    const [config, setConfig] = useState<null | IFeaturesConfigItem>(null);
     const { sendEvent } = useSendEvent();
     const currIndex = experiencePagesList.indexOf(pageId);
     const nextNavigateIndex = currIndex + 1;
     const isRedirectToCheckout = nextNavigateIndex >= experiencePagesList.length;
     const [isLoading, setIsLoading] = useState(false);
     const { openCheckout, isCheckoutOpen } = usePPGIframeCheckoutContext();
+
+    useEffect(() => {
+        const newConfig = FeaturesConfig[pageId as PersonalizedExperienceFeaturesPages];
+
+        if (!newConfig) {
+            return;
+        }
+
+        setConfig(newConfig);
+    }, [pageId]);
 
 
     const navigatePrev = () => {
@@ -58,6 +75,18 @@ export const useFeatureSlide = () => {
         });
     };
 
+    const handleNextClick = async () => {
+        navigateNext();
+        if (isRedirectToCheckout) {
+            sendEvent(BuyNowEvents.BuyNowButtonClick);
+            return;
+        }
+        sendEvent(PersonalizedExperienceEvents.FeatureNextClick, {
+            pageName: pageId,
+            nextPage: experiencePagesList[nextNavigateIndex],
+        });
+    };
+
     const navigateNext = () => {
         if (isRedirectToCheckout) {
             setIsLoading(true);
@@ -65,13 +94,19 @@ export const useFeatureSlide = () => {
             return;
         }
 
-        const nextPage = experiencePagesList[nextNavigateIndex];
-//@todo add push
+        const nextFlowPage = experiencePagesList[nextNavigateIndex];
+        const searchParamsData = searchParams.toString() || '';
+        const nextPage = `${MobileLandingRoutesList.PersonalizedExperienceMobile}/${PersonalizedExperiencePages.Feature}/${nextFlowPage}${searchParamsData.length ? `?${searchParamsData}` : ''}`;
+        router.push(nextPage);
     };
 
 
     return {
-        handleFeatureSwipe
+        handleFeatureSwipe,
+        config,
+        isLoading,
+        handleNextClick,
+        isRedirectToCheckout
     }
 
 }

@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useMemo } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import Image from 'next/image'
 import css from './awards.module.scss';
 import Slider from "react-slick";
@@ -15,7 +15,7 @@ interface AwardsSectionProps {
     type?: 'black' | 'white';
 }
 
-const Awards: FC<AwardsSectionProps> = memo(({ type = 'black' }) => {
+const Awards = ({ type = 'black' }: AwardsSectionProps) => {
     const { sendEvent } = useSendEvent();
     const awardsConfig = useMemo(() => {
         let commonAwards = [AwardsList[AwardsNames.GoldenKitty], AwardsList[AwardsNames.MacWorld]];
@@ -62,7 +62,7 @@ const Awards: FC<AwardsSectionProps> = memo(({ type = 'black' }) => {
                 ))}
             </Slider>
         </Section>)
-});
+};
 
 Awards.displayName = 'Awards';
 export default Awards;

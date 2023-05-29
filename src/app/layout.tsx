@@ -33,6 +33,9 @@ const moderat = localFont({
 
 export const metadata = {
     title: 'Clario',
+    icons: {
+        icon: '../../public/images/favicon.ico',
+    },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

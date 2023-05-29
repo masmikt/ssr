@@ -30,7 +30,6 @@ const CheckoutButton = ({ children = 'Protect me now', className, }: ICheckoutBu
                     height={47}
                     alt='Loading' />
                 : children}
-
         </Button>
     )
 }
