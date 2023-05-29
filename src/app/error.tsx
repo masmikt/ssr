@@ -1,5 +1,4 @@
 'use client';
-import { useEffect } from 'react';
 import css from './error.module.scss';
 import { clsx } from 'clsx';
 import Image from 'next/image'
@@ -10,13 +9,8 @@ export default function Error({ error, reset }: {
     error: Error;
     reset: () => void;
 }) {
-    useEffect(() => {
-        // Log the error to an error reporting service
-        console.error(error);
-    }, [error]);
-
     return (
-        <div className="error-screen__layout">
+        <div>
             <div className={clsx(css['error-screen__container'])}>
                 <Image src={ErrorFallbackImage} className={css['error-screen__image']} alt='error dog' />
                 <Typography

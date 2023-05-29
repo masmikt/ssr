@@ -4,7 +4,7 @@ import css from './presentationVideo.module.scss';
 
 const PresentationVideoImage = () => {
     return (
-        <Image src={VideoFallbackImage} alt="video bg" className={css['presentation-video__image']} />
+        <Image src={VideoFallbackImage} alt="video bg" className={css['presentation-video__image']} priority={true} />
     );
 }
 
