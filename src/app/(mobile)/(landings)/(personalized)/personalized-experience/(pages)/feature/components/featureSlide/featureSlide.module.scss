@@ -1,0 +1,23 @@
+.feature {
+  &__info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 325px;
+    flex-shrink: 0;
+  }
+
+  &__info-item {
+
+  }
+
+  &__img {
+    width: 272px;
+    height: 325px;
+
+    &-wrapper {
+      display: flex;
+    }
+  }
+}
