@@ -1,3 +1,4 @@
+"use client";
 import { memo, useEffect, useState } from 'react';
 import css from './page.module.scss';
 import { useSetupFlow } from '@/app/(mobile)/(landings)/personalized-questions/contexts';
