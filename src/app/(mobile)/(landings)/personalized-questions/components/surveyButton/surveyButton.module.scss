@@ -1,0 +1,32 @@
+.survey-button {
+  position: absolute;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 70px;
+  cursor: pointer;
+  background-color: var(--primary-blue) !important;
+  color: var(--white) !important;
+  width: 272px;
+  height: 48px;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  flex-shrink: 0;
+  bottom: 20px;
+  transition: transform 0.3s ease-in 0s;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: #524bff !important;
+    }
+  }
+
+  &--hide {
+    opacity: 0;
+    visibility: hidden;
+    bottom: 0;
+    z-index: 2;
+  }
+}

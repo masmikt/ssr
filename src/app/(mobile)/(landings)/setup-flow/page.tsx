@@ -3,7 +3,6 @@ import { IntroSection } from '@/app/(mobile)/(landings)/setup-flow/components/in
 import { Awards } from '@/app/(mobile)/(landings)/setup-flow/components/awards';
 
 import dynamic from 'next/dynamic'
-
 const TrustedBy = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/trustedBy/trustedBy'));
 const FeaturesInfo = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/featuresInfo/featuresInfo'));
 const Support = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/support/support'));

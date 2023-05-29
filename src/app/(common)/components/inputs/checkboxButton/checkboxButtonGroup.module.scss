@@ -1,0 +1,27 @@
+.checkbox-button-group {
+  &__fieldset {
+    border: none;
+    display: flex;
+    width: 100%;
+  }
+
+  &__legend {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0;
+    font-weight: 700;
+    color: var(--primary-dark-blue);
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    min-width: 248px;
+  }
+
+  &__input {
+    margin-bottom: var(--space-s);
+  }
+}
+

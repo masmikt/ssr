@@ -1,0 +1,46 @@
+.survey {
+  &__container {
+    width: 100%;
+  }
+
+  &__progress-wrapper {
+    margin: 0 auto var(--space-s);
+  }
+
+  &__step-progress {
+    margin-top: var(--space-xs);
+    margin-left: auto;
+  }
+
+  &__text-wrapper {
+    max-width: 290px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+  }
+
+  &__subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    margin-top: 6px;
+  }
+
+  &__title {
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: -0.417021px;
+    text-align: center;
+    display: block;
+    max-width: 290px;
+
+    &--highlighted {
+      color: var(--primary-blue);
+      white-space: pre-line;
+    }
+  }
+}

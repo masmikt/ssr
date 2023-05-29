@@ -1,0 +1,13 @@
+.survey {
+  &__title {
+    font-size: 22px;
+    line-height: 30px;
+    letter-spacing: -0.417021px;
+    text-align: center;
+    display: block;
+
+    &--highlighted {
+      color: var(--primary-blue);
+    }
+  }
+}

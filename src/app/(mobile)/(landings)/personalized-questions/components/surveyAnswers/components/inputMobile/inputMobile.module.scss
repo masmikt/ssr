@@ -1,0 +1,17 @@
+.input-mobile {
+  margin-top: var(--space-s);
+  display: block;
+  width: 100%;
+  background-color: var(--white);
+  font-size: var(--space-s);
+  line-height: 22px;
+  letter-spacing: -0.248889px;
+  transition: all 0.3s linear 0s;
+  color: var(--primary-dark-blue);
+  padding: 18px 32px;
+  border: 1px solid var(--primary-dark-blue);
+  border-radius: 32px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+  outline: none;
+}

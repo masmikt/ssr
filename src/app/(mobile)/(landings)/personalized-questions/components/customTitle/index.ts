@@ -1,0 +1,1 @@
+export { CustomLocationTitle } from './location';

@@ -1,0 +1,21 @@
+.personalized-layout {
+  &__wrapper {
+    flex: 1 1 auto;
+  }
+
+  &__content {
+    width: 100%;
+    overflow: hidden;
+    padding: 0 var(--space-s);
+  }
+
+  &__header {
+    height: 56px;
+    padding-top: 0 !important;
+    justify-content: center !important;
+
+    &-wrapper {
+      height: 56px !important;
+    }
+  }
+}

@@ -1,10 +1,10 @@
 'use client';
 import css from './page.module.scss';
-import clsx from 'clsx';
-import Image from 'next/image'
 import { ProgressBar } from '@/app/(common)/progressBar';
 import { Typography, TypographyComponents, TypographyVariants } from '@/app/(common)/components/typography';
-import { TopicsListConfig } from '@/app/(mobile)/(landings)/personalized-questions/config';
+import dynamic from 'next/dynamic'
+
+const DashboardCategories = dynamic(() => import('@/app/(mobile)/(landings)/personalized-questions/components/dashboardCategories/dashboardCategories'));
 
 export default async function PersonalizedQuestionsDashboard() {
     return (
@@ -22,22 +22,7 @@ export default async function PersonalizedQuestionsDashboard() {
                 <Typography variant={TypographyVariants.p2} className={css['dashboard__subtitle']}>
                     Pick as many options as you want.
                 </Typography>
-                <div className={css['dashboard__list']}>
-                    {TopicsListConfig.map(({ key, label, img }) => (
-                        <li
-                            className={clsx(css['dashboard__item'], {
-                                // [css.active]: activeTopics[key],
-                            })}
-                            key={label}
-                            // onClick={() => handleTopicClick(key)}
-                        >
-                            <Image className={css['dashboard__img']} src={img} alt={label} width={24} height={24} />
-                            <Typography className={css['dashboard__label']} variant={TypographyVariants.p2}>
-                                {label}
-                            </Typography>
-                        </li>))
-                    }
-                </div>
+                <DashboardCategories />
             </div>
         </div>
     );

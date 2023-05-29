@@ -2,7 +2,6 @@ import { Section, SectionColor } from '../section';
 import css from './support.module.scss';
 import Image from 'next/image'
 import clsx from 'clsx';
-import SupportImageRetina from 'public/images/mobile/landings/setupFlow/support/support-image@2x.webp';
 import { ScrollButton } from '../scrollButton';
 import { ButtonPlacements, ScreenNames } from '../../constants';
 import { Typography, TypographyVariants } from '@/app/(common)/components/typography';
@@ -24,7 +23,9 @@ const Support = () => {
                 </Typography>
             </div>
             <Image
-                src={SupportImageRetina} alt="support image"
+                width={327}
+                height={603}
+                src='/images/mobile/landings/setupFlow/support/support-image@2x.webp' alt="support image"
                 className={css['support__image']} />
             <ButtonWrapper className={css['support__button']}>
                 <ScrollButton placement={ButtonPlacements.Experts}>

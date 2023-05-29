@@ -1,12 +1,11 @@
-import SpywareDetectorImage from 'public/images/mobile/landings/setupFlow/features/spyware-detector.webp';
 import Identity from 'public/images/common/features/identity.svg';
 import Alert from 'public/images/common/features/alert.svg';
 import Quarantining from 'public/images/common/features/quarantining.svg';
-import { ScreenNames } from '../../../../constants';
+import { ScreenNames } from '@/app/(mobile)/(landings)/setup-flow/constants';
 
 export const SpywareFeatureConfig = {
     name: ScreenNames.SpywareDetector,
-    image: SpywareDetectorImage,
+    image: '/images/mobile/landings/setupFlow/features/spyware-detector.webp',
     title: 'Spyware detector',
     text: 'Find apps secretly spying on you and your data.',
     features: [

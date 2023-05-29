@@ -19,7 +19,7 @@ const TrustedBy = () => {
             </div>
         </Section>
     )
-
 }
+
 TrustedBy.displayName = 'TrustedBy';
 export default TrustedBy;
