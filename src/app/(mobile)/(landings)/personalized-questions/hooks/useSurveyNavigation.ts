@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { NavigateOptions } from 'next/dist/shared/lib/app-router-context';
 import { MobileLandingRoutesList } from '@/app/(mobile)/(landings)/pageList';
 
@@ -9,7 +9,7 @@ export enum NavigationTypes {
 }
 
 export const useSurveyNavigation = () => {
-    const router = useRouter();
+    // const router = useRouter();
     const [isNavigating, setIsNavigating] = useState(false);
     // const { locationHistory, setLocationHistory } = useRouter();
 
@@ -28,8 +28,8 @@ export const useSurveyNavigation = () => {
             //     }
             // }
             navigationPath = (getNavigationPath((navigationPath as string | null)));
-            const navigationPathWithParams = navigationPath + router.query;
-            router.push(navigationPathWithParams);
+            // const navigationPathWithParams = navigationPath + router.query;
+            // router.push(navigationPathWithParams);
         }, delay);
     }
 

@@ -7,7 +7,7 @@ import { useMemo, useState } from 'react';
 import { PersonalizedQuestionsEvents } from '@/app/(mobile)/(landings)/personalized-questions/events';
 import { SurveyFinished } from '@/app/(mobile)/(landings)/personalized-questions/hooks/useSurveyConfig';
 import clsx from 'clsx';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { MobileLandingRoutesList } from '@/app/(mobile)/(landings)/pageList';
 import { ISetupFlowPagesParams } from '@/app/(mobile)/(landings)/personalized-questions/types';
 
@@ -20,7 +20,7 @@ export interface ISurveyButton extends IButton {
 }
 
 const SurveyButton = ({ action, disabled = false, children, ...props }: ISurveyButton) => {
-    const router = useRouter();
+    // const router = useRouter();
     const params = useParams();
     const { pageId } = params as ISetupFlowPagesParams;
     const {
@@ -71,7 +71,7 @@ const SurveyButton = ({ action, disabled = false, children, ...props }: ISurveyB
         })
         if (nextPage === SurveyFinished) {
             sendEvent(PersonalizedQuestionsEvents.OpenPersonalizedExperienceClick, { pageName: pageId });
-            router.push({ pathname: MobileLandingRoutesList.PersonalizedExperienceMobile, query: router.query });
+            // router.push({ pathname: MobileLandingRoutesList.PersonalizedExperienceMobile, query: router.query });
         } else {
             navigateTo(nextPage);
         }
