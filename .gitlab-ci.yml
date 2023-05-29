@@ -8,6 +8,7 @@ variables:
   IMAGE_FULL_PATH: $REGISTRY_URI:$CI_PIPELINE_ID
   IMAGE_LATEST_PATH: $REGISTRY_URI:latest
   IMAGE_STABLE_PATH: $REGISTRY_URI:stable
+  DISTRIBUTION_ID: "E7ATHI7LBWTHH"
   REGION: us-east-1
 
 stages:
@@ -49,6 +50,7 @@ deploy testing:
     - docker push $IMAGE_LATEST_PATH
     - aws --profile testing ecs update-service --cluster clario-web --service w2a-next --force-new-deployment --region "${REGION}"
     - aws --profile testing ecs wait services-stable --cluster clario-web --services w2a-next --region "${REGION}"
+    - aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths "/*"
   environment:
     name: testing
     url: https://next.tz.clario.co/ping

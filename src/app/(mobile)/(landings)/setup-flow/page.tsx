@@ -3,6 +3,7 @@ import { IntroSection } from '@/app/(mobile)/(landings)/setup-flow/components/in
 import { Awards } from '@/app/(mobile)/(landings)/setup-flow/components/awards';
 
 import dynamic from 'next/dynamic'
+
 const TrustedBy = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/trustedBy/trustedBy'));
 const FeaturesInfo = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/featuresInfo/featuresInfo'));
 const Support = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/support/support'));
@@ -17,19 +18,19 @@ const Footer = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/compon
 
 export default async function SetupFlow() {
     return (
-        <main>
-            <IntroSection />
-            <Awards />
-            <TrustedBy />
-            <FeaturesInfo />
-            <Support />
-            <InstructionsList />
-            <UserRate />
-            <Pricing />
-            <ProtectDevices />
-            <Comments />
-            <StopSpied />
-            <Footer />
-        </main>
+            <main>
+                <IntroSection />
+                <Awards />
+                <TrustedBy />
+                <FeaturesInfo />
+                <Support />
+                <InstructionsList />
+                <UserRate />
+                <Pricing />
+                <ProtectDevices />
+                <Comments />
+                <StopSpied />
+                <Footer />
+            </main>
     );
 }
