@@ -1,4 +1,3 @@
-import { PersonalizedExperienceFeaturesPages } from '../pagesList';
 import SpywareDetector from 'images/mobile/landings/personalizedExperience/spyware-detector.webp';
 import SpywareDetector2x from 'images/mobile/landings/personalizedExperience/spyware-detector@2x.webp';
 import MediaProtection from 'images/mobile/landings/personalizedExperience/media-protection.webp';
@@ -9,6 +8,9 @@ import CallRecorderBlocker from 'images/mobile/landings/personalizedExperience/c
 import CallRecorderBlocker2x from 'images/mobile/landings/personalizedExperience/call-recorder-blocker@2x.webp';
 import ScreenRecorderBlocker from 'images/mobile/landings/personalizedExperience/screen-recorder-blocker.webp';
 import ScreenRecorderBlocker2x from 'images/mobile/landings/personalizedExperience/screen-recorder-blocker@2x.webp';
+import {
+    PersonalizedExperienceFeaturesPages
+} from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/pagesList';
 
 
 interface IFeatureImages {
@@ -23,7 +25,7 @@ export interface IFeaturesConfigItem {
     images: IFeatureImages;
 }
 
-export const FeaturesConfig: Record<PersonalizedExperienceFeaturesPages, IFeaturesConfigItem> = {
+export const FeaturesConfig: any = {
     [PersonalizedExperienceFeaturesPages.SpywareDetector]: {
         title: 'Spyware detector',
         subtitle: 'Find apps secretly spying on you.',

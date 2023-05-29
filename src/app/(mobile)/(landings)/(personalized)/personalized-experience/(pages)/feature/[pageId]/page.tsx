@@ -9,8 +9,7 @@ import FeatureButton
     from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/feature/components/featureButton/featureButton';
 
 
-const FeatureItem = ({ data }) => {
-    console.log(`!!! Data`, data);
+const FeatureItem = () => {
     // const { experiencePagesList } = useExperienceContext();
     // const { pageId } = useParams<FeaturePageParams>();
     // const [config, setConfig] = useState<null | IFeaturesConfigItem>(null);

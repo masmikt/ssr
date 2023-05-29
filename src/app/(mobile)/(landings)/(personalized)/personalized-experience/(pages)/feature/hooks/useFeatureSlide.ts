@@ -4,6 +4,7 @@ import {
     useExperienceContext
 } from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/contexts/experience/useExperienceContext';
 import {
+    PersonalizedExperienceFeaturesPages,
     PersonalizedExperiencePages
 } from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/pagesList';
 import { useSendEvent } from '@/app/(common)/shared/hooks';
@@ -21,7 +22,7 @@ export const useFeatureSlide = () => {
     const { experiencePagesList } = useExperienceContext();
     const router = useRouter();
     const params = useParams();
-    const { pageId } = params;
+    const { pageId } = params as {pageId: PersonalizedExperienceFeaturesPages};
     const { sendEvent } = useSendEvent();
     const currIndex = experiencePagesList.indexOf(pageId);
     const nextNavigateIndex = currIndex + 1;
