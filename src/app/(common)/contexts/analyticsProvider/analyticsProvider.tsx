@@ -16,10 +16,6 @@ export const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
     const writeKey = getSegmentKey();
 
     const analytics = React.useMemo(() => {
-        console.log(
-            `AnalyticsBrowser loading...`,
-            JSON.stringify({ writeKey })
-        )
         return AnalyticsBrowser.load({ writeKey })
     }, [writeKey]);
 

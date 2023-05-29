@@ -1,0 +1,19 @@
+.features-list {
+  &__list {
+    display: flex;
+    gap: var(--space-s);
+    flex-direction: column;
+    padding-bottom: var(--space-2xl);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs)
+  }
+
+  &__img {
+    width: 16px;
+    height: 16px;
+  }
+}

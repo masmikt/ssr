@@ -1,0 +1,15 @@
+.features-list {
+  &__button {
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 136px);
+    flex-shrink: 0;
+    opacity: 1;
+  }
+
+  @media (orientation: landscape) {
+    &__button {
+      position: relative;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import VideoFallbackImage from 'public/images/mobile/landings/setupFlow/find-spyware-video-img.webp';
+import VideoFallbackImage from 'public/images/mobile/landings/setup-flow/find-spyware-video-img.webp';
 import css from './presentationVideo.module.scss';
 
 const PresentationVideoImage = () => {

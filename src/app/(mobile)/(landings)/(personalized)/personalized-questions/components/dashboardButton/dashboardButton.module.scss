@@ -1,0 +1,32 @@
+.dashboard {
+  &__button-wrapper {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    bottom: 0;
+    z-index: 2;
+    transition: all 0.3s ease-in 0s;
+
+    &.active {
+      bottom: 20px;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 70px;
+    cursor: pointer;
+    background-color: var(--primary-blue) !important;
+    color: var(--white) !important;
+    width: 272px;
+    height: 48px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+}

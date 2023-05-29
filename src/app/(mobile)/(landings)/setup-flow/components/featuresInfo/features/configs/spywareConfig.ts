@@ -5,7 +5,7 @@ import { ScreenNames } from '@/app/(mobile)/(landings)/setup-flow/constants';
 
 export const SpywareFeatureConfig = {
     name: ScreenNames.SpywareDetector,
-    image: '/images/mobile/landings/setupFlow/features/spyware-detector.webp',
+    image: '/images/mobile/landings/setup-flow/features/spyware-detector.webp',
     title: 'Spyware detector',
     text: 'Find apps secretly spying on you and your data.',
     features: [

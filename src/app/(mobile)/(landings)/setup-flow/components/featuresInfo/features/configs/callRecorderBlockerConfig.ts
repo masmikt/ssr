@@ -5,7 +5,7 @@ import { ScreenNames } from '@/app/(mobile)/(landings)/setup-flow/constants';
 
 export const CallRecorderBlockerFeatureConfig = {
     name: ScreenNames.CallRecorderBlocker,
-    image: '/images/mobile/landings/setupFlow/features/call-recorder-blocker.webp',
+    image: '/images/mobile/landings/setup-flow/features/call-recorder-blocker.webp',
     title: 'Call recording protection',
     text: 'Prevent your calls and chats from being secretly tapped.',
     features: [

@@ -6,7 +6,7 @@ import { ScreenNames } from '@/app/(mobile)/(landings)/setup-flow/constants';
 
 export const SocialMediaProtectionFeatureConfig = {
     name: ScreenNames.SocialMediaProtection,
-    image: '/images/mobile/landings/setupFlow/features/social-media-protection.webp',
+    image: '/images/mobile/landings/setup-flow/features/social-media-protection.webp',
     title: 'Social media protection',
     text: 'Easily avoid social media account hacks.',
     features: [
