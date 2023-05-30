@@ -22,7 +22,7 @@ stages:
 # ===== build templates end =====
 
 ## ===== build =====
-.build-image:
+build-image-testing:
   stage: build
   before_script: *install_aws_cli
   after_script:
@@ -32,19 +32,24 @@ stages:
     - aws --profile testing ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "${REGISTRY_DOMAIN}"
     - docker push $IMAGE_FULL_PATH
   when: manual
-  tags:
-    - aws-runner
-    - us-east-1
-
-build-image-testing:
-  extends: .build-image
   environment:
     name: testing
 
 build-image-staging:
-  extends: .build-image
+  stage: build
+  before_script: *install_aws_cli
+  after_script:
+    - docker logout
+  script:
+    - docker build -f ./Dockerfile -t $IMAGE_FULL_PATH --build-arg VERSION=$IMAGE_VERSION .
+    - aws --profile testing ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "${REGISTRY_DOMAIN}"
+    - docker push $IMAGE_FULL_PATH
+  when: manual
   environment:
     name: staging
+  tags:
+    - aws-runner
+    - us-east-1
 
 ## ===== build end =====
 
