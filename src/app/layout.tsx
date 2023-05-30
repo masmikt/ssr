@@ -1,6 +1,6 @@
 import localFont from 'next/font/local';
 import '@/app/(common)/styles/style.scss';
-// import { AppProviders } from '@/app/(common)/contexts';
+import { AppProviders } from '@/app/(common)/contexts';
 
 const moderat = localFont({
     variable: '--font-moderat',
@@ -42,9 +42,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en" className={moderat.className}>
         <body>
-        {/*<AppProviders>*/}
+        <AppProviders>
             {children}
-        {/*</AppProviders>*/}
+        </AppProviders>
         </body>
         </html>
     )
