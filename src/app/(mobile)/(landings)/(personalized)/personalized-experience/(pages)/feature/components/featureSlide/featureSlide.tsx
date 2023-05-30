@@ -36,6 +36,7 @@ const FeatureSlide = () => {
                             height={325}
                             src={config.images}
                             alt={config.title}
+                            priority
                         />
                     </FadeIn>
                 </SwiperSlide>

@@ -9,8 +9,11 @@ import { LayoutContainer } from '@/app/(common)/components/layoutContainer';
 import { ContentWrapper } from '@/app/(common)/components/contentWrapper';
 import { MobileHeader } from '@/app/(mobile)/components/mobileHeader';
 import css from './layout.module.scss';
-import { FixedHeader } from '@/app/(mobile)/(landings)/setup-flow/components/fixedHeader';
 import { CookiesBanner } from '@/app/(common)/components/cookiesBanner';
+
+const FixedHeader = dynamic(() => import("@/app/(mobile)/(landings)/setup-flow/components/fixedHeader/fixedHeader"), {
+    ssr: false,
+});
 
 const Awards = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/awards/awards'));
 const TrustedBy = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/trustedBy/trustedBy'));
