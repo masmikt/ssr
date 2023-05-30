@@ -7,35 +7,31 @@ const moderat = localFont({
     display: 'swap',
     src: [
         {
-            path: '../../public/fonts/Moderat-Regular.otf',
+            path: '../../public/fonts/Moderat-Regular.woff2',
             weight: '400',
             style: 'normal',
 
         },
         {
-            path: '../../public/fonts/Moderat-Medium.otf',
+            path: '../../public/fonts/Moderat-Medium.woff2',
             weight: '500',
             style: 'normal',
         },
         {
-            path: '../../public/fonts/Moderat-Light.otf',
+            path: '../../public/fonts/Moderat-Light.woff2',
             weight: '300',
             style: 'normal',
         },
         {
-            path: '../../public/fonts/Moderat-Bold.otf',
+            path: '../../public/fonts/Moderat-Bold.woff2',
             weight: '700',
             style: 'normal',
         },
     ],
 });
 
-
 export const metadata = {
     title: 'Clario',
-    icons: {
-        icon: '../../public/images/favicon.ico',
-    },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -75,7 +75,6 @@ export const useFeature = () => {
     };
 
     const handleNextClick = async () => {
-        console.log(`!!! navigateNext`)
         navigateNext();
         if (isRedirectToCheckout) {
             sendEvent(BuyNowEvents.BuyNowButtonClick);
