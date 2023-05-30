@@ -37,12 +37,12 @@ stages:
     - us-east-1
 
 build-image-testing:
-  extends: .build
+  extends: .build-image
   environment:
     name: testing
 
 build-image-staging:
-  extends: .build
+  extends: .build-image
   environment:
     name: testing
 
