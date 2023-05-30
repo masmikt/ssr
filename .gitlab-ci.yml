@@ -63,8 +63,7 @@ deploy testing:
   environment:
     name: testing
     url: https://next.tz.clario.co/ping
-  dependencies:
-    - build-image
+  needs: ['build-image']
 
 deploy staging:
   stage: deploy
@@ -85,7 +84,6 @@ deploy staging:
   environment:
     name: staging
     url: https://next.sz.clario.co/ping
-  dependencies:
-    - build-image
+  needs: ['build-image']
 
 ## ===== deploy end =====
