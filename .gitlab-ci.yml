@@ -29,7 +29,7 @@ build-image:
     - docker logout
   script:
     - docker build -f ./Dockerfile -t $IMAGE_FULL_PATH --build-arg VERSION=$IMAGE_VERSION .
-    - aws --profile testing ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "${REGISTRY_DOMAIN}"
+    - aws ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "${REGISTRY_DOMAIN}"
     - docker push $IMAGE_FULL_PATH
   when: manual
   environment:
