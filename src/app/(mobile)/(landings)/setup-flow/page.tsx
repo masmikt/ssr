@@ -1,5 +1,7 @@
 "use client";
+import { Suspense } from 'react';
 import dynamic from 'next/dynamic'
+import { Loader } from '@/app/(common)/components/loader';
 
 const IntroSection = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/intro/intro'));
 const Awards = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/awards/awards'));
@@ -17,19 +19,21 @@ const Footer = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/compon
 
 export default async function SetupFlow() {
     return (
-        <main>
-            <IntroSection />
-            <Awards />
-            <TrustedBy />
-            <FeaturesInfo />
-            <Support />
-            <InstructionsList />
-            <UserRate />
-            <Pricing />
-            <ProtectDevices />
-            <Comments />
-            <StopSpied />
-            <Footer />
-        </main>
+        <Suspense fallback={<Loader />}>
+            <main>
+                <IntroSection />
+                <Awards />
+                <TrustedBy />
+                <FeaturesInfo />
+                <Support />
+                <InstructionsList />
+                <UserRate />
+                <Pricing />
+                <ProtectDevices />
+                <Comments />
+                <StopSpied />
+                <Footer />
+            </main>
+        </Suspense>
     );
 }
