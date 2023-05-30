@@ -3,7 +3,8 @@ import { Suspense } from 'react';
 import dynamic from 'next/dynamic'
 import { Loader } from '@/app/(common)/components/loader';
 
-const IntroSection = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/intro/intro'));
+import { IntroSection } from '@/app/(mobile)/(landings)/setup-flow/components/intro';
+
 const Awards = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/awards/awards'));
 const TrustedBy = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/trustedBy/trustedBy'));
 const FeaturesInfo = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/featuresInfo/featuresInfo'));
