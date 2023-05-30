@@ -22,7 +22,7 @@ stages:
 # ===== build templates end =====
 
 ## ===== build =====
-build-image:
+.build-image:
   stage: build
   before_script: *install_aws_cli
   after_script:
@@ -36,14 +36,13 @@ build-image:
     - aws-runner
     - us-east-1
 
-
 build-image-testing:
-  extends: .deploy
+  extends: .build
   environment:
     name: testing
 
 build-image-staging:
-  extends: .deploy
+  extends: .build
   environment:
     name: testing
 
