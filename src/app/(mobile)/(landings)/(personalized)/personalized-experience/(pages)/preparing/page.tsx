@@ -11,6 +11,7 @@ import {
 } from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/pagesList';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { MobileLandingRoutesList } from '@/app/(mobile)/(landings)/pageList';
+import { FadeIn } from '@/app/(common)/components/fadeIn';
 
 const TimoutDefaultDuration = 5 * SECOND;
 
@@ -34,7 +35,7 @@ export default async function Preparing() {
     }, []);
 
     return (
-        <div className={css['preparing__container']}>
+        <FadeIn className={css['preparing__container']}>
             <div className={css['preparing__animation-wrapper']}>
                 <Loader
                     className={css['preparing__animation']}
@@ -46,6 +47,6 @@ export default async function Preparing() {
                 variant={TypographyVariants.h5}>
                 Preparing your personalized experience…
             </Typography>
-        </div>
+        </FadeIn>
     );
 }

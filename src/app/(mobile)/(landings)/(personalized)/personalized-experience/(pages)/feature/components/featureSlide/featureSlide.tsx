@@ -6,6 +6,7 @@ import {
     useFeatureContext
 } from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/feature/contexts/feature/useFeatureContext';
 import { Swiper as SwiperClass } from 'swiper/types';
+import { FadeIn } from '@/app/(common)/components/fadeIn';
 
 const FeatureSlide = () => {
     const { config, handleFeatureSwipe } = useFeatureContext();
@@ -23,7 +24,7 @@ const FeatureSlide = () => {
                 onTouchEnd={handleSwipe}
             >
                 <SwiperSlide className={css['feature__info-item']}>
-                    <div
+                    <FadeIn
                         className={clsx(
                             css['feature__img-wrapper'],
                             css[config?.className]
@@ -36,7 +37,7 @@ const FeatureSlide = () => {
                             src={config.images}
                             alt={config.title}
                         />
-                    </div>
+                    </FadeIn>
                 </SwiperSlide>
             </Swiper>
         </div>

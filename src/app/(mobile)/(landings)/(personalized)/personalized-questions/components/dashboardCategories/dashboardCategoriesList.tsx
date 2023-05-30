@@ -7,6 +7,7 @@ import {
     useDashboardCategories,
 } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/contexts/dashboardCategories/useDashboardContext';
 import { PersonalizedQuestionsTopics } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/pageList';
+import { FadeIn } from '@/app/(common)/components/fadeIn';
 
 const DashboardCategoriesList = () => {
     const { activeTopics, handleTopicClick } = useDashboardCategories();
@@ -14,7 +15,7 @@ const DashboardCategoriesList = () => {
         handleTopicClick(key);
     }
     return (
-        <div className={css['dashboard__list']}>
+        <FadeIn className={css['dashboard__list']}>
             {TopicsListConfig.map(({ key, label, img }) => (
                 <li
                     className={clsx(css['dashboard__item'], {
@@ -29,7 +30,7 @@ const DashboardCategoriesList = () => {
                     </Typography>
                 </li>))
             }
-        </div>
+        </FadeIn>
     );
 }
 

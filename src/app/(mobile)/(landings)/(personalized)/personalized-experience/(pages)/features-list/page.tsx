@@ -6,11 +6,12 @@ import ExperienceList
     from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/features-list/components/experienceList/experienceList';
 import FeaturesExperienceButton
     from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/features-list/components/expirienceButton/expirienceButton';
+import { FadeIn } from '@/app/(common)/components/fadeIn';
 
-const Page = () => {
+const FeatureList = () => {
     return (
         <div className={css['features-list__layout-content']}>
-            <div className={css['features-list__container']}>
+            <FadeIn className={css['features-list__container']}>
                 <div className={css['features-list__info-container']}>
                     <Image
                         src='/images/mobile/landings/personalized-experience/features-list/feature-list.svg'
@@ -19,16 +20,17 @@ const Page = () => {
                         height={114}
                         alt='feature list info'
                     />
-                    <Typography className={css['features-list__title']}
-                                variant={TypographyVariants.h3}>
+                    <Typography
+                        className={css['features-list__title']}
+                        variant={TypographyVariants.h3}>
                         Your <span className={css['features-list__important']}>personalized app</span> is ready!
                     </Typography>
                     <ExperienceList />
                 </div>
-            </div>
+            </FadeIn>
             <FeaturesExperienceButton />
         </div>
     );
 };
 
-export default Page;
+export default FeatureList;

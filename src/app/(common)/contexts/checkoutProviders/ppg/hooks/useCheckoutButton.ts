@@ -14,7 +14,7 @@ export const usePPGCheckoutButton = () => {
         }
     }, [isCheckoutOpen]);
 
-    const handleClick = async (ev: any) => {
+    const handleClick = async (ev?: any) => {
         ev?.preventDefault();
         setIsLoading(true);
         await openCheckout?.();
