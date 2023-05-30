@@ -9,19 +9,23 @@ import FeatureButton
     from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/feature/components/featureButton/featureButton';
 import FeatureProvider
     from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/feature/contexts/feature/featureProvider';
+import PersonalizedFeatureContext
+    from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/feature/contexts/personalizedFeatureContext/personalizedFeatureContext';
 
 
 const FeatureItem = () => {
     return (
-        <FeatureProvider>
-            <div className={css['feature__content']}>
-                <div className={css['feature__container']}>
-                    <FeatureSlide />
-                    <FeatureInfo />
-                    <FeatureButton />
+        <PersonalizedFeatureContext>
+            <FeatureProvider>
+                <div className={css['feature__content']}>
+                    <div className={css['feature__container']}>
+                        <FeatureSlide />
+                        <FeatureInfo />
+                        <FeatureButton />
+                    </div>
                 </div>
-            </div>
-        </FeatureProvider>
+            </FeatureProvider>
+        </PersonalizedFeatureContext>
     );
 }
 

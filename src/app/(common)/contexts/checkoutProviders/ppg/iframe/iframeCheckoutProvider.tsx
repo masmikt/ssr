@@ -58,10 +58,6 @@ const PPGIframeCheckoutProvider = (
     const [checkoutLink, setCheckoutLink] = useState<string | undefined>(undefined);
 
     useEffect(() => {
-        console.log(`!!!! PPGIframeCheckoutProvider`)
-    }, [])
-
-    useEffect(() => {
         if (!isCheckoutOpen) {
             setCheckoutLink(undefined);
         }
@@ -76,9 +72,7 @@ const PPGIframeCheckoutProvider = (
     );
 
     const openCheckout = useCallback(async (purl?: string) => {
-        console.log(`!!!! PPGIFRAME`);
         let selectedLicensePurl = purl || selectedLicenseData?.purl;
-        console.log(`!!!! PPGIFRAME selectedLicensePurl`);
 
         if (!selectedLicensePurl) {
             return;

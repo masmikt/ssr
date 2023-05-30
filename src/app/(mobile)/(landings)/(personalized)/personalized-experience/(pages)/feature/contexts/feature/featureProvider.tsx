@@ -4,9 +4,6 @@ import {
 import {
     useFeature
 } from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/feature/hooks/useFeature';
-import PersonalizedFeatureContext
-    from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/feature/contexts/personalizedFeatureContext/personalizedFeatureContext';
-
 
 interface IFeatureProvider {
     children: React.ReactNode
@@ -24,9 +21,7 @@ const FeatureProvider = ({ children }: IFeatureProvider) => {
                 handleNextClick,
                 isRedirectToCheckout
             }}>
-            <PersonalizedFeatureContext>
-                {children}
-            </PersonalizedFeatureContext>
+            {children}
         </FeatureContext.Provider>
     )
 }

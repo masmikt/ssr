@@ -44,7 +44,7 @@ build-image-testing:
 build-image-staging:
   extends: .build-image
   environment:
-    name: testing
+    name: staging
 
 ## ===== build end =====
 

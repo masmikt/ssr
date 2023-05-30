@@ -10,7 +10,7 @@ import { useSendEvent } from '@/app/(common)/shared/hooks';
 import { PersonalizedExperienceEvents } from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/events';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { usePPGCheckoutButton, usePPGIframeCheckoutContext } from '@/app/(common)/contexts/checkoutProviders';
+import { usePPGCheckoutButton } from '@/app/(common)/contexts/checkoutProviders';
 import {
     FeaturesConfig,
     IFeaturesConfigItem
@@ -34,8 +34,7 @@ export const useFeature = () => {
     const currIndex = experiencePagesList.indexOf(pageId);
     const nextNavigateIndex = currIndex + 1;
     const isRedirectToCheckout = nextNavigateIndex >= experiencePagesList.length;
-    const [isLoading, setIsLoading] = useState(false);
-    const { openCheckout, isCheckoutOpen } = usePPGIframeCheckoutContext();
+    const { handleClick, isLoading } = usePPGCheckoutButton();
 
     useEffect(() => {
         const newConfig = FeaturesConfig[pageId as PersonalizedExperienceFeaturesPages];
@@ -76,6 +75,7 @@ export const useFeature = () => {
     };
 
     const handleNextClick = async () => {
+        console.log(`!!! navigateNext`)
         navigateNext();
         if (isRedirectToCheckout) {
             sendEvent(BuyNowEvents.BuyNowButtonClick);
@@ -89,8 +89,7 @@ export const useFeature = () => {
 
     const navigateNext = () => {
         if (isRedirectToCheckout) {
-            setIsLoading(true);
-            openCheckout?.();
+            handleClick?.();
             return;
         }
 
