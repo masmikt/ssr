@@ -65,7 +65,7 @@ deploy staging:
   stage: deploy
   before_script: *install_aws_cli
   script:
-    - aws --profile testing ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "659074119584.dkr.ecr.us-east-1.amazonaws.com/clario-web/w2a-next"
+    - aws --profile staging ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "659074119584.dkr.ecr.us-east-1.amazonaws.com/clario-web/w2a-next"
     - docker tag $IMAGE_FULL_PATH $IMAGE_LATEST_PATH
     - docker push $IMAGE_LATEST_PATH
     - aws --profile staging ecs update-service --cluster clario-web --service w2a-next --force-new-deployment --region "${REGION}"
