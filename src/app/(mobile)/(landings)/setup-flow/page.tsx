@@ -1,8 +1,7 @@
 "use client";
-import { IntroSection } from '@/app/(mobile)/(landings)/setup-flow/components/intro';
-
 import dynamic from 'next/dynamic'
 
+const IntroSection = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/intro/intro'));
 const Awards = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/awards/awards'));
 const TrustedBy = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/trustedBy/trustedBy'));
 const FeaturesInfo = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/featuresInfo/featuresInfo'));

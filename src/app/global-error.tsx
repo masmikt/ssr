@@ -1,4 +1,5 @@
 'use client';
+import { ErrorFallback } from '@/app/(common)/error';
 
 export default function GlobalError({ error, reset, }: {
     error: Error;
@@ -7,8 +8,7 @@ export default function GlobalError({ error, reset, }: {
     return (
         <html>
         <body>
-        <h2>Something went wrong!</h2>
-        <button onClick={() => reset()}>Try again</button>
+        <ErrorFallback />
         </body>
         </html>
     );

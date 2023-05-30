@@ -1,16 +1,16 @@
-"use client";
 import { Section } from '../section';
 import css from './intro.module.scss';
 import { Typography, TypographyComponents, TypographyVariants } from '@/app/(common)/components/typography';
-import { TrustpilotReview } from '@/app/(mobile)/components/trustpilot';
 import { clsx } from 'clsx';
-import { IntroButton } from './introButton';
 import { SetupFlowEvents, ScreenNames, TrustSources } from '../../constants';
 import { useCallback } from 'react';
 import { useSendEvent } from '@/app/(common)/shared/hooks';
-import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms';
-import { FeaturesList } from '@/app/(mobile)/(landings)/setup-flow/components/featuresList';
-import { PresentationVideo } from '@/app/(mobile)/(landings)/setup-flow/components/presentationVideo';
+import dynamic from 'next/dynamic';
+const TrustpilotReview = dynamic(() => import('@/app/(mobile)/components/trustpilot/trustpilot'));
+const IntroButton = dynamic(() => import('./introButton/introButton'));
+const SupportedPlatforms = dynamic(() => import('@/app/(mobile)/components/supportedPlatforms/supportedPlatforms'));
+const FeaturesList = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/featuresList/featuresList'));
+const PresentationVideo = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/presentationVideo/presentationVideo'));
 
 const IntroSection = () => {
     const { sendEvent } = useSendEvent();
@@ -41,7 +41,8 @@ const IntroSection = () => {
             </Typography>
             <TrustpilotReview
                 className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')}
-                onClick={handleTrustPilotLinkClick} />
+                onClick={handleTrustPilotLinkClick}
+            />
             <IntroButton />
             <SupportedPlatforms className={'mt-l'} />
             <PresentationVideo />

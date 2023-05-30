@@ -51,7 +51,7 @@ deploy testing:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker pull $GITLAB_REGISTRY_IMAGE
     - aws --profile testing ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "${REGISTRY_DOMAIN}"
-    - docker tag $IMAGE_FULL_PATH $IMAGE_LATEST_PATH
+    - docker tag $GITLAB_REGISTRY_IMAGE $IMAGE_LATEST_PATH
     - docker push $IMAGE_LATEST_PATH
     - aws --profile testing ecs update-service --cluster clario-web --service w2a-next --force-new-deployment --region "${REGION}"
     - aws --profile testing ecs wait services-stable --cluster clario-web --services w2a-next --region "${REGION}"
