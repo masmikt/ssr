@@ -50,19 +50,19 @@ build-image-staging:
 
 ## ===== deploy =====
 deploy testing:
-    stage: deploy
-    before_script: *install_aws_cli
-    script:
-      - aws --profile testing ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "${REGISTRY_DOMAIN}"
-      - docker tag $IMAGE_FULL_PATH $IMAGE_LATEST_PATH
-      - docker push $IMAGE_LATEST_PATH
-      - aws --profile testing ecs update-service --cluster clario-web --service w2a-next --force-new-deployment --region "${REGION}"
-      - aws --profile testing ecs wait services-stable --cluster clario-web --services w2a-next --region "${REGION}"
-      - aws --profile testing cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths "/*"
-    when: manual
-    tags:
-      - aws-runner
-      - us-east-1
+  stage: deploy
+  before_script: *install_aws_cli
+  script:
+    - aws --profile testing ecr get-login-password --region "${REGION}" | docker login --username AWS --password-stdin "${REGISTRY_DOMAIN}"
+    - docker tag $IMAGE_FULL_PATH $IMAGE_LATEST_PATH
+    - docker push $IMAGE_LATEST_PATH
+    - aws --profile testing ecs update-service --cluster clario-web --service w2a-next --force-new-deployment --region "${REGION}"
+    - aws --profile testing ecs wait services-stable --cluster clario-web --services w2a-next --region "${REGION}"
+    - aws --profile testing cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths "/*"
+  when: manual
+  tags:
+    - aws-runner
+    - us-east-1
   environment:
     name: testing
     url: https://next.tz.clario.co/ping
