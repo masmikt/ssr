@@ -8,7 +8,7 @@ interface IPersonalizedFeatureContextProvider {
 
 
 async function getBuyNowConfig() {
-    const res = await fetch('/api/setup-flow');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH}/api/setup-flow`);
     if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary
         throw new Error('Failed to getBuyNowConfig');

@@ -5,7 +5,7 @@ import { ScreenNames } from '@/app/(mobile)/(landings)/setup-flow/constants';
 
 export const TrackerDetectorFeatureConfig = {
     name: ScreenNames.TrackerDetector,
-    image: '/images/mobile/landings/setup-flow/features/tracking-detector.webp',
+    image: 'images/mobile/landings/setup-flow/features/tracking-detector.webp',
     title: 'Tracker detector',
     text: 'Discover who tracks your location to spy on you.',
     features: [

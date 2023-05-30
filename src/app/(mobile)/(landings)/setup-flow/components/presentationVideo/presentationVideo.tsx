@@ -9,7 +9,7 @@ const PresentationVideo = () => {
     return (
         <div className={css["presentation-video"]}>
             <ReactPlayer
-                url={"/videos/setupFlow/setup-intro-opt.mp4"}
+                url={"videos/setupFlow/setup-intro-opt.mp4"}
                 loop playing muted playsinline width="272px"
                 fallback={<PresentationVideoImage />}
                 height="304px" />

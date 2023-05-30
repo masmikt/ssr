@@ -1,5 +1,6 @@
 import { Button, ButtonColor, ButtonWrapper } from '@/app/(common)/components/button';
 import css from './featureButton.module.scss';
+import LoadingDots from 'public/images/common/triple-dots-jump.gif';
 import clsx from 'clsx';
 import {
     useFeatureContext
@@ -23,7 +24,7 @@ const FeatureButton = () => {
                 {isLoading ?
                     <Image
                         className={css['feature__loading-img']}
-                        src={'/images/common/triple-dots-jump.gif'}
+                        src={LoadingDots}
                         width={47}
                         height={47}
                         alt='Loading' />

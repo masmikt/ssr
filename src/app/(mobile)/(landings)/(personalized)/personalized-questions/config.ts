@@ -3,32 +3,32 @@ import { PersonalizedQuestionsTopics } from '@/app/(mobile)/(landings)/(personal
 const TopicsConfig = {
     [PersonalizedQuestionsTopics.TextAndCalls]: {
         key: PersonalizedQuestionsTopics.TextAndCalls,
-        img: '/images/mobile/landings/personalized-questions/text-and-calls.svg',
+        img: 'images/mobile/landings/personalized-questions/text-and-calls.svg',
         label: 'Texts and calls',
     },
     [PersonalizedQuestionsTopics.DeviceAgainstSpyware]: {
         key: PersonalizedQuestionsTopics.DeviceAgainstSpyware,
-        img: '/images/mobile/landings/personalized-questions/device-against-spyware.svg',
+        img: 'images/mobile/landings/personalized-questions/device-against-spyware.svg',
         label: 'Device against spyware',
     },
     [PersonalizedQuestionsTopics.Location]: {
         key: PersonalizedQuestionsTopics.Location,
-        img: '/images/mobile/landings/personalized-questions/location.svg',
+        img: 'images/mobile/landings/personalized-questions/location.svg',
         label: 'Location',
     },
     [PersonalizedQuestionsTopics.PersonalData]: {
         key: PersonalizedQuestionsTopics.PersonalData,
-        img: '/images/mobile/landings/personalized-questions/personal-data.svg',
+        img: 'images/mobile/landings/personalized-questions/personal-data.svg',
         label: 'Personal data',
     },
     [PersonalizedQuestionsTopics.SocialMediaAccounts]: {
         key: PersonalizedQuestionsTopics.SocialMediaAccounts,
-        img: '/images/mobile/landings/personalized-questions/social-media-accounts.svg',
+        img: 'images/mobile/landings/personalized-questions/social-media-accounts.svg',
         label: 'Social media accounts',
     },
     [PersonalizedQuestionsTopics.OnlineAnonymity]: {
         key: PersonalizedQuestionsTopics.OnlineAnonymity,
-        img: '/images/mobile/landings/personalized-questions/online-anonymity.svg',
+        img: 'images/mobile/landings/personalized-questions/online-anonymity.svg',
         label: 'Online anonymity',
     },
 };

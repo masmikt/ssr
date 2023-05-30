@@ -23,7 +23,7 @@ export default async function Preparing() {
     useEffect(() => {
         const timoutDuration = TimoutDefaultDuration;
         const searchParamsData = searchParams.toString() || '';
-        const nextPage = `${MobileLandingRoutesList.PersonalizedExperienceMobile}/${PersonalizedExperiencePages.FeaturesList}${searchParamsData.length ? `?${searchParamsData}` : ''}`;
+        const nextPage = `/${MobileLandingRoutesList.PersonalizedExperienceMobile}/${PersonalizedExperiencePages.FeaturesList}${searchParamsData.length ? `?${searchParamsData}` : ''}`;
         sendEvent(PersonalizedExperienceEvents.PreparingExperienceShown, { timout: timoutDuration });
         const timeout = setTimeout(() => {
             router.push(nextPage);

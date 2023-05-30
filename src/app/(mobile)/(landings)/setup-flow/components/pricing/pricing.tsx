@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 
 
 async function getBuyNowConfig() {
-    const res = await fetch('/api/setup-flow');
+    const res = await fetch('api/setup-flow');
     if (!res.ok) {
         // This will activate the closest `error.js` Error Boundary
         throw new Error('Failed to getBuyNowConfig');

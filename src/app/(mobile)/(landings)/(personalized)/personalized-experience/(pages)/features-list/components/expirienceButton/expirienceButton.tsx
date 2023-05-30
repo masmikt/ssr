@@ -25,7 +25,7 @@ const FeaturesExperienceButton = () => {
             experiencePagesList: JSON.stringify(experiencePagesList)
         });
         const searchParamsData = searchParams.toString() || '';
-        const nextPage = `${MobileLandingRoutesList.PersonalizedExperienceMobile}/${PersonalizedExperiencePages.Feature}/${experiencePagesList[0]}${searchParamsData.length ? `?${searchParamsData}` : ''}`;
+        const nextPage = `/${MobileLandingRoutesList.PersonalizedExperienceMobile}/${PersonalizedExperiencePages.Feature}/${experiencePagesList[0]}${searchParamsData.length ? `?${searchParamsData}` : ''}`;
         router.push(nextPage);
     }, []);
 

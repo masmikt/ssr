@@ -21,7 +21,7 @@ export const useCTAButton = (placement: ButtonPlacements) => {
 
     const startSurveyFlow = () => {
         const searchParamsData = searchParams.toString() || '';
-        const nextPage = `${MobileLandingRoutesList.PersonalizedQuestionsMobile}${searchParamsData.length ? `?${searchParamsData}` : ''}`;
+        const nextPage = `/${MobileLandingRoutesList.PersonalizedQuestionsMobile}${searchParamsData.length ? `?${searchParamsData}` : ''}`;
         router.push(nextPage);
     }
 

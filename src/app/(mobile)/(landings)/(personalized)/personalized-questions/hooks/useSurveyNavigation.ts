@@ -18,7 +18,7 @@ export const useSurveyNavigation = () => {
 
     const navigateFinishSurvey = (path?: string | null | number) => {
         const searchParamsData = getSearchParamsPath();
-        const navPath = path || `${MobileLandingRoutesList.PersonalizedExperienceMobile}/${PersonalizedExperiencePages.Preparing}`;
+        const navPath = path || `/${MobileLandingRoutesList.PersonalizedExperienceMobile}/${PersonalizedExperiencePages.Preparing}`;
         const navigationPath = `${navPath}${searchParamsData}`.trim();
         router.push(navigationPath);
     }
@@ -38,10 +38,10 @@ export const useSurveyNavigation = () => {
         const searchParamsData = getSearchParamsPath();
 
         if (!path) {
-            return `${MobileLandingRoutesList.PersonalizedQuestionsMobile}${searchParamsData}`.trim()
+            return `/${MobileLandingRoutesList.PersonalizedQuestionsMobile}${searchParamsData}`.trim()
         }
 
-        return `${MobileLandingRoutesList.PersonalizedQuestionsMobile}/${path}${searchParamsData}`.trim()
+        return `/${MobileLandingRoutesList.PersonalizedQuestionsMobile}/${path}${searchParamsData}`.trim()
     }
 
     const getSearchParamsPath = () => {

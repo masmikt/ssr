@@ -5,7 +5,7 @@ import { ScreenNames } from '@/app/(mobile)/(landings)/setup-flow/constants';
 
 export const ScreenRecordingDetectorFeatureConfig = {
     name: ScreenNames.ScreenRecordingDetector,
-    image: '/images/mobile/landings/setup-flow/features/screen-record-detector.webp',
+    image: 'images/mobile/landings/setup-flow/features/screen-record-detector.webp',
     title: 'Recording detector',
     text: `Stop anyone from accessing your phone screen, camera, or microphone.`,
     features: [

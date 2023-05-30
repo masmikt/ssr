@@ -3,6 +3,7 @@ import {
     PersonalizedExperienceFeatureList
 } from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/features-list/config';
 import Image from 'next/image';
+import CheckmarkImage from 'public/images/common/checkmark.svg';
 import { Typography, TypographyVariants } from '@/app/(common)/components/typography';
 import {
     useExperienceContext
@@ -16,7 +17,7 @@ const FeaturesExperienceList = () => {
                 topics?.[topic] && <li className={css['features-list__item']} key={topic}>
                     <Image
                         className={css['features-list__img']}
-                        src='/images/common/checkmark.svg'
+                        src={CheckmarkImage}
                         width={16}
                         height={16}
                         alt='checkmark' />

@@ -94,10 +94,9 @@ export const useFeature = () => {
 
         const nextFlowPage = experiencePagesList[nextNavigateIndex];
         const searchParamsData = searchParams.toString() || '';
-        const nextPage = `${MobileLandingRoutesList.PersonalizedExperienceMobile}/${PersonalizedExperiencePages.Feature}/${nextFlowPage}${searchParamsData.length ? `?${searchParamsData}` : ''}`;
+        const nextPage = `/${MobileLandingRoutesList.PersonalizedExperienceMobile}/${PersonalizedExperiencePages.Feature}/${nextFlowPage}${searchParamsData.length ? `?${searchParamsData}` : ''}`;
         router.push(nextPage);
     };
-
 
     return {
         handleFeatureSwipe,

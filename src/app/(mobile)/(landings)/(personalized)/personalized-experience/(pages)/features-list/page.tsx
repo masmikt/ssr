@@ -1,6 +1,7 @@
 "use client";
 import Image from 'next/image'
 import css from './page.module.scss';
+import FeatureImage from 'public/images/mobile/landings/personalized-experience/features-list/feature-list.svg';
 import { Typography, TypographyVariants } from '@/app/(common)/components/typography';
 import ExperienceList
     from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/(pages)/features-list/components/experienceList/experienceList';
@@ -14,7 +15,7 @@ const FeatureList = () => {
             <FadeIn className={css['features-list__container']}>
                 <div className={css['features-list__info-container']}>
                     <Image
-                        src='/images/mobile/landings/personalized-experience/features-list/feature-list.svg'
+                        src={FeatureImage}
                         className={css[css['features-list__info-image']]}
                         width={232}
                         height={114}
