@@ -5,12 +5,12 @@ import { clsx } from 'clsx';
 import { SetupFlowEvents, ScreenNames, TrustSources } from '../../constants';
 import { useCallback } from 'react';
 import { useSendEvent } from '@/app/(common)/shared/hooks';
-import dynamic from 'next/dynamic';
-const TrustpilotReview = dynamic(() => import('@/app/(mobile)/components/trustpilot/trustpilot'));
-const IntroButton = dynamic(() => import('./introButton/introButton'));
-const SupportedPlatforms = dynamic(() => import('@/app/(mobile)/components/supportedPlatforms/supportedPlatforms'));
-const FeaturesList = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/featuresList/featuresList'));
-const PresentationVideo = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/components/presentationVideo/presentationVideo'));
+import { TrustpilotReview } from '@/app/(mobile)/components/trustpilot';
+import { IntroButton } from './introButton';
+import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms';
+import { FeaturesList } from '@/app/(mobile)/(landings)/setup-flow/components/featuresList';
+import { PresentationVideo } from '@/app/(mobile)/(landings)/setup-flow/components/presentationVideo';
+
 
 const IntroSection = () => {
     const { sendEvent } = useSendEvent();
