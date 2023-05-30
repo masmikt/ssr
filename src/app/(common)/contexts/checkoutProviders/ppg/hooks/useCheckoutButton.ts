@@ -15,7 +15,7 @@ export const usePPGCheckoutButton = () => {
     }, [isCheckoutOpen]);
 
     const handleClick = async (ev: any) => {
-        ev.preventDefault();
+        ev?.preventDefault();
         setIsLoading(true);
         await openCheckout?.();
         sendEvent(BuyNowEvents.BuyNowButtonClick, {

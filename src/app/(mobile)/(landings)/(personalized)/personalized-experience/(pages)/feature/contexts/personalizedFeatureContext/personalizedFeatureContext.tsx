@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { PPGIframeCheckoutProvider } from '@/app/(common)/contexts/checkoutProviders';
-import { Loader } from '@/app/(common)/components/loader';
 import { BuyNowContext } from '@/app/(common)/(pages)/buyNow';
 
 interface IPersonalizedFeatureContextProvider {
@@ -32,7 +31,7 @@ const PersonalizedFeatureContext = ({ children }: IPersonalizedFeatureContextPro
     }
 
     if (!buyNowConfig) {
-        return <Loader />;
+        return null;
     }
 
     return (

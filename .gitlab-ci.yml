@@ -1,14 +1,12 @@
 image: docker:git
 
 variables:
-  REGISTRY_DOMAIN: "419755633015.dkr.ecr.us-east-1.amazonaws.com"
   REGISTRY_URI: "${REGISTRY_DOMAIN}/clario-web/w2a-next"
-  REGISTRY_ID: "419755633015"
+  REGISTRY_DOMAIN: "${REGISTRY_ID}.dkr.ecr.us-east-1.amazonaws.com"
   IMAGE_VERSION: 1.0.$CI_PIPELINE_ID
   IMAGE_FULL_PATH: $REGISTRY_URI:$CI_PIPELINE_ID
   IMAGE_LATEST_PATH: $REGISTRY_URI:latest
   IMAGE_STABLE_PATH: $REGISTRY_URI:stable
-  DISTRIBUTION_ID: "E7ATHI7LBWTHH"
   REGION: us-east-1
 
 stages:
@@ -38,10 +36,21 @@ build-image:
     - aws-runner
     - us-east-1
 
+
+build-image-testing:
+  extends: .deploy
+  environment:
+    name: testing
+
+build-image-staging:
+  extends: .deploy
+  environment:
+    name: testing
+
 ## ===== build end =====
 
 ## ===== deploy =====
-deploy testing:
+.deploy:
   stage: deploy
   before_script: *install_aws_cli
   script:
@@ -51,12 +60,27 @@ deploy testing:
     - aws --profile testing ecs update-service --cluster clario-web --service w2a-next --force-new-deployment --region "${REGION}"
     - aws --profile testing ecs wait services-stable --cluster clario-web --services w2a-next --region "${REGION}"
     - aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths "/*"
-  environment:
-    name: testing
-    url: https://next.tz.clario.co/ping
   when: manual
   tags:
     - aws-runner
     - us-east-1
+
+deploy testing:
+  extends: .deploy
+  environment:
+    name: testing
+    url: https://next.tz.clario.co/ping
+  needs: [ "build-image-testing" ]
+  dependencies:
+    - build-image-testing
+
+deploy staging:
+  extends: .deploy
+  environment:
+    name: staging
+    url: https://next.sz.clario.co/ping
+  needs: [ "build-image-staging" ]
+  dependencies:
+    - build-image-staging
 
 ## ===== deploy end =====

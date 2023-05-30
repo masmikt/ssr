@@ -16,18 +16,18 @@ const FeatureProvider = ({ children }: IFeatureProvider) => {
     const { handleFeatureSwipe, config, isLoading, handleNextClick, isRedirectToCheckout } = useFeature();
 
     return (
-        <PersonalizedFeatureContext>
-            <FeatureContext.Provider
-                value={{
-                    handleFeatureSwipe,
-                    config,
-                    isLoading,
-                    handleNextClick,
-                    isRedirectToCheckout
-                }}>
+        <FeatureContext.Provider
+            value={{
+                handleFeatureSwipe,
+                config,
+                isLoading,
+                handleNextClick,
+                isRedirectToCheckout
+            }}>
+            <PersonalizedFeatureContext>
                 {children}
-            </FeatureContext.Provider>
-        </PersonalizedFeatureContext>
+            </PersonalizedFeatureContext>
+        </FeatureContext.Provider>
     )
 }
 

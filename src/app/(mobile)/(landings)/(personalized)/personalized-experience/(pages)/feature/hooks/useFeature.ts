@@ -10,7 +10,7 @@ import { useSendEvent } from '@/app/(common)/shared/hooks';
 import { PersonalizedExperienceEvents } from '@/app/(mobile)/(landings)/(personalized)/personalized-experience/events';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { usePPGIframeCheckoutContext } from '@/app/(common)/contexts/checkoutProviders';
+import { usePPGCheckoutButton, usePPGIframeCheckoutContext } from '@/app/(common)/contexts/checkoutProviders';
 import {
     FeaturesConfig,
     IFeaturesConfigItem
