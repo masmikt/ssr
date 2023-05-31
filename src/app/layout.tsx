@@ -1,6 +1,8 @@
 import localFont from 'next/font/local';
 import '@/app/(common)/styles/style.scss';
+import { Suspense } from 'react';
 import { AppProviders } from '@/app/(common)/contexts';
+import { Loader } from '@/app/(common)/components/loader';
 
 const moderat = localFont({
     variable: '--font-moderat',
@@ -38,9 +40,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en" className={moderat.className}>
         <body>
-        <AppProviders>
-            {children}
-        </AppProviders>
+        <Suspense fallback={<Loader />}>
+            <AppProviders>
+                {children}
+            </AppProviders>
+        </Suspense>
         </body>
         </html>
     )
