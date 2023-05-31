@@ -1,3 +1,4 @@
+'use client';
 import { useSendEvent } from '@/app/(common)/shared/hooks';
 import { useEffect, useMemo, useState } from 'react';
 import { PersonalizedQuestionsTopics } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/pageList';

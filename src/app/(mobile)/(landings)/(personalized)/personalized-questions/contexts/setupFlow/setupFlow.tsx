@@ -1,3 +1,4 @@
+'use client';
 import { useSurveyConfig } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/hooks/useSurveyConfig';
 import { useSurveyAnswers } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/hooks/useSurveyAnswers';
 import { useSurveyNavigation } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/hooks/useSurveyNavigation';

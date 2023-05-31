@@ -1,4 +1,3 @@
-"use client";
 import css from './layout.module.scss';
 import clsx from 'clsx';
 import { LayoutContainer } from '@/app/(common)/components/layoutContainer';

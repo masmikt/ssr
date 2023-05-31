@@ -1,3 +1,4 @@
+'use client';
 import css from './dashboardButton.module.scss';
 import { Button, ButtonColor, ButtonWrapper } from '@/app/(common)/components/button';
 import clsx from 'clsx';

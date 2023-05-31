@@ -1,4 +1,3 @@
-"use client";
 import Image from 'next/image'
 import css from './page.module.scss';
 import FeatureImage from 'public/images/mobile/landings/personalized-experience/features-list/feature-list.svg';
@@ -19,6 +18,7 @@ const FeatureList = () => {
                         className={css[css['features-list__info-image']]}
                         width={232}
                         height={114}
+                        priority
                         alt='feature list info'
                     />
                     <Typography

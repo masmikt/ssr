@@ -1,13 +1,13 @@
+'use client';
 import { Button, IButton } from '@/app/(common)/components/button';
 import css from './surveyButton.module.scss';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { useSetupFlow } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/contexts/setupFlow';
 import { useSendEvent } from '@/app/(common)/shared/hooks';
 import { useMemo, useState } from 'react';
 import { PersonalizedQuestionsEvents } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/events';
 import { SurveyFinished } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/hooks/useSurveyConfig';
 import clsx from 'clsx';
-import { MobileLandingRoutesList } from '@/app/(mobile)/(landings)/pageList';
 import {
     ISetupFlowPagesParams,
     ISurveyAnswersConfig
@@ -22,7 +22,6 @@ export interface ISurveyButton extends IButton {
 }
 
 const SurveyButton = ({ action, disabled = false, children, ...props }: ISurveyButton) => {
-    const router = useRouter();
     const params = useParams();
     const { pageId } = params as ISetupFlowPagesParams;
     const {

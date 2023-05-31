@@ -1,3 +1,4 @@
+'use client';
 import { ChangeEvent, useMemo } from 'react';
 import css from './surveyAnswers.module.scss';
 import {

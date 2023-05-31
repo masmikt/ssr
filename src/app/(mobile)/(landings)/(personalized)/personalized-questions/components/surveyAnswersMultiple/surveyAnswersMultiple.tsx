@@ -1,3 +1,4 @@
+'use client';
 import { SyntheticEvent, useMemo } from 'react';
 import css from './surveyAnswersMultiple.module.scss'
 import CheckboxButtonGroupMobile from './components/checkboxButtonMobile/checkboxButtonGroupMobile';

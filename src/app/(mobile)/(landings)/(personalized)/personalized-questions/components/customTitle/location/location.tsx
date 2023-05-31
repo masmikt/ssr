@@ -1,4 +1,4 @@
-
+'use client';
 import css from './location.module.scss';
 import clsx from 'clsx';
 import { PersonalizedQuestionsPages } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/pageList';

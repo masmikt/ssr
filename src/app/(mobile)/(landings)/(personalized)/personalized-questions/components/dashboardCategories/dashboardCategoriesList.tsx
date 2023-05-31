@@ -1,3 +1,4 @@
+'use client';
 import { TopicsListConfig } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/config';
 import clsx from 'clsx';
 import css from './dashboardCategoriesList.module.scss';

@@ -1,3 +1,4 @@
+'use client';
 import css from './surveyHeaderProgress.module.scss';
 import classnames from 'classnames';
 import { ReactNode, useMemo } from 'react';

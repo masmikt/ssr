@@ -1,4 +1,3 @@
-"use client";
 import {
     SetupFlowContextProvider
 } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/contexts/setupFlow';
@@ -8,9 +7,7 @@ export default function SurveyQuestionLayout({ children }: {
 }) {
     return (
         <SetupFlowContextProvider>
-            <div className={'px-s'}>
-                {children}
-            </div>
+            {children}
         </SetupFlowContextProvider>
     );
 }

@@ -1,3 +1,4 @@
+'use client';
 import { createContext, useContext } from 'react';
 import { ISetupFlowConsumerContext } from '@/app/(mobile)/(landings)/(personalized)/personalized-questions/types';
 

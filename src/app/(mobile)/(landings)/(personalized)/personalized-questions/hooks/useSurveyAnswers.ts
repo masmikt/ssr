@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from "react";
 import { ISurveyAnswersConfig } from '../types';
 import { useStorage, useTracking } from '@/app/(common)/shared/hooks';

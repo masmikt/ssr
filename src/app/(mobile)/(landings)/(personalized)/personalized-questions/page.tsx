@@ -1,4 +1,3 @@
-'use client';
 import css from './page.module.scss';
 import { ProgressBar } from '@/app/(common)/progressBar';
 import { Typography, TypographyComponents, TypographyVariants } from '@/app/(common)/components/typography';

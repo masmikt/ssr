@@ -1,3 +1,4 @@
+"use client";
 import clsx from 'clsx';
 import css from './expirienceButton.module.scss';
 import { Button, ButtonColor, ButtonSize } from '@/app/(common)/components/button';
