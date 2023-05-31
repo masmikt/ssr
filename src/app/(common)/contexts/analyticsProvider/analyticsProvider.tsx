@@ -1,9 +1,9 @@
 'use client';
-import React, { ReactNode, useEffect } from 'react'
-import { objectOmitNull } from '@/app/(common)/shared/helpers';
+import React, { ReactNode } from 'react'
+// import { objectOmitNull } from '@/app/(common)/shared/helpers';
 import { ISegmentEvent, ICustomEventParams, IAnalyticsProvider } from './types';
-import { useTracking } from '@/app/(common)/shared/hooks';
-import { AnalyticsBrowser } from '@segment/analytics-next';
+// import { useTracking } from '@/app/(common)/shared/hooks';
+// import { AnalyticsBrowser } from '@segment/analytics-next';
 
 const AnalyticsContext = React.createContext<Partial<IAnalyticsProvider>>({});
 
@@ -12,33 +12,33 @@ interface IAnalyticsProviderProps {
 }
 
 const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
-    const { getSegmentKey, getSid } = useTracking();
-    const writeKey = getSegmentKey();
-
-    const analytics = React.useMemo(() => {
-        return AnalyticsBrowser.load({ writeKey })
-    }, [writeKey]);
-
-    useEffect(() => {
-        analytics.setAnonymousId(getSid());
-    }, [analytics])
+    // const { getSegmentKey, getSid } = useTracking();
+    // const writeKey = getSegmentKey();
+    //
+    // const analytics = React.useMemo(() => {
+    //     return AnalyticsBrowser.load({ writeKey })
+    // }, [writeKey]);
+    //
+    // useEffect(() => {
+    //     analytics.setAnonymousId(getSid());
+    // }, [analytics])
 
     const send = async (event: ISegmentEvent) => {
-        const properties = objectOmitNull(event.properties, false) as ICustomEventParams;
+        // const properties = objectOmitNull(event.properties, false) as ICustomEventParams;
+        //
+        // analytics?.track(event.eventName, properties);
 
-        analytics?.track(event.eventName, properties);
-
-        if (event.properties.cardType) {
-            const properties = objectOmitNull({
-                ...event.properties,
-                eventName: event.eventName,
-            }, false) as ICustomEventParams;
-            analytics?.track('action', properties);
-        }
+        // if (event.properties.cardType) {
+        //     const properties = objectOmitNull({
+        //         ...event.properties,
+        //         eventName: event.eventName,
+        //     }, false) as ICustomEventParams;
+        //     analytics?.track('action', properties);
+        // }
     }
 
     return (
-        <AnalyticsContext.Provider value={{ analytics, send }}>
+        <AnalyticsContext.Provider value={{ send }}>
             {children}
         </AnalyticsContext.Provider>
     )
