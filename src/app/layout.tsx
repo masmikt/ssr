@@ -39,6 +39,9 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" className={moderat.className}>
+        <head>
+            <link rel="icon" href="favicon.ico" sizes="any" />
+        </head>
         <body>
         <Suspense fallback={<Loader />}>
             <AppProviders>
