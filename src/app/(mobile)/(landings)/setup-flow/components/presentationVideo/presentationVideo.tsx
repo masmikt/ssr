@@ -1,4 +1,5 @@
 import css from './presentationVideo.module.scss';
+import Image from 'next/image';
 
 
 const PresentationVideo = () => {
@@ -6,7 +7,7 @@ const PresentationVideo = () => {
         <div className={css["presentation-video"]}>
             <video autoPlay loop muted>
                 <source src={"videos/setupFlow/setup-intro-opt.mp4"} width="272px" height="304px" type="video/mp4" />
-                <img src={'images/mobile/landings/setup-flow/find-spyware-video-img.webp'} />
+                <Image src={'images/mobile/landings/setup-flow/find-spyware-video-img.webp'} />
             </video>
         </div>
     )
