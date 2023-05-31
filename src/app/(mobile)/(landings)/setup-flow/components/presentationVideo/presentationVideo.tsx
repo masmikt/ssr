@@ -1,14 +1,17 @@
 import css from './presentationVideo.module.scss';
-import Image from 'next/image';
 
+const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
+import PresentationVideoImage from './presentationVideoImage';
+import dynamic from 'next/dynamic';
 
 const PresentationVideo = () => {
     return (
         <div className={css["presentation-video"]}>
-            <video autoPlay loop muted>
-                <source src={"videos/setupFlow/setup-intro-opt.mp4"} width="272px" height="304px" type="video/mp4" />
-                <Image src={'images/mobile/landings/setup-flow/find-spyware-video-img.webp'} width="272" height="304" alt="video" />
-            </video>
+            <ReactPlayer
+                url={"videos/setupFlow/setup-intro-opt.mp4"}
+                loop playing muted playsinline width="272px"
+                fallback={<PresentationVideoImage />}
+                height="304px" />
         </div>
     )
 }
