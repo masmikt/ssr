@@ -1,5 +1,5 @@
 import css from './feature.module.scss';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { ReactNode } from 'react';
 import { FeaturesList, IFeaturesConfig } from '../../../featuresList';
 import { Section } from '../../../section';
@@ -7,7 +7,7 @@ import { Typography, TypographyVariants } from '@/app/(common)/components/typogr
 
 export interface IFeature {
     name: string;
-    image: string;
+    image: StaticImageData;
     title: string | ReactNode;
     text: string | ReactNode;
     features: IFeaturesConfig;
