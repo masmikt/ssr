@@ -13,7 +13,7 @@ interface ITrackingProvider {
     userAgent?: string;
 }
 
-export const AppTrackingProvider = ({ children, userAgent }: ITrackingProvider) => {
+const AppTrackingProvider = ({ children, userAgent }: ITrackingProvider) => {
     const searchParams = useSearchParams();
     const { sendEvent } = useSendEvent();
     usePlatformReporter();
@@ -38,6 +38,8 @@ export const AppTrackingProvider = ({ children, userAgent }: ITrackingProvider) 
         </>
     );
 };
+
+export default AppTrackingProvider;
 
 AppTrackingProvider.getInitialProps = async (ctx: any): Promise<any> => {
     const initialProps = await App.getInitialProps(ctx);

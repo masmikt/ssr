@@ -1,6 +1,5 @@
 'use client';
-import React, { ReactNode, useEffect } from 'react'
-import { AnalyticsBrowser } from '@segment/analytics-next'
+import React, { ReactNode } from 'react'
 import { objectOmitNull } from '@/app/(common)/shared/helpers';
 import { ISegmentEvent, ICustomEventParams, IAnalyticsProvider } from './types';
 import { useTracking } from '@/app/(common)/shared/hooks';
@@ -11,29 +10,35 @@ interface IAnalyticsProviderProps {
     children: ReactNode;
 }
 
-export const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
+const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
     const { getSegmentKey, getSid } = useTracking();
     const writeKey = getSegmentKey();
+    let analytics = null;
 
-    const analytics = React.useMemo(() => {
-        return AnalyticsBrowser.load({ writeKey })
-    }, [writeKey]);
+    const initAnalytics = async () => {
+        if (analytics) {
+            return;
+        }
 
-    useEffect(() => {
+        const { AnalyticsBrowser } = (await import('@segment/analytics-next'));
+        analytics = AnalyticsBrowser.load({ writeKey });
         analytics.setAnonymousId(getSid());
-    }, [analytics])
+    }
 
-    const send = (event: ISegmentEvent) => {
+    const send = async (event: ISegmentEvent) => {
+        if (!analytics) {
+            await initAnalytics();
+        }
         const properties = objectOmitNull(event.properties, false) as ICustomEventParams;
 
-        analytics.track(event.eventName, properties);
+        analytics?.track(event.eventName, properties);
 
         if (event.properties.cardType) {
             const properties = objectOmitNull({
                 ...event.properties,
                 eventName: event.eventName,
             }, false) as ICustomEventParams;
-            analytics.track('action', properties);
+            analytics?.track('action', properties);
         }
     }
 
@@ -45,6 +50,8 @@ export const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
         </AnalyticsContext.Provider>
     )
 }
+
+export default AnalyticsProvider;
 
 // Create an analytics hook that we can use with other components.
 export const useAnalytics = () => {

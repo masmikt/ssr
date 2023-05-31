@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { AppTrackingProvider } from './trackingProvider';
+import AppTrackingProvider from './trackingProvider';
 import { AnalyticsProvider } from './analyticsProvider';
 import { Loader } from '@/app/(common)/components/loader';
 
