@@ -11,19 +11,20 @@ import dynamic from 'next/dynamic';
 
 export default function Home() {
     return (
-        <FixedHeaderLayout>
-            <LayoutContainer>
-                <ContentWrapper>
-                    <MobileHeader className={css['layout__header']} />
-                </ContentWrapper>
-                {/*<FixedHeader />*/}
+        // <FixedHeaderLayout>
+        <LayoutContainer>
+            <ContentWrapper>
+                <MobileHeader className={css['layout__header']} />
+            </ContentWrapper>
+            {/*<FixedHeader />*/}
+            <div className={css['layout__content']}>
                 <div className={css['layout__content']}>
-                    <div className={css['layout__content']}>
-                        <main>
-                            <>Home page</>
-                        </main>
-                    </div>
+                    <main>
+                        <>Home page</>
+                    </main>
                 </div>
-            </LayoutContainer>
-        </FixedHeaderLayout>);
+            </div>
+        </LayoutContainer>
+        // </FixedHeaderLayout>
+    );
 }
