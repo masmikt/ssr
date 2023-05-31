@@ -1,4 +1,3 @@
-'use client';
 import css from './intro.module.scss';
 import { Typography, TypographyComponents, TypographyVariants } from '@/app/(common)/components/typography';
 import { clsx } from 'clsx';
@@ -6,15 +5,17 @@ import { TrustpilotReview } from '@/app/(mobile)/components/trustpilot';
 import { IntroButton } from './introButton';
 import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms';
 import { FeaturesList } from '@/app/(mobile)/(landings)/setup-flow/components/featuresList';
-import { PresentationVideo } from '@/app/(mobile)/(landings)/setup-flow/components/presentationVideo';
+import { Section } from '@/app/(mobile)/(landings)/setup-flow/components/section';
+import { ScreenNames } from '@/app/(mobile)/(landings)/setup-flow/constants';
 
 
 const IntroSection = () => {
     return (
-        <div
+        <Section
             color='grey'
+            name={ScreenNames.TopBlock}
             className={css['intro__section']}
-            >
+        >
             <Typography
                 variant={TypographyVariants.h2}
                 component={TypographyComponents.div}
@@ -31,10 +32,9 @@ const IntroSection = () => {
             <TrustpilotReview className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')} />
             <IntroButton />
             <SupportedPlatforms className={'mt-l'} />
-            <PresentationVideo />
             <Typography variant={TypographyVariants.h5}>The anti-spy Clario app can:</Typography>
             <FeaturesList className={'mt-s'} />
-        </div>
+        </Section>
     );
 }
 

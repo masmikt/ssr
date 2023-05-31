@@ -29,34 +29,32 @@ const Footer = dynamic(() => import('@/app/(mobile)/(landings)/setup-flow/compon
 
 export default async function SetupFlow() {
     return (
-        <Suspense fallback={<Loader />}>
-            <FixedHeaderLayout>
-                <LayoutContainer>
-                    <ContentWrapper>
-                        <MobileHeader className={css['layout__header']} />
-                    </ContentWrapper>
-                    <FixedHeader />
+        <FixedHeaderLayout>
+            <LayoutContainer>
+                <ContentWrapper>
+                    <MobileHeader className={css['layout__header']} />
+                </ContentWrapper>
+                <FixedHeader />
+                <div className={css['layout__content']}>
                     <div className={css['layout__content']}>
-                        <div className={css['layout__content']}>
-                            <main>
-                                <IntroSection />
-                                <Awards />
-                                <TrustedBy />
-                                <FeaturesInfo />
-                                <Support />
-                                <InstructionsList />
-                                <UserRate />
-                                <Pricing />
-                                <ProtectDevices />
-                                <Comments />
-                                <StopSpied />
-                                <Footer />
-                            </main>
-                        </div>
+                        <main>
+                            <IntroSection />
+                            <Awards />
+                            <TrustedBy />
+                            <FeaturesInfo />
+                            <Support />
+                            <InstructionsList />
+                            <UserRate />
+                            <Pricing />
+                            <ProtectDevices />
+                            <Comments />
+                            <StopSpied />
+                            <Footer />
+                        </main>
                     </div>
-                    <CookiesBanner />
-                </LayoutContainer>
-            </FixedHeaderLayout>
-        </Suspense>
+                </div>
+                <CookiesBanner />
+            </LayoutContainer>
+        </FixedHeaderLayout>
     );
 }
