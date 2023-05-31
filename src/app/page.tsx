@@ -5,9 +5,9 @@ import { ContentWrapper } from '@/app/(common)/components/contentWrapper';
 import { MobileHeader } from '@/app/(mobile)/components/mobileHeader';
 import dynamic from 'next/dynamic';
 
-const FixedHeader = dynamic(() => import("@/app/(mobile)/(landings)/setup-flow/components/fixedHeader/fixedHeader"), {
-    ssr: false,
-});
+// const FixedHeader = dynamic(() => import("@/app/(mobile)/(landings)/setup-flow/components/fixedHeader/fixedHeader"), {
+//     ssr: false,
+// });
 
 export default function Home() {
     return (
@@ -16,7 +16,7 @@ export default function Home() {
                 <ContentWrapper>
                     <MobileHeader className={css['layout__header']} />
                 </ContentWrapper>
-                <FixedHeader />
+                {/*<FixedHeader />*/}
                 <div className={css['layout__content']}>
                     <div className={css['layout__content']}>
                         <main>
