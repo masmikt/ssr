@@ -1,14 +1,11 @@
 import css from './layout.module.scss';
 import clsx from 'clsx';
 import { LayoutContainer } from '@/app/(common)/components/layoutContainer';
-import { ContentWrapper } from '@/app/(common)/components/contentWrapper';
 import { Typography, TypographyComponents, TypographyVariants } from '@/app/(common)/components/typography';
 
 export default function Home() {
     return (
         <LayoutContainer>
-            <ContentWrapper>
-            </ContentWrapper>
             <div className={css['layout__content']}>
                 <div className={css['layout__content']}>
                     <main>
