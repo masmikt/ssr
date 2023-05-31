@@ -1,8 +1,9 @@
 'use client';
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 import { objectOmitNull } from '@/app/(common)/shared/helpers';
 import { ISegmentEvent, ICustomEventParams, IAnalyticsProvider } from './types';
 import { useTracking } from '@/app/(common)/shared/hooks';
+import { AnalyticsBrowser } from '@segment/analytics-next';
 
 const AnalyticsContext = React.createContext<Partial<IAnalyticsProvider>>({});
 
@@ -12,23 +13,17 @@ interface IAnalyticsProviderProps {
 
 const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
     const { getSegmentKey, getSid } = useTracking();
-    let analytics: any = null;
+    const writeKey = getSegmentKey();
 
-    const initAnalytics = async () => {
-        if (analytics) {
-            return;
-        }
+    const analytics = React.useMemo(() => {
+        return AnalyticsBrowser.load({ writeKey })
+    }, [writeKey]);
 
-        const { AnalyticsBrowser } = (await import('@segment/analytics-next'));
-        const writeKey = getSegmentKey();
-        analytics = AnalyticsBrowser.load({ writeKey });
+    useEffect(() => {
         analytics.setAnonymousId(getSid());
-    }
+    }, [analytics])
 
     const send = async (event: ISegmentEvent) => {
-        if (!analytics) {
-            await initAnalytics();
-        }
         const properties = objectOmitNull(event.properties, false) as ICustomEventParams;
 
         analytics?.track(event.eventName, properties);
@@ -43,9 +38,7 @@ const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
     }
 
     return (
-        <AnalyticsContext.Provider
-            value={{ analytics, send }}
-        >
+        <AnalyticsContext.Provider value={{ analytics, send }}>
             {children}
         </AnalyticsContext.Provider>
     )
