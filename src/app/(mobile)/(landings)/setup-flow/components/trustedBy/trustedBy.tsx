@@ -1,5 +1,5 @@
 import css from './trustedBy.module.scss';
-import { Section, SectionColor } from '../section';
+import { Section } from '../section';
 import { ScreenNames } from '../../constants';
 import { Typography, TypographyVariants } from '@/app/(common)/components/typography';
 import { Recommended } from '@/app/(mobile)/components/recommended';
@@ -8,7 +8,7 @@ const TrustedBy = () => {
     return (
         <Section
             className={css['trusted-by']}
-            color={SectionColor.White}
+            color='white'
             name={ScreenNames.TrustBlock}>
             <div className={css['trusted-by__content']}>
                 <Recommended placement={ScreenNames.TrustBlock}>

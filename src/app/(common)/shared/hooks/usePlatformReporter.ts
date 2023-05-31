@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from 'react';
 import { GeneralEvents, Platforms, localStorageKeys } from '../constants';
 import { useSendEvent } from './useSendEvent';

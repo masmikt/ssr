@@ -1,3 +1,4 @@
+"use client";
 import css from './recommended.module.scss';
 import { RecommendedConfig, RecommendedSources } from './config';
 import Image from 'next/image'

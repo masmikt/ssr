@@ -1,4 +1,4 @@
-// 'use client';
+'use client';
 import css from './section.module.scss';
 import clsx from 'clsx';
 import { DetailedHTMLProps, HTMLAttributes, ReactNode, useLayoutEffect, useRef } from 'react';

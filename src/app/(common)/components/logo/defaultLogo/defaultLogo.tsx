@@ -7,7 +7,7 @@ interface ILogo {
 
 const DefaultLogo = ({ className = '' }: ILogo) => {
     return (
-        <Image src={ClarioLogo} className={className} alt='Clario Logo' />
+        <Image src={ClarioLogo} className={className} priority alt='Clario Logo' />
     );
 };
 

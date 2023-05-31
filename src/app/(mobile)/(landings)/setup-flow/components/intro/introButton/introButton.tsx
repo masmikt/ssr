@@ -1,3 +1,4 @@
+"use client";
 import { useLayoutContext } from '@/app/(common)/contexts';
 import { useLayoutEffect } from 'react';
 import { ButtonPlacements } from '@/app/(mobile)/(landings)/setup-flow/constants';

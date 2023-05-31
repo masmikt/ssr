@@ -1,11 +1,12 @@
 import Spyware from 'public/images/common/features/spyware.svg';
 import Location from 'public/images/common/features/location.svg';
 import Safari from 'public/images/common/features/safari.svg';
+import TrackerDetectorImage from 'public/images/mobile/landings/setup-flow/features/tracking-detector.webp';
 import { ScreenNames } from '@/app/(mobile)/(landings)/setup-flow/constants';
 
 export const TrackerDetectorFeatureConfig = {
     name: ScreenNames.TrackerDetector,
-    image: 'images/mobile/landings/setup-flow/features/tracking-detector.webp',
+    image: TrackerDetectorImage,
     title: 'Tracker detector',
     text: 'Discover who tracks your location to spy on you.',
     features: [

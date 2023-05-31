@@ -1,3 +1,4 @@
+'use client';
 import { Section } from '../section';
 import css from './intro.module.scss';
 import { Typography, TypographyComponents, TypographyVariants } from '@/app/(common)/components/typography';

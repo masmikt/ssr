@@ -1,4 +1,4 @@
-import { Section, SectionColor } from '../section';
+import { Section } from '../section';
 import css from './instructionsList.module.scss';
 import { Instructions } from './instructions';
 import { ScreenNames } from '../../constants';
@@ -6,7 +6,7 @@ import { Typography, TypographyComponents, TypographyVariants } from '@/app/(com
 
 const InstructionsList = () => {
     return (
-        <Section color={SectionColor.White} className={css['start-use-instructions']} name={ScreenNames.Steps}>
+        <Section className={css['start-use-instructions']} name={ScreenNames.Steps}>
             <Typography
                 variant={TypographyVariants.h3}
                 component={TypographyComponents.div}

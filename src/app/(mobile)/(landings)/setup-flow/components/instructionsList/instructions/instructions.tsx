@@ -1,3 +1,4 @@
+"use client";
 import Collapse, { Panel } from 'rc-collapse';
 import 'rc-collapse/assets/index.css';
 import css from './instructions.module.scss';

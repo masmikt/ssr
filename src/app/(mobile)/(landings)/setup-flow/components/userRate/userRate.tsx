@@ -2,24 +2,13 @@ import { Section } from '../section';
 import css from './userRate.module.scss';
 import { UserRatesAppsConfig } from './config';
 import Image from 'next/image'
-import { ScreenNames, SetupFlowEvents, TrustSources } from '../../constants';
+import { ScreenNames } from '../../constants';
 import classNames from 'classnames';
-import { useCallback } from 'react';
 import { Typography, TypographyComponents, TypographyVariants } from '@/app/(common)/components/typography';
 import { Link } from '@/app/(common)/components/link';
-import { useSendEvent } from '@/app/(common)/shared/hooks';
 import { TrustpilotReview } from '@/app/(mobile)/components/trustpilot';
 
 const UserRate = () => {
-    const { sendEvent } = useSendEvent();
-    const handleAppRateClick = useCallback((source: TrustSources) => {
-        sendEvent(SetupFlowEvents.TrustClick, {
-            placement: ScreenNames.UsersRate,
-            source: source
-
-        })
-    }, []);
-
     return (
         <Section className={css['user-rate']} name={ScreenNames.UsersRate}>
             <Typography
@@ -34,7 +23,7 @@ const UserRate = () => {
                         className={css["user-rate__link"]}
                         src={rateApp.link}
                         key={rateApp.name}
-                        onClick={() => handleAppRateClick(rateApp.source)}>
+                    >
                         <Image
                             className={classNames(css['user-rate__image'], css[`user-rate__image--${rateApp.name}`])}
                             alt={rateApp.name}
@@ -43,8 +32,9 @@ const UserRate = () => {
                 ))}
             </div>
             <TrustpilotReview
+                placement={ScreenNames.UsersRate}
                 imageClassName={css['user-rate__trustpilot']}
-                onClick={() => handleAppRateClick(TrustSources.TrustPilot)} />
+            />
         </Section>
     );
 };

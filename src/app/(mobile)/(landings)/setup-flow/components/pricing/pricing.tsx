@@ -1,3 +1,4 @@
+"use client";
 import { Section, SectionColor } from '../section';
 import css from './pricing.module.scss';
 import { ScreenNames, ScrollAnchorId } from '../../constants';

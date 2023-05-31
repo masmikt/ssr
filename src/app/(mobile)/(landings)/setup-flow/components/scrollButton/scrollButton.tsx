@@ -1,3 +1,4 @@
+"use client";
 import { FC, ReactNode } from 'react';
 import clsx from 'clsx';
 import css from './scrollButton.module.scss';

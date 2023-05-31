@@ -1,3 +1,4 @@
+"use client";
 import css from './legalPages.module.scss';
 import { useSendEvent } from '@/app/(common)/shared/hooks';
 import { useCallback } from 'react';

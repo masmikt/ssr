@@ -1,4 +1,5 @@
-import { FC, useCallback, useMemo } from 'react';
+'use client';
+import { useCallback, useMemo } from 'react';
 import Image from 'next/image'
 import css from './awards.module.scss';
 import Slider from "react-slick";

@@ -14,10 +14,7 @@ const Feature = ({
                      itemClassName
                  }: IFeatureConfig) => {
     return (
-        <li
-            className={clsx(css['feature-item'], itemClassName)}
-        >
-
+        <li className={clsx(css['feature-item'], itemClassName)}>
             <Image
                 src={icon || Checkmark}
                 alt={`${name} icon`}
@@ -28,8 +25,7 @@ const Feature = ({
                     css['feature-item__description'],
                     descriptionClassName,
                     description.className
-                )}
-            >
+                )}>
                 {description.text}
             </Typography>
         </li>

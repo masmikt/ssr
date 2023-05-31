@@ -1,5 +1,5 @@
 import css from './protectDevices.module.scss';
-import { Section, SectionColor } from '../section';
+import { Section } from '../section';
 import { ScreenNames } from '../../constants';
 import { Typography, TypographyVariants } from '@/app/(common)/components/typography';
 import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms';
@@ -8,7 +8,7 @@ import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms
 const ProtectDevices = () => {
     return (
         <Section
-            color={SectionColor.Grey}
+            color='grey'
             className={css['protect-devices']}
             name={ScreenNames.Protect}>
             <div className={css['protect-devices__content']}>

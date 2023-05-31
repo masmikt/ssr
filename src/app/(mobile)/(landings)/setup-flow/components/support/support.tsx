@@ -1,16 +1,16 @@
-import { Section, SectionColor } from '../section';
+import { Section } from '../section';
 import css from './support.module.scss';
 import Image from 'next/image'
 import clsx from 'clsx';
 import SupportImage from 'public/images/mobile/landings/setup-flow/support/support-image@2x.webp';
 import { ScrollButton } from '../scrollButton';
-import { ButtonPlacements, ScreenNames } from '../../constants';
+import { ButtonPlacements } from '../../constants';
 import { Typography, TypographyVariants } from '@/app/(common)/components/typography';
 import { ButtonWrapper } from '@/app/(common)/components/button';
 
 const Support = () => {
     return (
-        <Section color={SectionColor.White} className={css['support']} name={ScreenNames.Experts}>
+        <Section className={css['support']} name='experts'>
             <div className={css['support__header']}>
                 <Typography
                     variant={TypographyVariants.h3}

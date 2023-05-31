@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from 'react';
 import { useSendEvent } from './useSendEvent';
 import { Events } from '../constants';
