@@ -1,6 +1,7 @@
 import css from './checkoutButton.module.scss';
 import classNames from 'classnames';
 import Image from 'next/image'
+import LoadingDots from 'public/images/common/triple-dots-jump.gif';
 import { Button } from '@/app/(common)/components/button';
 import { usePPGCheckoutButton } from '@/app/(common)/contexts/checkoutProviders';
 import { ReactNode } from 'react';
@@ -25,7 +26,7 @@ const CheckoutButton = ({ children = 'Protect me now', className, }: ICheckoutBu
             {isLoading ?
                 <Image
                     className={css['checkout-button__loading-img']}
-                    src={'/images/common/triple-dots-jump.gif'}
+                    src={LoadingDots}
                     width={47}
                     height={47}
                     alt='Loading' />

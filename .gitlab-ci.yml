@@ -102,7 +102,7 @@ deploy production:
     - aws-runner
     - us-east-1
   environment:
-    name: staging
+    name: production
     url: https://next.clario.co/next/api/ping
   needs: ['build-image']
   only:
