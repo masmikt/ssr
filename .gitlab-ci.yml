@@ -60,7 +60,7 @@ deploy testing:
     - us-east-1
   environment:
     name: testing
-    url: https://next.tz.clario.co/ping
+    url: https://next.tz.clario.co/next/api/ping
   needs: ['build-image']
 
 deploy staging:
@@ -81,7 +81,7 @@ deploy staging:
     - us-east-1
   environment:
     name: staging
-    url: https://next.sz.clario.co/ping
+    url: https://next.sz.clario.co/next/api/ping
   needs: ['build-image']
 
 ## ===== deploy end =====
