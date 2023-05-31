@@ -1,7 +1,7 @@
 'use client';
 import css from './section.module.scss';
 import clsx from 'clsx';
-import { DetailedHTMLProps, HTMLAttributes, ReactNode, useLayoutEffect, useRef } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useSendEvent } from '@/app/(common)/shared/hooks';
 import { ScreenNames, SetupFlowEvents } from '@/app/(mobile)/(landings)/setup-flow/constants';
@@ -22,16 +22,16 @@ interface IBestAntiSpySection extends DetailedHTMLProps<HTMLAttributes<HTMLEleme
 }
 
 const Section = ({ className = '', children, color = SectionColor.White, name, ...rest }: IBestAntiSpySection) => {
-    const { ref, inView, entry } = useInView({
+    const { ref, inView } = useInView({
         /* Optional options */
         threshold: 0,
     });
 
     const { sendEvent } = useSendEvent();
     const { isAnchorScrolling, setPricingShown } = useLayoutContext();
-    //
-    useLayoutEffect(() => {
-        if (!entry || !entry.isIntersecting || !name) {
+
+    useEffect(() => {
+        if (!name) {
             return;
         }
 

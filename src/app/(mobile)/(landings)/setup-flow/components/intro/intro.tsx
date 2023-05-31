@@ -14,14 +14,6 @@ import { PresentationVideo } from '@/app/(mobile)/(landings)/setup-flow/componen
 
 
 const IntroSection = () => {
-    const { sendEvent } = useSendEvent();
-    const handleTrustPilotLinkClick = useCallback(() => {
-        sendEvent(SetupFlowEvents.TrustClick, {
-            placement: ScreenNames.TopBlock,
-            source: TrustSources.TrustPilot
-
-        })
-    }, []);
     return (
         <Section
             color='grey'
@@ -40,10 +32,7 @@ const IntroSection = () => {
                 className={clsx(css['intro__text'], 'mt-xs')}>
                 Try Clario, a smart anti-spy app that effectively protects your privacy.
             </Typography>
-            <TrustpilotReview
-                className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')}
-                onClick={handleTrustPilotLinkClick}
-            />
+            <TrustpilotReview className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')} />
             <IntroButton />
             <SupportedPlatforms className={'mt-l'} />
             <PresentationVideo />
