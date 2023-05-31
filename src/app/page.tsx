@@ -3,6 +3,7 @@ import { FixedHeaderLayout } from '@/app/(common)/contexts';
 import { LayoutContainer } from '@/app/(common)/components/layoutContainer';
 import { ContentWrapper } from '@/app/(common)/components/contentWrapper';
 import { MobileHeader } from '@/app/(mobile)/components/mobileHeader';
+import { IntroSection } from '@/app/(mobile)/(landings)/setup-flow/components/intro';
 // import dynamic from 'next/dynamic';
 
 // const FixedHeader = dynamic(() => import("@/app/(mobile)/(landings)/setup-flow/components/fixedHeader/fixedHeader"), {
@@ -21,6 +22,7 @@ export default function Home() {
                 <div className={css['layout__content']}>
                     <main>
                         <>Home page</>
+                        <IntroSection />
                     </main>
                 </div>
             </div>
