@@ -1,9 +1,7 @@
 'use client';
-import { Section } from '../section';
 import css from './intro.module.scss';
 import { Typography, TypographyComponents, TypographyVariants } from '@/app/(common)/components/typography';
 import { clsx } from 'clsx';
-import { ScreenNames } from '../../constants';
 import { TrustpilotReview } from '@/app/(mobile)/components/trustpilot';
 import { IntroButton } from './introButton';
 import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms';
@@ -13,10 +11,10 @@ import { PresentationVideo } from '@/app/(mobile)/(landings)/setup-flow/componen
 
 const IntroSection = () => {
     return (
-        <Section
+        <div
             color='grey'
             className={css['intro__section']}
-            name={ScreenNames.TopBlock}>
+            >
             <Typography
                 variant={TypographyVariants.h2}
                 component={TypographyComponents.div}
@@ -36,7 +34,7 @@ const IntroSection = () => {
             <PresentationVideo />
             <Typography variant={TypographyVariants.h5}>The anti-spy Clario app can:</Typography>
             <FeaturesList className={'mt-s'} />
-        </Section>
+        </div>
     );
 }
 
