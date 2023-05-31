@@ -7,7 +7,7 @@ const PresentationVideo = () => {
         <div className={css["presentation-video"]}>
             <video autoPlay loop muted>
                 <source src={"videos/setupFlow/setup-intro-opt.mp4"} width="272px" height="304px" type="video/mp4" />
-                <Image src={'images/mobile/landings/setup-flow/find-spyware-video-img.webp'} />
+                <Image src={'images/mobile/landings/setup-flow/find-spyware-video-img.webp'} width="272px" height="304px" alt="video" />
             </video>
         </div>
     )
