@@ -13,7 +13,7 @@ interface IAnalyticsProviderProps {
 const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
     const { getSegmentKey, getSid } = useTracking();
     const writeKey = getSegmentKey();
-    let analytics = null;
+    let analytics: any = null;
 
     const initAnalytics = async () => {
         if (analytics) {
