@@ -12,7 +12,6 @@ interface IAnalyticsProviderProps {
 
 const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
     const { getSegmentKey, getSid } = useTracking();
-    const writeKey = getSegmentKey();
     let analytics: any = null;
 
     const initAnalytics = async () => {
@@ -21,6 +20,7 @@ const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
         }
 
         const { AnalyticsBrowser } = (await import('@segment/analytics-next'));
+        const writeKey = getSegmentKey();
         analytics = AnalyticsBrowser.load({ writeKey });
         analytics.setAnonymousId(getSid());
     }
