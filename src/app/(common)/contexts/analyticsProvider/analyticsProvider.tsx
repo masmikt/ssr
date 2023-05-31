@@ -12,9 +12,9 @@ interface IAnalyticsProviderProps {
 
 const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
     const [analytics, setAnalytics] = useState<any | null>(null);
-
+    const { getSegmentKey, getSid } = useTracking();
+    
     const loadSegment = async () => {
-        const { getSegmentKey, getSid } = useTracking();
         const writeKey = getSegmentKey();
         let analyticsBrowser = ((await import('@segment/analytics-next')).AnalyticsBrowser);
         const analytics = analyticsBrowser.load({ writeKey });
