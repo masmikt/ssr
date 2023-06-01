@@ -10,7 +10,7 @@ export default function SetupFlowLayout({ children }: {
         <LayoutContainer>
             <ContentWrapper>
                 <MobileHeader className={css['layout__header']} />
-                {children}
+                {/*{children}*/}
             </ContentWrapper>
         </LayoutContainer>
     );
