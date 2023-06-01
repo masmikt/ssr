@@ -1,13 +1,12 @@
-"use client";
-import { useTracking } from '@/app/(common)/shared/hooks';
+import { TrackingProvider } from '@/app/(common)/shared/services';
+import { TrackingParams } from '@/app/(common)/shared/constants';
 
-
-const LightFacebookPixel = () => {
-    const { getFacebookPixelId } = useTracking();
-
+const LightFacebookPixel = ({ searchParams }) => {
+    const trackingProvider = new TrackingProvider(searchParams);
+    const fbPixelId = trackingProvider.getParam(TrackingParams.FbPixelId) || process.env.NEXT_PUBLIC_DEFAULT_FB_PIXEL_ID;
     return (
         <img
-            src={`https://www.facebook.com/tr?id=${getFacebookPixelId()}&ev=PageView`}
+            src={`https://www.facebook.com/tr?id=${fbPixelId}&ev=PageView`}
             height={1}
             width={1}
             style={{ display: 'none' }}

@@ -8,14 +8,33 @@ export interface ITrackingParamsConfig {
     sessionStorageParams?: Array<TrackingParams>
 }
 
+const SessionStorageParams: Array<TrackingParams> = [
+    TrackingParams.Iteration,
+    TrackingParams.Cbt,
+    TrackingParams.Email,
+    TrackingParams.CustomTYPage,
+    TrackingParams.UserAgent,
+];
+const CookiesParams: Array<TrackingParams> = [
+    TrackingParams.Sid,
+    TrackingParams.CookiesGaCid,
+];
+
+const TrackingParamsConfig: ITrackingParamsConfig = {
+    cookiesParams: CookiesParams,
+    sessionStorageParams: SessionStorageParams,
+};
+
+
 export class TrackingProvider {
     private sessionStorageParams: Array<TrackingParams>;
     private cookiesParams: Array<TrackingParams> = []
     private trackingParamsStorageKey: string = 'TRACKING_PARAMS';
     private trackingParamsCookiesKey: string = 'get_params_landings';
 
-    constructor(private searchParams: ReadonlyURLSearchParams, private readonly trackingParamsConfig: ITrackingParamsConfig) {
+    constructor(private searchParams: ReadonlyURLSearchParams, private readonly trackingParamsConfig = TrackingParamsConfig) {
         this.sessionStorageParams = this.trackingParamsConfig.sessionStorageParams || [];
+        this.searchParams = searchParams;
         this.cookiesParams = this.trackingParamsConfig.cookiesParams || [];
     }
 
@@ -78,7 +97,7 @@ export class TrackingProvider {
     getParam<T>(paramName: TrackingParams): string | T | null {
         return (
             getCookie(paramName)
-            || this.searchParams.get(paramName)
+            || new URLSearchParams(this.searchParams)?.get(paramName)
             || this.getParamFromStorage<T>(paramName)
         ) as string | T | null;
     }

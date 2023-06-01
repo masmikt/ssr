@@ -4,24 +4,6 @@ import { TrackingParams, EventsPlatform, DefaultIteration } from '../constants';
 import { useSearchParams } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
 import { getPlatform } from '../helpers';
-import { ITrackingParamsConfig } from '@/app/(common)/shared/services/tracking/tracking';
-
-const SessionStorageParams: Array<TrackingParams> = [
-    TrackingParams.Iteration,
-    TrackingParams.Cbt,
-    TrackingParams.Email,
-    TrackingParams.CustomTYPage,
-    TrackingParams.UserAgent,
-];
-const CookiesParams: Array<TrackingParams> = [
-    TrackingParams.Sid,
-    TrackingParams.CookiesGaCid,
-];
-
-const TrackingParamsConfig: ITrackingParamsConfig = {
-    cookiesParams: CookiesParams,
-    sessionStorageParams: SessionStorageParams,
-};
 
 export interface IMarketingAttribution {
     arm: string;
@@ -39,7 +21,7 @@ export interface IMarketingAttribution {
 
 export const useTracking = () => {
     const searchParams = useSearchParams();
-    const trackingProvider = new TrackingProvider(searchParams, TrackingParamsConfig);
+    const trackingProvider = new TrackingProvider(searchParams);
 
     const syncTrackingParams = () => {
         for (let [paramName, value] of searchParams.entries()) {
