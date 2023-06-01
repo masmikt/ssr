@@ -1,0 +1,17 @@
+.layout {
+  &__content {
+    height: 100%;
+  }
+
+  &__header {
+    min-height: 56px;
+    padding-top: 0 !important;
+    justify-content: center !important;
+  }
+
+  @media (orientation: landscape) {
+    &__header {
+      display: none
+    }
+  }
+}

@@ -1,18 +1,17 @@
 'use client';
 import css from './fixedHeader.module.scss';
 import classNames from 'classnames';
-import { useLayoutContext } from '@/app/(common)/contexts';
 import { Button } from '@/app/(common)/components/button';
 import { Logo } from '@/app/(common)/components/logo';
 import { ButtonPlacements } from '@/app/(mobile)/(landings)/setup-flow/constants';
 import { useCTAButton } from '@/app/(mobile)/(landings)/setup-flow/hooks';
 
 interface IHeaderProps {
+    isHeaderFixed: boolean;
     className?: string;
 }
 
-const FixedHeader = ({ className }: IHeaderProps) => {
-    const { isHeaderFixed } = useLayoutContext();
+const FixedHeader = ({ className, isHeaderFixed = false}: IHeaderProps) => {
     const { handleButtonClick } = useCTAButton(ButtonPlacements.Header);
 
     return (

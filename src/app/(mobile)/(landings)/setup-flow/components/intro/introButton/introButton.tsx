@@ -1,26 +1,27 @@
 "use client";
-import { useLayoutContext } from '@/app/(common)/contexts';
-import { useLayoutEffect } from 'react';
 import { ButtonPlacements } from '@/app/(mobile)/(landings)/setup-flow/constants';
 import { ScrollButton } from '@/app/(mobile)/(landings)/setup-flow/components/scrollButton';
 import { useInView } from 'react-intersection-observer';
+import dynamic from 'next/dynamic';
+
+const FixedHeader = dynamic(() => import("@/app/(mobile)/(landings)/setup-flow/components/fixedHeader/fixedHeader"), {
+    ssr: false,
+});
 
 const IntroButton = () => {
-    const { setIsHeaderFixed } = useLayoutContext();
     const { ref, inView } = useInView({
         threshold: 0,
     });
 
-    useLayoutEffect(() => {
-        setIsHeaderFixed?.(!inView);
-    }, [inView]);
-
     return (
-        <div ref={ref}>
-            <ScrollButton placement={ButtonPlacements.TopBlock}>
-                Protect me now
-            </ScrollButton>
-        </div>
+        <>
+            <FixedHeader isHeaderFixed={!inView} />
+            <div ref={ref}>
+                <ScrollButton placement={ButtonPlacements.TopBlock}>
+                    Protect me now
+                </ScrollButton>
+            </div>
+        </>
     );
 }
 
