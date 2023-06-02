@@ -31,10 +31,10 @@ const IntroSection = () => {
                 className={clsx(css['intro__text'], 'mt-xs')}>
                 Try Clario, a smart anti-spy app that effectively protects your privacy.
             </Typography>
-            {/*<TrustpilotReview*/}
-            {/*    className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')}*/}
-            {/*    placement={ScreenNames.TopBlock}*/}
-            {/*/>*/}
+            <TrustpilotReview
+                className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')}
+                placement={ScreenNames.TopBlock}
+            />
             {/*<IntroButton />*/}
             <SupportedPlatforms className={'mt-l'} />
             {/*<PresentationVideo />*/}
