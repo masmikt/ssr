@@ -1,8 +1,8 @@
 import { TrackingProvider } from '@/app/(common)/shared/services';
 import { TrackingParams } from '@/app/(common)/shared/constants';
-import { IPageParams } from '@/app/(common)/shared/types/nextParams';
+import { INextPageParams } from '@/app/(common)/shared/types/common';
 
-const LightFacebookPixel = ({ searchParams }: IPageParams) => {
+const LightFacebookPixel = ({ searchParams }: INextPageParams) => {
     const trackingProvider = new TrackingProvider(searchParams);
     const fbPixelId = trackingProvider.getParam(TrackingParams.FbPixelId) || process.env.NEXT_PUBLIC_DEFAULT_FB_PIXEL_ID;
     return (

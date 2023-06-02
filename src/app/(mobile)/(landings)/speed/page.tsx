@@ -4,10 +4,10 @@ import { LightFacebookPixel } from '@/app/(common)/components/lightFacebookPixel
 import { MobileHeader } from '@/app/(mobile)/components/mobileHeader';
 import css from './page.module.scss';
 import { IntroSection } from '@/app/(mobile)/(landings)/speed/components/intro';
-import { IPageParams } from '@/app/(common)/shared/types/nextParams';
+import { INextPageParams } from '@/app/(common)/shared/types/common';
 
 
-export default async function Speed({ searchParams }: IPageParams) {
+export default async function Speed({ searchParams }: INextPageParams) {
     return (
         <LayoutContainer>
             <ContentWrapper>

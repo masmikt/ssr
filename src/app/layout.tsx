@@ -1,5 +1,6 @@
 import localFont from 'next/font/local';
 import '@/app/(common)/styles/style.scss';
+import { AppProviders } from '@/app/(common)/contexts';
 
 const moderat = localFont({
     variable: '--font-moderat',
@@ -41,7 +42,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <link rel="icon" href="favicon.ico" sizes="any" />
         </head>
         <body>
+        <AppProviders>
             {children}
+        </AppProviders>
         </body>
         </html>
     )

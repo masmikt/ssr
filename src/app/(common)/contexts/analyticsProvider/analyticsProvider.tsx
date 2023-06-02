@@ -3,14 +3,12 @@ import React, { ReactNode, useState } from 'react'
 import { ISegmentEvent, ICustomEventParams, IAnalyticsProvider } from './types';
 import { useTracking } from '@/app/(common)/shared/hooks';
 import { objectOmitNull } from '@/app/(common)/shared/helpers';
+import { IChildrenWrapper } from '@/app/(common)/shared/types/common';
 
 const AnalyticsContext = React.createContext<Partial<IAnalyticsProvider>>({});
 
-interface IAnalyticsProviderProps {
-    children: ReactNode;
-}
 
-const AnalyticsProvider = ({ children }: IAnalyticsProviderProps) => {
+const AnalyticsProvider = ({ children }: IChildrenWrapper) => {
     const [analytics, setAnalytics] = useState<any | null>(null);
     const { getSegmentKey, getSid } = useTracking();
 

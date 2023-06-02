@@ -1,17 +1,18 @@
-import AppTrackingProvider from './trackingProvider';
+// import AppTrackingProvider from './trackingProvider';
 import { AnalyticsProvider } from './analyticsProvider';
+import { Suspense } from 'react';
+import { IChildrenWrapper } from '@/app/(common)/shared/types/common';
 
-interface IAppProvider {
-    children: any;
-}
 
-const AppProviders = ({ children }: IAppProvider) => {
+const AppProviders = ({ children }: IChildrenWrapper) => {
     return (
-        <AnalyticsProvider>
-            <AppTrackingProvider>
+        <Suspense>
+            <AnalyticsProvider>
+                {/*<AppTrackingProvider>*/}
                 {children}
-            </AppTrackingProvider>
-         </AnalyticsProvider>
+                {/*</AppTrackingProvider>*/}
+            </AnalyticsProvider>
+        </Suspense>
     )
 }
 
