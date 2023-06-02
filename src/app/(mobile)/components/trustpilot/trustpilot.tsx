@@ -16,16 +16,16 @@ interface ITrustpilotReview extends DetailedHTMLProps<AnchorHTMLAttributes<HTMLA
 
 const TrustPilotReview = ({ className, imageClassName, placement, ...rest }: ITrustpilotReview) => {
     // const { sendEvent } = useSendEvent();
-    // const handleAppRateClick = useCallback(() => {
-    //     if (!placement) {
-    //         return;
-    //     }
-    //     sendEvent(SetupFlowEvents.TrustClick, {
-    //         placement: placement,
-    //         source: TrustSources.TrustPilot
-    //
-    //     })
-    // }, []);
+    const handleAppRateClick = useCallback(() => {
+        if (!placement) {
+            return;
+        }
+        // sendEvent(SetupFlowEvents.TrustClick, {
+        //     placement: placement,
+        //     source: TrustSources.TrustPilot
+        //
+        // })
+    }, []);
     return (
         <Link src="https://www.trustpilot.com/review/clario.co" className={clsx(className)} {...rest}
               // onClick={handleAppRateClick}
