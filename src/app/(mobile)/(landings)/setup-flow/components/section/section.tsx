@@ -26,13 +26,13 @@ const Section = ({ className = '', children, color = SectionColor.White, name, .
         threshold: 0,
     });
 
-    const { sendEvent } = useSendEvent();
+    // const { sendEvent } = useSendEvent();
     //
     useLayoutEffect(() => {
         if (!entry || !entry.isIntersecting || !name) {
             return;
         }
-        sendEvent(SetupFlowEvents.ScreenShown, { screen: name })
+        // sendEvent(SetupFlowEvents.ScreenShown, { screen: name })
     }, [inView]);
 
     return (

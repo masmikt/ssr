@@ -2,25 +2,21 @@ import css from './intro.module.scss';
 import { Typography, TypographyComponents, TypographyVariants } from '@/app/(common)/components/typography';
 import { clsx } from 'clsx';
 import { Suspense } from 'react';
-// import { IntroButton } from './introButton';
-// import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms';
-// import { FeaturesList } from '@/app/(mobile)/(landings)/setup-flow/components/featuresList';
-// import { PresentationVideo } from '@/app/(mobile)/(landings)/setup-flow/components/presentationVideo';
 import { ScreenNames } from '@/app/(mobile)/(landings)/setup-flow/constants';
 import { TrustpilotReview } from '@/app/(mobile)/components/trustpilot';
 import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms';
 import { FeaturesList } from '@/app/(mobile)/(landings)/setup-flow/components/featuresList';
 import { IntroButton } from '@/app/(mobile)/(landings)/speed/components/intro/introButton';
 import { PresentationVideo } from '@/app/(mobile)/(landings)/setup-flow/components/presentationVideo';
-import { Loader } from '@/app/(common)/components/loader';
+import { Section } from '@/app/(mobile)/(landings)/setup-flow/components/section';
 
 
 const IntroSection = () => {
     return (
-        <section
+        <Section
             color='grey'
             className={css['intro__section']}
-            // name={ScreenNames.TopBlock}
+            name={ScreenNames.TopBlock}
         >
             <Typography
                 variant={TypographyVariants.h2}
@@ -35,7 +31,7 @@ const IntroSection = () => {
                 className={clsx(css['intro__text'], 'mt-xs')}>
                 Try Clario, a smart anti-spy app that effectively protects your privacy.
             </Typography>
-            <Suspense fallback={<Loader />}>
+            <Suspense>
                 <TrustpilotReview
                     className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')}
                     placement={ScreenNames.TopBlock}
@@ -43,12 +39,12 @@ const IntroSection = () => {
                 <IntroButton />
             </Suspense>
             <SupportedPlatforms className={'mt-l'} />
-            <Suspense fallback={<Loader />}>
+            <Suspense>
                 <PresentationVideo />
             </Suspense>
             <Typography variant={TypographyVariants.h5}>The anti-spy Clario app can:</Typography>
             <FeaturesList className={'mt-s'} />
-        </section>
+        </Section>
     );
 }
 
