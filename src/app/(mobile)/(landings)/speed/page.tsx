@@ -7,17 +7,16 @@ import { IntroSection } from '@/app/(mobile)/(landings)/speed/components/intro';
 import { IPageParams } from '@/app/(common)/shared/types/nextParams';
 
 
-
 export default async function Speed({ searchParams }: IPageParams) {
     return (
         <LayoutContainer>
             <ContentWrapper>
                 <LightFacebookPixel searchParams={searchParams} />
                 <MobileHeader />
-                <div className={css['layout__content']}>
-                    <IntroSection />
-                </div>
             </ContentWrapper>
+            <div className={css['layout__content']}>
+                <IntroSection />
+            </div>
         </LayoutContainer>
 
     );
