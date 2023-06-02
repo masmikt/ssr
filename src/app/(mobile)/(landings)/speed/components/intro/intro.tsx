@@ -1,6 +1,7 @@
 import css from './intro.module.scss';
 import { Typography, TypographyComponents, TypographyVariants } from '@/app/(common)/components/typography';
 import { clsx } from 'clsx';
+import { Suspense } from 'react';
 // import { IntroButton } from './introButton';
 // import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms';
 // import { FeaturesList } from '@/app/(mobile)/(landings)/setup-flow/components/featuresList';
@@ -31,10 +32,12 @@ const IntroSection = () => {
                 className={clsx(css['intro__text'], 'mt-xs')}>
                 Try Clario, a smart anti-spy app that effectively protects your privacy.
             </Typography>
-            <TrustpilotReview
-                className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')}
-                placement={ScreenNames.TopBlock}
-            />
+            <Suspense fallback={<>Loading</>}>
+                <TrustpilotReview
+                    className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')}
+                    placement={ScreenNames.TopBlock}
+                />
+            </Suspense>
             {/*<IntroButton />*/}
             <SupportedPlatforms className={'mt-l'} />
             {/*<PresentationVideo />*/}
