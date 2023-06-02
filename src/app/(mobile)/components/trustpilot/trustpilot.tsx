@@ -14,7 +14,7 @@ interface ITrustpilotReview extends DetailedHTMLProps<AnchorHTMLAttributes<HTMLA
     imageClassName?: string;
 }
 
-const TrustpilotReview = ({ className, imageClassName, placement, ...rest }: ITrustpilotReview) => {
+const TrustPilotReview = ({ className, imageClassName, placement, ...rest }: ITrustpilotReview) => {
     const { sendEvent } = useSendEvent();
     const handleAppRateClick = useCallback(() => {
         if (!placement) {
@@ -34,5 +34,5 @@ const TrustpilotReview = ({ className, imageClassName, placement, ...rest }: ITr
     );
 }
 
-TrustpilotReview.displayName = 'TrustpilotReview';
-export default TrustpilotReview;
+TrustPilotReview.displayName = 'TrustPilotReview';
+export default TrustPilotReview;
