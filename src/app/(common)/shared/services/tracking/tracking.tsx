@@ -1,7 +1,7 @@
 import { setCookie, getCookie, CookieValueTypes } from 'cookies-next';
 import { TrackingParams } from '../../constants';
 import { isClient } from '@/app/(common)/shared/helpers/isClient';
-import { ReadonlyURLSearchParams } from 'next/dist/client/components/navigation';
+import { ReadonlyURLSearchParams } from 'next/navigation';
 
 export interface ITrackingParamsConfig {
     cookiesParams?: Array<TrackingParams>,
@@ -32,7 +32,7 @@ export class TrackingProvider {
     private trackingParamsStorageKey: string = 'TRACKING_PARAMS';
     private trackingParamsCookiesKey: string = 'get_params_landings';
 
-    constructor(private searchParams: ReadonlyURLSearchParams, private readonly trackingParamsConfig = TrackingParamsConfig) {
+    constructor(private searchParams: ReadonlyURLSearchParams | URLSearchParams, private readonly trackingParamsConfig = TrackingParamsConfig) {
         this.sessionStorageParams = this.trackingParamsConfig.sessionStorageParams || [];
         this.searchParams = searchParams;
         this.cookiesParams = this.trackingParamsConfig.cookiesParams || [];
@@ -97,7 +97,7 @@ export class TrackingProvider {
     getParam<T>(paramName: TrackingParams): string | T | null {
         return (
             getCookie(paramName)
-            || new URLSearchParams(this.searchParams)?.get(paramName)
+            || new URLSearchParams((this.searchParams as any))?.get(paramName)
             || this.getParamFromStorage<T>(paramName)
         ) as string | T | null;
     }

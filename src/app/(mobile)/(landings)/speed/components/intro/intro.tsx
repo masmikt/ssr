@@ -36,7 +36,7 @@ const IntroSection = () => {
             {/*<IntroButton />*/}
             {/*<SupportedPlatforms className={'mt-l'} />*/}
             {/*<PresentationVideo />*/}
-            {/*<Typography variant={TypographyVariants.h5}>The anti-spy Clario app can:</Typography>*/}
+            <Typography variant={TypographyVariants.h5}>The anti-spy Clario app can:</Typography>
             {/*<FeaturesList className={'mt-s'} />*/}
         </section>
     );

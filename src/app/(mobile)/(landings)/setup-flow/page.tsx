@@ -6,7 +6,7 @@ import SetupFlowContent from '@/app/(mobile)/(landings)/setup-flow/components/co
 export default async function SetupFlow() {
     return (
         <>
-            <LightFacebookPixel />
+            {/*<LightFacebookPixel />*/}
             {/* @ts-expect-error Server Component */}
             <SetupFlowContent />
             <CookiesBanner />
