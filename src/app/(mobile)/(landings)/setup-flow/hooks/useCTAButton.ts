@@ -8,11 +8,11 @@ import { MobileLandingRoutesList } from '@/app/(mobile)/(landings)/pageList';
 export const useCTAButton = (placement: ButtonPlacements) => {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const { sendEvent } = useSendEvent();
+    // const { sendEvent } = useSendEvent();
 
     const handleButtonClick = (event: SyntheticEvent) => {
         event.preventDefault();
-        sendEvent(Events.ButtonClick, { placement });
+        // sendEvent(Events.ButtonClick, { placement });
         startSurveyFlow();
     };
 

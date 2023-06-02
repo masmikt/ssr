@@ -10,6 +10,8 @@ import { ScreenNames } from '@/app/(mobile)/(landings)/setup-flow/constants';
 import { TrustpilotReview } from '@/app/(mobile)/components/trustpilot';
 import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms';
 import { FeaturesList } from '@/app/(mobile)/(landings)/setup-flow/components/featuresList';
+import { IntroButton } from '@/app/(mobile)/(landings)/speed/components/intro/introButton';
+import { PresentationVideo } from '@/app/(mobile)/(landings)/setup-flow/components/presentationVideo';
 
 
 const IntroSection = () => {
@@ -37,10 +39,10 @@ const IntroSection = () => {
                     className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')}
                     placement={ScreenNames.TopBlock}
                 />
+                <IntroButton />
+                <SupportedPlatforms className={'mt-l'} />
             </Suspense>
-            {/*<IntroButton />*/}
-            <SupportedPlatforms className={'mt-l'} />
-            {/*<PresentationVideo />*/}
+            <PresentationVideo />
             <Typography variant={TypographyVariants.h5}>The anti-spy Clario app can:</Typography>
             <FeaturesList className={'mt-s'} />
         </section>
