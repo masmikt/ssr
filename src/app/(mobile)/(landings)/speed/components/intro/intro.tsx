@@ -12,6 +12,7 @@ import { SupportedPlatforms } from '@/app/(mobile)/components/supportedPlatforms
 import { FeaturesList } from '@/app/(mobile)/(landings)/setup-flow/components/featuresList';
 import { IntroButton } from '@/app/(mobile)/(landings)/speed/components/intro/introButton';
 import { PresentationVideo } from '@/app/(mobile)/(landings)/setup-flow/components/presentationVideo';
+import { Loader } from '@/app/(common)/components/loader';
 
 
 const IntroSection = () => {
@@ -34,15 +35,17 @@ const IntroSection = () => {
                 className={clsx(css['intro__text'], 'mt-xs')}>
                 Try Clario, a smart anti-spy app that effectively protects your privacy.
             </Typography>
-            <Suspense fallback={<>Loading</>}>
+            <Suspense fallback={<Loader />}>
                 <TrustpilotReview
                     className={clsx(css['intro__trust-pilot'], 'mt-l', 'mb-s')}
                     placement={ScreenNames.TopBlock}
                 />
                 <IntroButton />
-                <SupportedPlatforms className={'mt-l'} />
             </Suspense>
-            <PresentationVideo />
+            <SupportedPlatforms className={'mt-l'} />
+            <Suspense fallback={<Loader />}>
+                <PresentationVideo />
+            </Suspense>
             <Typography variant={TypographyVariants.h5}>The anti-spy Clario app can:</Typography>
             <FeaturesList className={'mt-s'} />
         </section>
